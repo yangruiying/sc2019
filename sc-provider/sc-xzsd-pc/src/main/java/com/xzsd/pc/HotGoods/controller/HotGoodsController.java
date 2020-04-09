@@ -28,4 +28,9 @@ public class HotGoodsController {
     public AppResponse deleteHotGoods(String hId){
         return hotGoodsService.deleteHotGoods(hId);
     }
+
+    @RequestMapping(value = "listGoods")
+    public AppResponse listGoods(HotGoodsInfo hotGoodsInfo){
+        return hotGoodsService.listGoods(hotGoodsInfo);
+    }
 }

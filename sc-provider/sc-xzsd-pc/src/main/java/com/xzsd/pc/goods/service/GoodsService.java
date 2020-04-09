@@ -62,9 +62,9 @@ public class GoodsService {
 //    private ProducerController producerController;
 
     public AppResponse listGoods(GoodsInfo goodsInfo){
-        PageHelper.startPage(goodsInfo.getPageNum(),goodsInfo.getPageSize());
+        //PageHelper.startPage(goodsInfo.getPageNum(),goodsInfo.getPageSize());
         List<GoodsInfo> goodsInfoList=goodsDao.listGoodsByPage(goodsInfo);
-        PageInfo<GoodsInfo> pageData = new PageInfo<>(goodsInfoList);
+        //PageInfo<GoodsInfo> pageData = new PageInfo<>(goodsInfoList);
         return AppResponse.success("查询成功",getPageInfo(goodsInfoList));
 
     }

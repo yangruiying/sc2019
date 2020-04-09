@@ -10,6 +10,8 @@ import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.neusoft.core.page.PageUtils.getPageInfo;
+
 @Service
 public class HotGoodsService {
     @Resource
@@ -30,5 +32,10 @@ public class HotGoodsService {
         List<String> hotGoodsList = Arrays.asList(hId.split(","));
         hotGoodsDao.deleteHotGoods(hotGoodsList);
         return AppResponse.success("删除成功");
+    }
+
+    public AppResponse listGoods(HotGoodsInfo hotGoodsInfo){
+        HotGoodsInfo hotGoodsList=hotGoodsDao.listGoodsByPage(hotGoodsInfo);
+        return AppResponse.success("查询成功",getPageInfo(hotGoodsList));
     }
 }

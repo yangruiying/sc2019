@@ -11,4 +11,5 @@ public interface HotGoodsDao {
     int saveHotGoods(HotGoodsInfo hotGoodsInfo);
     int updateHotGoods(HotGoodsInfo hotGoodsInfo);
     int deleteHotGoods(@Param("hotGoodsList") List<String> hotGoodsList);
+    HotGoodsInfo listGoodsByPage(HotGoodsInfo hotGoodsInfo);
 }

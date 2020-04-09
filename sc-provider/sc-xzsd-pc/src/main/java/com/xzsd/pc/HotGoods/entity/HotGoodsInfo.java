@@ -4,6 +4,7 @@ public class HotGoodsInfo {
     private String cId;
     private String sort;
     private String hId;
+    private String cName;
     public String getcId() {
         return cId;
     }
@@ -26,5 +27,13 @@ public class HotGoodsInfo {
 
     public void sethId(String hId) {
         this.hId = hId;
+    }
+
+    public String getcName() {
+        return cName;
+    }
+
+    public void setcName(String cName) {
+        this.cName = cName;
     }
 }
