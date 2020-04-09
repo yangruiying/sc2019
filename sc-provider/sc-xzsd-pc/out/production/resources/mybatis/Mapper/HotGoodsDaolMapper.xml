@@ -12,7 +12,25 @@
              #{sort})
     </insert>
 
-   
+
+    <update id="updateHotGoods" parameterType="com.xzsd.pc.HotGoods.entity.HotGoodsInfo">
+        update t_hot_goods
+        set
+            c_id=#{cId},
+            sort=#{sort}
+        where h_id=#{hId}
+    </update>
+
+    <update id="deleteHotGoods" parameterType="com.xzsd.pc.HotGoods.entity.HotGoodsInfo">
+        update t_hot_goods
+        set
+            is_deleted=1
+        where h_id in
+        <foreach collection="hotGoodsList" index="index" item="hId" open="(" separator="," close=")">
+            #{hId}
+        </foreach>
+    </update>
+
 
 
 

@@ -7,6 +7,8 @@ import com.xzsd.pc.HotGoods.entity.HotGoodsInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.Arrays;
+import java.util.List;
 
 @Service
 public class HotGoodsService {
@@ -22,5 +24,11 @@ public class HotGoodsService {
     public AppResponse updateHotGoods(HotGoodsInfo hotGoodsInfo){
         hotGoodsDao.updateHotGoods((hotGoodsInfo));
         return AppResponse.success("修改成功");
+    }
+
+    public AppResponse deleteHotGoods(String hId){
+        List<String> hotGoodsList = Arrays.asList(hId.split(","));
+        hotGoodsDao.deleteHotGoods(hotGoodsList);
+        return AppResponse.success("删除成功");
     }
 }

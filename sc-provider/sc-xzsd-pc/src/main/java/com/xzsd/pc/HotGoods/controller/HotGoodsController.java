@@ -23,4 +23,9 @@ public class HotGoodsController {
     public AppResponse updateHotGoods(HotGoodsInfo hotGoodsInfo){
         return hotGoodsService.updateHotGoods(hotGoodsInfo);
     }
+
+    @PostMapping("deleteHotGoods")
+    public AppResponse deleteHotGoods(String hId){
+        return hotGoodsService.deleteHotGoods(hId);
+    }
 }
