@@ -18,4 +18,9 @@ public class HotGoodsController {
     public AppResponse saveHotGoods(HotGoodsInfo hotGoodsInfo){
         return hotGoodsService.saveHotGoods(hotGoodsInfo);
     }
+
+    @PostMapping("updateHotGoods")
+    public AppResponse updateHotGoods(HotGoodsInfo hotGoodsInfo){
+        return hotGoodsService.updateHotGoods(hotGoodsInfo);
+    }
 }

@@ -18,4 +18,9 @@ public class HotGoodsService {
         hotGoodsDao.saveHotGoods(hotGoodsInfo);
         return AppResponse.success("新增成功");
     }
+
+    public AppResponse updateHotGoods(HotGoodsInfo hotGoodsInfo){
+        hotGoodsDao.updateHotGoods((hotGoodsInfo));
+        return AppResponse.success("修改成功");
+    }
 }
