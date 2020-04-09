@@ -1,0 +1,1395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="80536dff-6ef4-448e-8ee1-0f399784047f" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/classes/" />
+    <ignored path="$PROJECT_DIR$/.gradle/" />
+    <ignored path="$PROJECT_DIR$/build/" />
+    <ignored path="$PROJECT_DIR$/sc-api-gateway/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-api-gateway/build/" />
+    <ignored path="$PROJECT_DIR$/sc-api-gateway/out/" />
+    <ignored path="$PROJECT_DIR$/sc-common/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-common/build/" />
+    <ignored path="$PROJECT_DIR$/sc-common/out/" />
+    <ignored path="$PROJECT_DIR$/sc-config-server/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-config-server/build/" />
+    <ignored path="$PROJECT_DIR$/sc-config-server/out/" />
+    <ignored path="$PROJECT_DIR$/sc-eureka-server/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-eureka-server/build/" />
+    <ignored path="$PROJECT_DIR$/sc-eureka-server/out/" />
+    <ignored path="$PROJECT_DIR$/sc-monitor/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-monitor/build/" />
+    <ignored path="$PROJECT_DIR$/sc-monitor/out/" />
+    <ignored path="$PROJECT_DIR$/sc-provider/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-provider/build/" />
+    <ignored path="$PROJECT_DIR$/sc-provider/out/" />
+    <ignored path="$PROJECT_DIR$/sc-provider-api/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-provider-api/build/" />
+    <ignored path="$PROJECT_DIR$/sc-provider-api/out/" />
+    <ignored path="$PROJECT_DIR$/sc-security/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-security/build/" />
+    <ignored path="$PROJECT_DIR$/sc-security/out/" />
+    <ignored path="$PROJECT_DIR$/sc-support/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-support/build/" />
+    <ignored path="$PROJECT_DIR$/sc-support/out/" />
+    <ignored path="$PROJECT_DIR$/sc-web-static/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-web-static/build/" />
+    <ignored path="$PROJECT_DIR$/sc-web-static/out/" />
+    <ignored path="$PROJECT_DIR$/sc-common/sc-common-base/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-common/sc-common-base/build/" />
+    <ignored path="$PROJECT_DIR$/sc-common/sc-common-base/out/" />
+    <ignored path="$PROJECT_DIR$/sc-common/sc-common-client/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-common/sc-common-client/build/" />
+    <ignored path="$PROJECT_DIR$/sc-common/sc-common-client/out/" />
+    <ignored path="$PROJECT_DIR$/sc-common/sc-common-log/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-common/sc-common-log/build/" />
+    <ignored path="$PROJECT_DIR$/sc-common/sc-common-log/out/" />
+    <ignored path="$PROJECT_DIR$/sc-common/sc-common-util/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-common/sc-common-util/build/" />
+    <ignored path="$PROJECT_DIR$/sc-common/sc-common-util/out/" />
+    <ignored path="$PROJECT_DIR$/sc-common/sc-core/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-common/sc-core/build/" />
+    <ignored path="$PROJECT_DIR$/sc-common/sc-core/out/" />
+    <ignored path="$PROJECT_DIR$/sc-monitor/sc-admin-server/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-monitor/sc-admin-server/build/" />
+    <ignored path="$PROJECT_DIR$/sc-monitor/sc-admin-server/out/" />
+    <ignored path="$PROJECT_DIR$/sc-monitor/sc-zipkin-server/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-monitor/sc-zipkin-server/build/" />
+    <ignored path="$PROJECT_DIR$/sc-monitor/sc-zipkin-server/out/" />
+    <ignored path="$PROJECT_DIR$/sc-provider-api/sc-service-api/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-provider-api/sc-service-api/build/" />
+    <ignored path="$PROJECT_DIR$/sc-provider-api/sc-service-api/out/" />
+    <ignored path="$PROJECT_DIR$/sc-provider/sc-project/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-provider/sc-project/build/" />
+    <ignored path="$PROJECT_DIR$/sc-provider/sc-project/out/" />
+    <ignored path="$PROJECT_DIR$/sc-provider/sc-service/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-provider/sc-service/build/" />
+    <ignored path="$PROJECT_DIR$/sc-provider/sc-service/out/" />
+    <ignored path="$PROJECT_DIR$/sc-provider/sc-web/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-provider/sc-web/build/" />
+    <ignored path="$PROJECT_DIR$/sc-provider/sc-web/out/" />
+    <ignored path="$PROJECT_DIR$/sc-provider/sc-web-auth/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-provider/sc-web-auth/build/" />
+    <ignored path="$PROJECT_DIR$/sc-provider/sc-web-auth/out/" />
+    <ignored path="$PROJECT_DIR$/sc-provider/sc-xzsd-app/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-provider/sc-xzsd-app/build/" />
+    <ignored path="$PROJECT_DIR$/sc-provider/sc-xzsd-app/out/" />
+    <ignored path="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/build/" />
+    <ignored path="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/out/" />
+    <ignored path="$PROJECT_DIR$/sc-security/sc-security-client/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-security/sc-security-client/build/" />
+    <ignored path="$PROJECT_DIR$/sc-security/sc-security-client/out/" />
+    <ignored path="$PROJECT_DIR$/sc-security/sc-security-core/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-security/sc-security-core/build/" />
+    <ignored path="$PROJECT_DIR$/sc-security/sc-security-core/out/" />
+    <ignored path="$PROJECT_DIR$/sc-security/sc-security-uaa/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-security/sc-security-uaa/build/" />
+    <ignored path="$PROJECT_DIR$/sc-security/sc-security-uaa/out/" />
+    <ignored path="$PROJECT_DIR$/sc-support/sc-job/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-support/sc-job/build/" />
+    <ignored path="$PROJECT_DIR$/sc-support/sc-job/out/" />
+    <ignored path="$PROJECT_DIR$/sc-support/sc-log/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-support/sc-log/build/" />
+    <ignored path="$PROJECT_DIR$/sc-support/sc-log/out/" />
+    <ignored path="$PROJECT_DIR$/sc-support/sc-shardingjdbc/.gradle/" />
+    <ignored path="$PROJECT_DIR$/sc-support/sc-shardingjdbc/build/" />
+    <ignored path="$PROJECT_DIR$/sc-support/sc-shardingjdbc/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="sc2019" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goods/controller/GoodsController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/ScXzsdPcApplication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/HotGoods/controller/HotGoodsController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/Mapper/HotGoodsDaolMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" selection-start-line="13" selection-end-line="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/HotGoods/dao/HotGoodsDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/HotGoods/entity/HotGoodsInfo.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+              <folding>
+                <element signature="e#420#421#0" expanded="true" />
+                <element signature="e#446#447#0" expanded="true" />
+                <element signature="e#484#485#0" expanded="true" />
+                <element signature="e#514#515#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/HotGoods/service/HotGoodsService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goods/dao/GoodsDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/Mapper/GoodsDaolMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1037">
+              <caret line="61" selection-start-line="61" selection-end-line="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/order/service/OrderService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Prope</find>
+      <find>page</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
+        <option value="$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/util/AppResponse.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/user/service/UserService.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/user/dao/UserDao.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/user/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/Mapper/UserDaolMapper.xml" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/user/dao/UserDao.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/util/AuthUtils.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/user/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/user/service/UserService.java" />
+        <option value="$PROJECT_DIR$/sc-api-gateway/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/sc-security/sc-security-uaa/build.gradle" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/build.gradle" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/application.yml" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/Mapper/UserDaolMapper.xml" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/resources/mybatis/Mapper/UserDaolMapper.xml" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/build.gradle" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goods/dao/GoodsDao.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/util/StringUtil.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/ScXzsdPcApplication.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/sort/entity/SortInfo.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goods/controller/GoodsController.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goods/service/GoodsService.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/scroll/entity/ScrollInfo.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/Mapper/ScrollDaolMapper.xml" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/Mapper/GoodsDaolMapper.xml" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/scroll/dao/ScrollDao.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/sort/dao/SortDao.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/scroll/service/ScrollService.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/sort/service/SortService.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/scroll/controller/ScrollController.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/sort/controller/SortController.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/Mapper/SortDaolMapper.xml" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/order/dao/OrderDao.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/HotGoods/dao/HotGoodsDao.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/HotGoods/controller/HotGoodsController.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/HotGoods/entity/HotGoodsInfo.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/HotGoods/service/HotGoodsService.java" />
+        <option value="$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/Mapper/HotGoodsDaolMapper.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\mvnrep" />
+        <option name="mavenHome" value="D:/maven/apache-maven-3.6.1" />
+        <option name="userSettingsFile" value="D:\maven\apache-maven-3.6.1\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="1135" />
+    <option name="height" value="910" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-common" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-common" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-common" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-common" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-common" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-common" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-common" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="neusoft" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-common" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-core" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="neusoft" type="462c0819:PsiDirectoryNode" />
+              <item name="core" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-web-auth" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-web-auth" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-web-auth" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-web-auth" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-web-auth" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-web-auth" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="neusoft" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-web-auth" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="neusoft" type="462c0819:PsiDirectoryNode" />
+              <item name="webauth" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="xzsd" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="xzsd" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="xzsd" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="goods" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="xzsd" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="goods" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="xzsd" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="goods" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="xzsd" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="goods" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="xzsd" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="HotGoods" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="xzsd" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="HotGoods" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="xzsd" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="HotGoods" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="xzsd" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="HotGoods" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="xzsd" type="462c0819:PsiDirectoryNode" />
+              <item name="pc" type="462c0819:PsiDirectoryNode" />
+              <item name="HotGoods" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="sc2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="sc2019" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-provider" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="sc-xzsd-pc" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
+              <item name="Mapper" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelOrder2" value="2" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RequestMappingsPanelWidth2" value="75" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="dynamic.classpath" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.gradle" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\软件搬家\Desktop\sc2019\sc-provider\sc-xzsd-app\src\main\resources\mybatis" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\软件搬家\Desktop\sc2019\sc-provider\sc-xzsd-pc\src\main\resources\mybatis\Mapper" />
+      <recent name="D:\软件搬家\Desktop\sc2019\sc-provider\sc-xzsd-pc\src\main\java\com\xzsd\pc" />
+      <recent name="D:\软件搬家\Desktop\sc2019\sc-provider\sc-xzsd-app\src\main\resources" />
+      <recent name="D:\软件搬家\Desktop\sc2019\sc-provider\sc-xzsd-app\src\main\java\com\xzsd\app" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ScXzsdPcApplication">
+    <configuration name="ScAdminServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="sc2019.sc-monitor.sc-admin-server.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.neusoft.admin.server.ScAdminServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="sc2019.sc-api-gateway.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.neusoft.gateway.ScApiGatewayApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScConfigServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="sc2019.sc-config-server.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="app.ScConfigServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScEurekaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="sc2019.sc-eureka-server.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="app.ScEurekaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScJobApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="sc2019.sc-support.sc-job.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.neusoft.job.ScJobApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScLogApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="sc2019.sc-support.sc-log.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.neusoft.log.ScLogApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScProjectApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="sc2019.sc-provider.sc-project.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.neusoft.project.ScProjectApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScSecurityUaaApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="sc2019.sc-security.sc-security-uaa.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.neusoft.oauth.ScSecurityUaaApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="sc2019.sc-provider.sc-service.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.neusoft.service.ScServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScShardingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="sc2019.sc-support.sc-shardingjdbc.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.neusoft.support.sharding.ScShardingApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScWebApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="sc2019.sc-provider.sc-web.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.neusoft.web.ScWebApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScWebAuthApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="sc2019.sc-provider.sc-web-auth.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.neusoft.webauth.ScWebAuthApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScWebStaticApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="sc2019.sc-web-static.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.neusoft.webstatic.ScWebStaticApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScXzsdAppApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="sc2019.sc-provider.sc-xzsd-app.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xzsd.app.ScXzsdAppApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScXzsdPcApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="sc2019.sc-provider.sc-xzsd-pc.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.xzsd.pc.ScXzsdPcApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ScZipkinApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="sc2019.sc-monitor.sc-zipkin-server.main" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.neusoft.zipkin.ScZipkinApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="80536dff-6ef4-448e-8ee1-0f399784047f" name="Default Changelist" comment="" />
+      <created>1586222457926</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1586222457926</updated>
+      <workItem from="1586222459090" duration="17804000" />
+      <workItem from="1586264193776" duration="21000" />
+      <workItem from="1586306180080" duration="6619000" />
+      <workItem from="1586314903961" duration="13441000" />
+      <workItem from="1586398861331" duration="2262000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="40147000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24128686" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33380482" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39886847" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32956153" />
+      <window_info anchor="bottom" id="Build" order="7" weight="0.32107496" />
+      <window_info anchor="bottom" id="Spring" order="8" weight="0.32956153" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32956153" />
+      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32956153" />
+      <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32956153" />
+      <window_info anchor="bottom" id="Database Changes" order="14" />
+      <window_info anchor="bottom" id="Version Control" order="15" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.3297587" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Gradle" order="6" weight="0.3297587" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="right" id="Bean Validation" order="10" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/controller/UserController.java</url>
+          <line>18</line>
+          <properties />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/util/AuthUtils.java" />
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/util/AppResponseStatus.java" />
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/util/RandomUtil.java" />
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/util/UUIDUtils.java" />
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/util/AppResponse.java" />
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/util/RedisOperator.java" />
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/util/JsonUtils.java" />
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/util/StringUtil.java" />
+    <entry file="file://$PROJECT_DIR$/sc-eureka-server/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="24" column="37" lean-forward="true" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.session/spring-session/1.3.1.RELEASE/3eb337d6b6a44f06b3de84c75ded6caa7164e9ca/spring-session-1.3.1.RELEASE-sources.jar!/org/springframework/session/data/redis/config/annotation/web/http/RedisHttpSessionConfiguration.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="176" column="28" selection-start-line="176" selection-start-column="28" selection-end-line="176" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/ScSecurityUaaApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/resources/mybatis/mapper/SysUserDaoMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/resources/mybatis/mapper/UacLogDaoMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-api-gateway/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-514">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-app/src/main/java/com/xzsd/app/ScXzsdAppApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="36" column="1" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/application.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-361">
+          <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/page/PageUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/user/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="68" column="37" lean-forward="true" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/user/entity/AddUserGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-common/sc-core/src/main/java/com/neusoft/core/page/PageAdvices.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-security/sc-security-uaa/src/main/java/com/neusoft/oauth/service/UaaUserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/logback-spring.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goods/entity/GoodsInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/scroll/entity/ScrollInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="36" lean-forward="true" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+          <folding>
+            <element signature="e#343#344#0" expanded="true" />
+            <element signature="e#369#370#0" expanded="true" />
+            <element signature="e#437#438#0" expanded="true" />
+            <element signature="e#458#459#0" expanded="true" />
+            <element signature="e#484#485#0" expanded="true" />
+            <element signature="e#522#523#0" expanded="true" />
+            <element signature="e#552#553#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/Mapper/ScrollDaolMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="37" column="24" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/scroll/dao/ScrollDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goods/service/GoodsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="93" column="40" selection-start-line="93" selection-start-column="40" selection-end-line="93" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/scroll/service/ScrollService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="44" selection-start-line="44" selection-end-line="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/sort/dao/SortDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="36" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/sort/service/SortService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/scroll/controller/ScrollController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#766#767#0" expanded="true" />
+            <element signature="e#794#795#0" expanded="true" />
+            <element signature="e#910#911#0" expanded="true" />
+            <element signature="e#945#946#0" expanded="true" />
+            <element signature="e#1059#1060#0" expanded="true" />
+            <element signature="e#1107#1108#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/sort/controller/SortController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="292">
+          <caret line="22" column="28" lean-forward="true" selection-start-line="22" selection-start-column="28" selection-end-line="22" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#865#866#0" expanded="true" />
+            <element signature="e#924#925#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/sort/entity/SortInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/Mapper/SortDaolMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="302">
+          <caret line="60" column="12" lean-forward="true" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/order/controller/OrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="28" selection-start-line="2" selection-start-column="28" selection-end-line="2" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/order/dao/OrderDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/user/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="123" column="24" lean-forward="true" selection-start-line="123" selection-start-column="24" selection-end-line="123" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/user/entity/UserSettingDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/user/entity/UserParams.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-web-auth/src/main/java/com/neusoft/webauth/user/entity/UserInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/order/entity/OrderInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goods/controller/GoodsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/ScXzsdPcApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/HotGoods/controller/HotGoodsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="11" column="27" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/HotGoods/dao/HotGoodsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/HotGoods/entity/HotGoodsInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
+          <folding>
+            <element signature="e#420#421#0" expanded="true" />
+            <element signature="e#446#447#0" expanded="true" />
+            <element signature="e#484#485#0" expanded="true" />
+            <element signature="e#514#515#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/HotGoods/service/HotGoodsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="16" column="57" selection-start-line="16" selection-start-column="57" selection-end-line="16" selection-end-column="57" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/goods/dao/GoodsDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/Mapper/GoodsDaolMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1037">
+          <caret line="61" selection-start-line="61" selection-end-line="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/java/com/xzsd/pc/order/service/OrderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sc-provider/sc-xzsd-pc/src/main/resources/mybatis/Mapper/HotGoodsDaolMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" selection-start-line="13" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring|main|sc-xzsd-pc|sc-provider|sc2019</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

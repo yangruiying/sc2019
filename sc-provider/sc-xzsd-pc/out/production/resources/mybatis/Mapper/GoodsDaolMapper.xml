@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xzsd.pc.goods.dao.GoodsDao">
+
+
+    <!--商品列表-->
+    <select id="listGoodsByPage" parameterType="com.xzsd.pc.goods.entity.GoodsInfo" resultType="com.xzsd.pc.goods.entity.GoodsInfo">
+        select
+        a.c_name Cname,
+        a.publish,
+        a.state,
+        a.price,
+        a.sell,
+        a.num,
+        a.first_classify firstClassify,
+        a.advertising,
+        a.introduce
+        from t_commodity a
+        where
+        <if test="Cname != null and Cname != ''">
+            a.c_name like concat('%', #{Cname}, '%')
+        </if>
+    </select>
+
+    <!--新增商品-->
+    <insert id="saveGoods" parameterType="com.xzsd.pc.goods.entity.GoodsInfo">
+        insert into t_commodity
+        (c_id,
+         c_name,
+         publish,
+         state,
+         price,
+         sell,
+         num)
+        values
+            (#{Cid},
+             #{Cname},
+             #{publish},
+             #{state},
+             #{price},
+             #{sell},
+             #{num})
+    </insert>
+
+    <select id="getGoodsById" parameterType="java.lang.String" resultType="com.xzsd.pc.goods.entity.GoodsInfo">
+        select
+            *
+        from t_commodity
+        where c_id=#{Cid}
+    </select>
+    
+    <update id="deleteGoods" parameterType="com.xzsd.pc.goods.entity.GoodsInfo">
+        update t_commodity
+        set
+            is_deleted=1
+        where c_id in
+        <foreach item="Cid" index="index" collection="codeList" open="(" separator="," close=")">
+            #{Cid}
+        </foreach>
+    </update>
+
+
+
+
+
+
+</mapper>

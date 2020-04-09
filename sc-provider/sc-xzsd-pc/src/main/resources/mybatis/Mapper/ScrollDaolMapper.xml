@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xzsd.pc.scroll.dao.ScrollDao">
+
+
+    <select id="listScroll" parameterType="com.xzsd.pc.scroll.entity.ScrollInfo" resultType="com.xzsd.pc.scroll.entity.ScrollInfo">
+        select
+            *
+        from t_scroll
+        where state=#{state}
+    </select>
+
+
+    <update id="deleteScroll" parameterType="com.xzsd.pc.scroll.entity.ScrollInfo">
+        update
+            t_scroll
+        set is_deleted=1
+        where p_id in
+        <foreach index="index" item="Pid" collection="scrollList" open="(" separator="," close=")">
+            #{Pid}
+        </foreach>
+    </update>
+
+    <!--商品启用/停用接口-->
+    <update id="stateGoods" parameterType="com.xzsd.pc.scroll.entity.ScrollInfo">
+        update
+            t_scroll
+        set state=#{state}
+        where p_id=#{pId}
+    </update>
+
+    <!--新增轮播图-->
+    <insert id="saveScroll" parameterType="com.xzsd.pc.scroll.entity.ScrollInfo">
+        insert into
+            t_scroll
+                (p_id,
+                 c_id,
+                 picture_path,
+                 sort,
+                 begin,
+                 end,
+                 state)
+         values
+         (#{pId},
+          #{cId},
+          #{picturePath},
+          #{sort},
+          #{begin},
+          #{end},
+          #{state})
+    </insert>
+</mapper>

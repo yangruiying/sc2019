@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xzsd.pc.sort.dao.SortDao">
+
+    <resultMap id="BaseTreeResultMap" type="com.xzsd.pc.sort.entity.SortInfo">
+        <result column="sort_id" property="sortId"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="name" property="name"/>
+<!--        <result column="dept_id" property="deptId"/>-->
+<!--        <result column="order_num" property="orderNum"/>-->
+        <collection column="sort_id" property="treeNode" javaType="java.util.ArrayList"
+                    ofType="com.xzsd.pc.sort.entity.SortInfo" select="getNextNodeTree"/>
+    </resultMap>
+
+    <resultMap id="NextTreeResultMap" type="com.xzsd.pc.sort.entity.SortInfo">
+        <result column="sort_id" property="sortId"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="name" property="name"/>
+<!--        <result column="dept_id" property="deptId"/>-->
+<!--        <result column="order_num" property="orderNum"/>-->
+        <collection column="sort_id" property="treeNode" javaType="java.util.ArrayList"
+                    ofType="com.xzsd.pc.sort.entity.SortInfo" select="getNextNodeTree"/>
+    </resultMap>
+
+    <select id="getNextNodeTree" resultMap="NextTreeResultMap">
+        SELECT
+        *
+        FROM t_sort
+        WHERE parent_id = #{parentId}
+    </select>
+
+    <select id="getNodeTree" resultMap="BaseTreeResultMap">
+        SELECT
+        *
+        FROM t_sort
+        WHERE parent_id = 0
+    </select>
+
+
+
+
+    <insert id="saveSort" parameterType="com.xzsd.pc.sort.entity.SortInfo">
+        insert into t_sort
+            (name,
+             sort_id,
+             parent_id,
+             is_deleted)
+        values
+            (#{name},
+             #{sortId},
+             #{parentId},
+             0)
+    </insert>
+
+    <update id="updateSort" parameterType="com.xzsd.pc.sort.entity.SortInfo">
+        update t_sort
+        set
+            name=#{name},
+            parent_id=#{parentId}
+        where sort_id=#{sortId}
+    </update>
+
+
+
+
+
+</mapper>
