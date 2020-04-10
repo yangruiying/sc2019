@@ -40,10 +40,27 @@
            #{license},
            0
           )
-
-
-
     </insert>
+
+    <!--省查询-->
+    <select id="provinceList" resultType="com.xzsd.pc.shop.entity.DictionariesInfo">
+        select
+            *
+        from
+            t_dictionaries
+        where parent_id=0
+    </select>
+
+    <!--市区查取-->
+    <select id="cityList" parameterType="com.xzsd.pc.shop.entity.DictionariesInfo" resultType="com.xzsd.pc.shop.entity.DictionariesInfo">
+        select
+            *
+        from
+            t_dictionaries
+        where parent_id=#{id}
+    </select>
+
+
 
 
 </mapper>
