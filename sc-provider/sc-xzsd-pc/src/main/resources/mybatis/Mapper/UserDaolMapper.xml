@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xzsd.pc.user.dao.UserDao">
+
+
+
+    <!--新增用户-->
+    <insert id="saveUser" parameterType="com.xzsd.pc.user.entity.UserInfo">
+        insert into t_user
+        (user_id,
+         user_name,
+         user_password,
+         name,
+         sex,
+         phone,
+         email,
+         id_card,
+         role,
+         is_deleted,
+         gmt_create,
+         create_by,
+         gmt_modified,
+         last_modified_by,
+         version)
+        values
+            (#{userId},
+             #{userName},
+             #{userPassword},
+             #{name},
+             #{sex},
+             #{phone},
+             #{email},
+             #{idCard},
+             #{role},
+             #{isDeleted},
+             #{gmtCreate},
+             #{createBy},
+             #{gmtModified},
+             #{lastModifiedBy},
+             #{version})
+    </insert>
+
+    <!--获取用户信息-->
+    <select id="getUserByUserCode" parameterType="java.lang.String" resultType="com.xzsd.pc.user.entity.UserInfo">
+        select
+            user_id userId,
+            user_name userName,
+            user_password userPassword,
+            name,
+            sex,
+            phone,
+            email,
+            id_card idCard,
+            role
+        from t_user
+        where user_id=#{userId}
+
+    </select>
+    <!--更新用户信息-->
+    <update id="updateUser" parameterType="com.xzsd.pc.user.entity.UserInfo">
+        update t_user
+        set
+            user_name = #{userName},
+            user_password = #{userPassword},
+            name = #{name},
+            sex = #{sex},
+            phone = #{phone},
+            email = #{email},
+            id_card = #{idCard},
+            role = #{role}
+        where user_id=#{userId}
+    </update>
+
+    <!--删除用户信息-->
+    <update id="deleteUser" parameterType="com.xzsd.pc.user.entity.UserInfo">
+        update t_user
+        set
+            is_deleted=1,
+            user_name = #{userName}
+        where user_id in
+        <foreach  item="item" index="index" collection="listCode" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
+
+
+    <!--用户列表-->
+    <select id="listUsersByPage" parameterType="com.xzsd.pc.user.entity.UserInfo" resultType="com.xzsd.pc.user.entity.UserInfo">
+        select
+        *
+        from t_sys_user a
+        where a.is_deleted = 0
+        <if test="userName != null and userName != ''">
+            and a.user_name like concat('%', #{userName}, '%')
+        </if>
+        order by gmt_create desc
+    </select>
+
+
+
+</mapper>

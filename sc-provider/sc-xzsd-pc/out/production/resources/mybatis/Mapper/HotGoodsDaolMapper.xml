@@ -30,6 +30,24 @@
             #{hId}
         </foreach>
     </update>
+    
+    <select id="listGoodsByPage" parameterType="com.xzsd.pc.HotGoods.entity.HotGoodsInfo" resultType="com.xzsd.pc.HotGoods.entity.HotGoodsInfo">
+        select
+            sort,
+            a.c_id,
+            c_name,
+            price,
+            introduce
+        from t_hot_goods a LEFT JOIN t_commodity b ON a.c_id=b.c_id
+        where a.is_deleted=0
+        <if test="cName != null and cName != ''">
+            and c_name=#{cName}
+        </if>
+
+        <if test="cId != null and cId != ''">
+            and c_id=#{cId}
+        </if>
+    </select>
 
 
 

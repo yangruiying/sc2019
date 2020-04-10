@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xzsd.pc.client.dao.ClientDao">
+
+
+
+    <!--新增客户-->
+    <insert id="saveClient" parameterType="com.xzsd.pc.client.entity.ClientInfo">
+        insert into t_client
+        (client_id,
+         account,
+         shop_id,
+         name,
+         sex,
+         phone,
+         email,
+         is_deleted,
+         gmt_create,
+         create_by,
+         gmt_modified,
+         last_modified_by,
+         version,
+         id_card)
+        values
+           (#{clientId},
+            #{account},
+            #{shopId},
+            #{name},
+            #{sex},
+            #{phone},
+            #{email},
+            #{isDeleted},
+            #{gmtCreate},
+            #{createBy},
+            #{gmtModified},
+            #{lastModifiedBy},
+            #{version},
+            #{idCard})
+    </insert>
+
+
+    <select id="getClientByUserCode" parameterType="java.lang.String" resultType="com.xzsd.pc.client.entity.ClientInfo">
+        select
+            client_id userCode
+        from t_client
+    </select>
+
+    <!--删除用户-->
+    <update id="deleteClient" parameterType="com.xzsd.pc.client.entity.ClientInfo">
+        update t_client
+        set
+        is_deleted = 1,
+        gmt_modified = now(),
+        last_modified_by   = #{userId},
+        version = version + 1
+        where user_code in
+        <foreach item="item" index="index" collection="listCode" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
+
+
+    <!--修改用户信息-->
+    <update id="updateClient" parameterType="com.xzsd.pc.client.entity.ClientInfo">
+        update t_client
+        set
+            account    = #{account},
+            shop_id    = #{shopId},
+            name      = #{name},
+            sex          = #{sex},
+            phone        = #{phone},
+            email        = #{email},
+            gmt_modified = now(),
+            last_modified_by   = #{lastModifiedBy},
+            version      = version + 1
+        where client_id = #{clientId}
+    </update>
+
+
+
+    <!--客户列表-->
+    <select id="listClientsByPage" parameterType="com.xzsd.pc.client.entity.ClientInfo" resultType="com.xzsd.pc.client.entity.ClientInfo">
+        select
+        a.client_id clientId,
+        a.name
+        from t_client a
+        <if test="name != null and name != ''">
+            and a.name like concat('%', #{clientName}, '%')
+        </if>
+    </select>
+
+</mapper>
