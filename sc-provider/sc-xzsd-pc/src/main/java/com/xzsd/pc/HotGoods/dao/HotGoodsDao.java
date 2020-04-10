@@ -12,4 +12,5 @@ public interface HotGoodsDao {
     int updateHotGoods(HotGoodsInfo hotGoodsInfo);
     int deleteHotGoods(@Param("hotGoodsList") List<String> hotGoodsList);
     HotGoodsInfo listGoodsByPage(HotGoodsInfo hotGoodsInfo);
+    int countHotGoods(HotGoodsInfo hotGoodsInfo);
 }

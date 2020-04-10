@@ -48,6 +48,14 @@
             and c_id=#{cId}
         </if>
     </select>
+    <!--统计热门商品数量-->
+    <select id="countHotGoods" parameterType="com.xzsd.pc.HotGoods.entity.HotGoodsInfo" resultType="int">
+        select
+            count(*)
+        from
+            t_hot_goods
+        where c_id=#{cId}
+    </select>
 
 
 

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xzsd.pc.shop.dao.ShopDao">
+
+    <!--查看门店数量-->
+    <select id="countShop" parameterType="com.xzsd.pc.shop.entity.ShopInfo" resultType="int">
+        select
+            count(*)
+        from
+            t_shop
+        where shop_id=#{shopId}
+    </select>
+
+    <!--新增门店-->
+    <insert id="saveShop" parameterType="com.xzsd.pc.shop.entity.ShopInfo">
+        insert into t_shop
+        ( shop_id,
+          shop_name,
+          provence_id,
+          city_id,
+          region_id,
+          phone,
+          address,
+          user_id,
+          invite_code,
+          shop_account,
+          license,
+          version)
+          values
+          (#{shopId},
+           #{shopName},
+           #{provenceId},
+           #{cityId},
+           #{regionId},
+           #{phone},
+           #{address},
+           #{userId},
+           #{inviteCode},
+           #{shopAccount},
+           #{license},
+           0
+          )
+
+
+
+    </insert>
+
+
+</mapper>

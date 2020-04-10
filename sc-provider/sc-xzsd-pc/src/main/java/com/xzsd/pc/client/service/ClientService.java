@@ -41,7 +41,7 @@ public class ClientService {
         // 新增用户
         int count = clientDao.saveClient(clientInfo);
         if(0 == count) {
-            return AppResponse.bizError("新增失败，请重试！");
+            return AppResponse.success("新增失败，请重试！");
         }
         return AppResponse.success("新增成功！");
     }

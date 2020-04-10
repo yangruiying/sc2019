@@ -5,6 +5,7 @@ import com.neusoft.util.StringUtil;
 import com.xzsd.pc.HotGoods.dao.HotGoodsDao;
 import com.xzsd.pc.HotGoods.entity.HotGoodsInfo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.Arrays;
@@ -16,10 +17,19 @@ import static com.neusoft.core.page.PageUtils.getPageInfo;
 public class HotGoodsService {
     @Resource
     private HotGoodsDao hotGoodsDao;
-
+    @Transactional(rollbackFor = Exception.class)
     public AppResponse saveHotGoods(HotGoodsInfo hotGoodsInfo){
+        int countHotGoods = hotGoodsDao.countHotGoods(hotGoodsInfo);
+        if (0 != countHotGoods)
+        {
+            return AppResponse.success("账号已存在");
+        }
         hotGoodsInfo.sethId(StringUtil.getCommonCode(2));
-        hotGoodsDao.saveHotGoods(hotGoodsInfo);
+        int count=hotGoodsDao.saveHotGoods(hotGoodsInfo);
+        if (0 ==count)
+        {
+            return AppResponse.success("新增失败，请重试！");
+        }
         return AppResponse.success("新增成功");
     }
 
