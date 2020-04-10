@@ -3,6 +3,7 @@ package com.xzsd.pc.shop.dao;
 import com.xzsd.pc.shop.entity.DictionariesInfo;
 import com.xzsd.pc.shop.entity.ShopInfo;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -32,4 +33,27 @@ public interface ShopDao {
      * @return
      */
     List<DictionariesInfo> cityList(DictionariesInfo dictionariesInfo);
+
+    /**
+     * 分页查询门店信息
+     * @param shopInfo
+     * @return
+     */
+    List<ShopInfo> listShopByPage(ShopInfo shopInfo);
+
+    /**
+     * 更新门店
+     * @param shopInfo
+     * @return
+     */
+    int updateShop(ShopInfo shopInfo);
+
+    /**
+     * 删除门店
+     * @param shopIdList
+     * @return
+     */
+    int deleteShop(@Param("shopIdList") List<String> shopIdList);
+
+    ShopInfo queryShop(String shopId);
 }

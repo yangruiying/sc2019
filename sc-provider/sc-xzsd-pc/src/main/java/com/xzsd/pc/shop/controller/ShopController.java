@@ -40,4 +40,24 @@ public class ShopController {
     public AppResponse cityList(DictionariesInfo dictionariesInfo){
         return shopService.cityList(dictionariesInfo);
     }
+
+    @RequestMapping(value = "listShopByPage")
+    public AppResponse listShopByPage(ShopInfo shopInfo){
+        return shopService.listShopByPage(shopInfo);
+    }
+
+    @PostMapping("updateShop")
+    public AppResponse updateShop(ShopInfo shopInfo){
+        return shopService.updateShop(shopInfo);
+    }
+
+    @RequestMapping(value = "deleteShop")
+    public AppResponse deleteShop(String shopId){
+        return shopService.deleteShop(shopId);
+    }
+
+    @RequestMapping(value = "queryShop")
+    public AppResponse queryShop(String shopId){
+        return shopService.queryShop(shopId);
+    }
 }

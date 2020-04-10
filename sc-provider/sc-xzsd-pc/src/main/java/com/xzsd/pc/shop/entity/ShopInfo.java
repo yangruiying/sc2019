@@ -12,7 +12,10 @@ public class ShopInfo {
     private String inviteCode;
     private String shopAccount;
     private String license;
-
+    private int PageNum;
+    private int PageSize;
+    private int version;
+    private String userName;
     public String getShopId() {
         return shopId;
     }
@@ -99,5 +102,37 @@ public class ShopInfo {
 
     public void setLicense(String license) {
         this.license = license;
+    }
+
+    public int getPageNum() {
+        return PageNum;
+    }
+
+    public void setPageNum(int pageNum) {
+        PageNum = pageNum;
+    }
+
+    public int getPageSize() {
+        return PageSize;
+    }
+
+    public void setPageSize(int pageSize) {
+        PageSize = pageSize;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

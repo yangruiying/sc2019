@@ -25,7 +25,8 @@
           invite_code,
           shop_account,
           license,
-          version)
+          version,
+          gmt_create)
           values
           (#{shopId},
            #{shopName},
@@ -38,14 +39,16 @@
            #{inviteCode},
            #{shopAccount},
            #{license},
-           0
+           0,
+           now()
           )
     </insert>
 
     <!--省查询-->
     <select id="provinceList" resultType="com.xzsd.pc.shop.entity.DictionariesInfo">
         select
-            *
+            id,
+            value
         from
             t_dictionaries
         where parent_id=0
@@ -54,10 +57,101 @@
     <!--市区查取-->
     <select id="cityList" parameterType="com.xzsd.pc.shop.entity.DictionariesInfo" resultType="com.xzsd.pc.shop.entity.DictionariesInfo">
         select
-            *
+            id,
+            value
         from
             t_dictionaries
         where parent_id=#{id}
+    </select>
+
+    <!--分页查询门店-->
+    <select id="listShopByPage" parameterType="com.xzsd.pc.shop.entity.ShopInfo" resultType="com.xzsd.pc.shop.entity.ShopInfo">
+        SELECT
+        a.shop_id,
+        shop_name,
+        b.phone,
+        address,
+        user_name,
+        invite_code
+        FROM
+        t_shop a
+        LEFT JOIN t_user b ON a.user_id=b.user_id
+        where a.is_deleted=0
+        <if test="shopId !=null and shopId != ''">
+            and shop_id like concat('%', #{shopId} ,'%')
+        </if>
+
+        <if test="shopName !=null and shopName != ''">
+            and shop_name like concat('%',  #{shopName} ,'%')
+        </if>
+
+        <if test="userId !=null and userId != ''">
+            and user_id like concat('%',  #{userId} ,'%')
+        </if>
+
+        <if test="provenceId !=null and provenceId != ''">
+            and provence_id like concat('%',  #{provenceId} ,'%')
+        </if>
+
+        <if test="cityId !=null and cityId != ''">
+            and city_id like concat('%',  #{cityId} ,'%')
+        </if>
+
+        <if test="regionId !=null and regionId != ''">
+            and region_id like concat('%',  #{regionId} ,'%')
+        </if>
+    </select>
+
+    <!--修改门店信息-->
+    <update id="updateShop" parameterType="com.xzsd.pc.shop.entity.ShopInfo">
+        update
+            t_shop
+        set
+            shop_name=#{shopName},
+            provence_id=#{provenceId},
+            city_id=#{cityId},
+            region_id=#{regionId},
+            phone=#{phone},
+            address=#{address},
+            user_id=#{userId},
+            invite_code=#{inviteCode},
+            license=#{license},
+            version = #{version}+1
+        where
+            shop_id=#{shopId}
+        and version = #{version}
+    </update>
+    <!--删除门店-->
+    <update id="deleteShop" parameterType="com.xzsd.pc.shop.entity.ShopInfo">
+        update
+            t_shop
+        set
+            is_deleted = 1,
+            version=version+1,
+            gmt_modified = now()
+        where shop_id in
+        <foreach collection="shopIdList" index="index" item="shopId" open="(" separator="," close=")">
+            #{shopId}
+        </foreach>
+    </update>
+
+    <!--门店详情查询-->
+    <select id="queryShop" parameterType="java.lang.String" resultType="com.xzsd.pc.shop.entity.ShopInfo">
+        select
+            shop_id,
+            shop_name,
+            provence_id,
+            city_id,
+            region_id,
+            b.phone,
+            address,
+            user_name,
+            invite_code,
+            license
+        FROM
+        t_shop a
+        LEFT JOIN t_user b ON a.user_id=b.user_id
+        where shop_id=#{shopId}
     </select>
 
 

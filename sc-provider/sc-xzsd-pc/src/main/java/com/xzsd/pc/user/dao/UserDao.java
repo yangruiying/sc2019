@@ -26,6 +26,19 @@ public interface UserDao {
      * @return
      */
     int updateUser(UserInfo userInfo);
+
+    /**
+     * 删除用户
+     * @param listCode
+     * @param userName
+     * @return
+     */
     int deleteUser(@Param("listCode") List<String> listCode, @Param("userName") String userName);
+
+    /**
+     * 分页查询用户
+     * @param userInfo
+     * @return
+     */
     List<UserInfo> listUsersByPage(UserInfo userInfo);
 }
