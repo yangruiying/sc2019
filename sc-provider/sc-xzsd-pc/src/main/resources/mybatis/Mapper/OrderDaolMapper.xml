@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xzsd.pc.order.dao.OrderDao">
+    <!--订单列表查询-->
+    <select id="listOrder" parameterType="com.xzsd.pc.order.entity.OrderInfo" resultType="com.xzsd.pc.order.entity.OrderInfo">
+    SELECT
+	    order_id orderId,
+	    sum(price * a.num) orderSum,
+	    order_state orderState,
+	    a.shop_id shopId,
+	    user_name userName,
+	    d.phone phone,
+	    a.affirm_time affirmTime
+    FROM
+	    (
+		    t_order a
+		    LEFT JOIN t_commodity b ON a.c_id = b.c_id
+	    )
+    LEFT JOIN t_user d ON a.user_id = d.user_id
+    WHERE 1=1
+    <if test="userName!=null and userName!=''">
+        AND user_name LIKE concat ('%',#{userName},'%')
+    </if>
+    <if test="phone!=null and phone!=''">
+        AND phone LIKE concat ('%',#{phone},'%')
+    </if>
+    <if test="orderId!=null and orderId!=''">
+        AND order_id LIKE concat ('%',#{orderId},'%')
+    </if>
+    <if test="orderState!=null and orderState!=''">
+        AND order_state LIKE concat ('%',#{orderState},'%')
+    </if>
+    <if test="start!=null and start!=''">
+        AND affirm_time >= #{start}
+    </if>
+    <if test="end!=null and end!=''">
+        AND affirm_time &lt;= #{end}
+    </if>
+    GROUP BY
+	    a.user_id,
+	    a.order_id
+    </select>
+
+    <!--订单详情查询-->
+   <select id="queryOrder" parameterType="java.lang.String" resultType="com.xzsd.pc.order.entity.OrderInfo">
+    SELECT
+	    user_id userId,
+	    order_id orderId,
+	    a.c_id cId,
+	    c_name cName,
+	    a.num,
+	    order_sum,
+	    price,
+	    sell
+    FROM
+	    t_order a
+    LEFT JOIN t_commodity b ON a.c_id = b.c_id
+    WHERE order_id=#{orderId}
+   </select>
+    
+    <!--订单状态修改-->
+    <update id="updateOrder" parameterType="com.xzsd.pc.order.entity.OrderInfo">
+        update t_order
+        set order_state=#{orderState}
+        where order_id=#{orderId}
+    </update>
+</mapper>

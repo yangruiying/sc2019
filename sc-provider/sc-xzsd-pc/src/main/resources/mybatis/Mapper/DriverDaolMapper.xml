@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xzsd.pc.driver.dao.DriverDao">
+    <!--新增司机表-->
+    <insert id="saveDriver" parameterType="com.xzsd.pc.driver.entity.DriverInfo">
+        insert into t_driver
+            (driver_id,
+             province_id,
+             city_id,
+             region_id)
+        values
+            (#{driverId},
+             #{provinceId},
+             #{cityId},
+             #{regionId})
+    </insert>
+
+    <!--将司机添加到用户表中-->
+    <insert id="saveUser" parameterType="com.xzsd.pc.driver.entity.DriverInfo">
+        insert into t_user
+            (user_id,
+             user_name,
+             id_card,
+             phone,
+             user_password,
+             role)
+        values
+            (#{driverId},
+             #{driverName},
+             #{idCard},
+             #{phone},
+             #{password},
+              2)
+    </insert>
+
+    <!--修改司机信息-->
+    <update id="updateDriver" parameterType="com.xzsd.pc.driver.entity.DriverInfo">
+        update t_driver
+        set 
+             province_id=#{provinceId},
+             city_id=#{cityId},
+             region_id=#{regionId}
+        where driver_id=#{driverId}
+    </update>
+    
+    <!--修改用户表-->
+    <update id="updateUser" parameterType="com.xzsd.pc.driver.entity.DriverInfo">
+        update t_user
+        set
+             user_name=#{driverName},
+             id_card=#{idCard},
+             phone=#{phone},
+             user_password=#{password}
+        where user_id=#{driverId}
+    </update>
+
+    <!--删除司机-->
+    <update id="deleteDriver" parameterType="java.lang.String">
+        update t_user
+        set is_delete=1
+        where user_id=#{driverId}
+    </update>
+    
+
+
+</mapper>
