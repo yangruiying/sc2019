@@ -88,7 +88,7 @@
     <select id="listUsersByPage" parameterType="com.xzsd.pc.user.entity.UserInfo" resultType="com.xzsd.pc.user.entity.UserInfo">
         select
         *
-        from t_sys_user a
+        from t_user a
         where a.is_deleted = 0
         <if test="userName != null and userName != ''">
             and a.user_name like concat('%', #{userName}, '%')

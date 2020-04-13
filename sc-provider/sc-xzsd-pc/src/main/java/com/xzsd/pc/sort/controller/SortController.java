@@ -16,14 +16,30 @@ public class SortController {
     @Resource
     private SortService sortService;
 
+    /**
+     * 分类查询
+     * @return
+     */
     @RequestMapping(value = "getNodeTree")
     public AppResponse getNodeTree(){
         return sortService.getNodeTree();
     }
+
+    /**
+     * 新增分类
+     * @param sortInfo
+     * @return
+     */
     @PostMapping("saveSort")
     public AppResponse saveSort(SortInfo sortInfo){
         return sortService.saveSort(sortInfo);
     }
+
+    /**
+     * 更新分类
+     * @param sortInfo
+     * @return
+     */
     @PostMapping("updateSort")
     public AppResponse updateSort(SortInfo sortInfo){
         return sortService.updateSort(sortInfo);

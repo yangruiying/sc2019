@@ -13,17 +13,32 @@ public class OrderService {
     @Resource
     private OrderDao orderDao;
 
+    /**
+     * 订单列表查询
+     * @param orderInfo
+     * @return
+     */
     public AppResponse listOrder(OrderInfo orderInfo){
         List<OrderInfo> orderList=orderDao.listOrder(orderInfo);
         return AppResponse.success("查询成功",orderList);
     }
 
+    /**
+     * 订单详情
+     * @param orderId
+     * @return
+     */
     public AppResponse queryOrder(String orderId){
         List<OrderInfo> cList = orderDao.queryOrder(orderId);
         return AppResponse.success("查询成功",cList);
     }
 
-    public AppResponse updateOrde(OrderInfo orderInfo){
+    /**
+     * 更新订单
+     * @param orderInfo
+     * @return
+     */
+    public AppResponse updateOrder(OrderInfo orderInfo){
         int count = orderDao.updateOrder(orderInfo);
         return AppResponse.success("更新成功");
     }

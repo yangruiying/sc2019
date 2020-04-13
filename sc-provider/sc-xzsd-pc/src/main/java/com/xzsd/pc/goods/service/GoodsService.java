@@ -61,6 +61,11 @@ public class GoodsService {
 //    @Autowired
 //    private ProducerController producerController;
 
+    /**
+     * 商品列表
+     * @param goodsInfo
+     * @return
+     */
     public AppResponse listGoods(GoodsInfo goodsInfo){
         //PageHelper.startPage(goodsInfo.getPageNum(),goodsInfo.getPageSize());
         List<GoodsInfo> goodsInfoList=goodsDao.listGoodsByPage(goodsInfo);
@@ -85,11 +90,21 @@ public class GoodsService {
         return AppResponse.success("新增成功");
     }
 
+    /**
+     * 查询商品
+     * @param Cid
+     * @return
+     */
     public AppResponse getGoodsById(String Cid){
         GoodsInfo goodsInfo=goodsDao.getGoodsById(Cid);
         return AppResponse.success("查询成功",goodsInfo);
     }
 
+    /**
+     * 删除商品
+     * @param Cid
+     * @return
+     */
     public AppResponse deleteGoods(String Cid){
         List<String> codeList= Arrays.asList(Cid.split(","));
         goodsDao.deleteGoods(codeList);

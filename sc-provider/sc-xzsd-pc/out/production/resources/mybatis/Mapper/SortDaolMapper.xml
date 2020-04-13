@@ -21,7 +21,7 @@
         <collection column="sort_id" property="treeNode" javaType="java.util.ArrayList"
                     ofType="com.xzsd.pc.sort.entity.SortInfo" select="getNextNodeTree"/>
     </resultMap>
-
+    <!--分类查询-->
     <select id="getNextNodeTree" resultMap="NextTreeResultMap">
         SELECT
         *
@@ -38,7 +38,7 @@
 
 
 
-
+    <!--新增分类-->
     <insert id="saveSort" parameterType="com.xzsd.pc.sort.entity.SortInfo">
         insert into t_sort
             (name,
@@ -52,6 +52,7 @@
              0)
     </insert>
 
+    <!--更新分类-->
     <update id="updateSort" parameterType="com.xzsd.pc.sort.entity.SortInfo">
         update t_sort
         set

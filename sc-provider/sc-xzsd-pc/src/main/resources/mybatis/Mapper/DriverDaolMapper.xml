@@ -61,6 +61,18 @@
         where user_id=#{driverId}
     </update>
     
+    <!--司机列表查询-->
+    <select id="listDriver" parameterType="com.xzsd.pc.driver.entity.DriverInfo" resultType="com.xzsd.pc.driver.entity.DriverInfo">
+        select
+            driver_id,
+            user_name,
+            phone,
+            id_card,
+            user_id
+        from t_user
+        where
+    </select>
+    
 
 
 </mapper>

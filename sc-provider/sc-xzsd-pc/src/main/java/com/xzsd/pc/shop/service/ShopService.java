@@ -80,6 +80,11 @@ public class ShopService {
         return AppResponse.success("修改成功");
     }
 
+    /**
+     * 删除门店
+     * @param shop_id
+     * @return
+     */
     @Transactional(rollbackFor = Exception.class)
     public AppResponse deleteShop(String shop_id){
         List<String> shopList = Arrays.asList(shop_id.split(","));
@@ -87,6 +92,11 @@ public class ShopService {
         return AppResponse.success("删除成功");
     }
 
+    /**
+     * 门店列表查询
+     * @param shopId
+     * @return
+     */
     public AppResponse queryShop(String shopId){
         ShopInfo shopInfo = shopDao.queryShop(shopId);
         return AppResponse.success("查询成功",shopInfo);

@@ -32,9 +32,9 @@ public interface ClientDao {
 //    int saveUser(ClientInfo userInfo);
 
     /**
-     * 获取所有用户信息
-     * @param clientInfo 用户信息
-     * @return 所有用户信息
+     * 客户列表查询
+     * @param clientInfo
+     * @return
      */
     List<ClientInfo> listClientsByPage(ClientInfo clientInfo);
 

@@ -1,8 +1,8 @@
-package com.xzsd.pc.HotGoods.controller;
+package com.xzsd.pc.hotGoods.controller;
 
 import com.neusoft.core.restful.AppResponse;
-import com.xzsd.pc.HotGoods.entity.HotGoodsInfo;
-import com.xzsd.pc.HotGoods.service.HotGoodsService;
+import com.xzsd.pc.hotGoods.entity.HotGoodsInfo;
+import com.xzsd.pc.hotGoods.service.HotGoodsService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

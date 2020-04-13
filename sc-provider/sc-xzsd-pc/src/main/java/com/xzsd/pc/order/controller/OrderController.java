@@ -15,18 +15,33 @@ public class OrderController {
     @Resource
     private OrderService orderService;
 
+    /**
+     * 订单列表
+     * @param orderInfo
+     * @return
+     */
     @RequestMapping(value = "listOrder")
     public AppResponse listOrder(OrderInfo orderInfo){
         return orderService.listOrder(orderInfo);
     }
 
+    /**
+     * 订单详情
+     * @param orderId
+     * @return
+     */
     @RequestMapping(value = "queryOrder")
     public AppResponse queryOrder(String orderId){
         return orderService.queryOrder(orderId);
     }
 
+    /**
+     * 更新订单
+     * @param orderInfo
+     * @return
+     */
     @PostMapping("updateOrder")
     public AppResponse updateOrder(OrderInfo orderInfo){
-        return orderService.updateOrde(orderInfo);
+        return orderService.updateOrder(orderInfo);
     }
 }

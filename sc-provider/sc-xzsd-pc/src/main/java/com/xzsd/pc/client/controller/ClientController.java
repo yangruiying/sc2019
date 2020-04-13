@@ -86,10 +86,15 @@ public class ClientController {
 //        }
 //    }
 
+    /**
+     * 客户列表查询
+     * @param clientInfo
+     * @return
+     */
     @RequestMapping(value = "listClients")
     public AppResponse listUsers(ClientInfo clientInfo) {
         try {
-            AppResponse a =clientService.listUsers(clientInfo);
+            AppResponse a =clientService.listClient(clientInfo);
             return a;
         } catch (Exception e) {
             logger.error("查询用户列表异常", e);

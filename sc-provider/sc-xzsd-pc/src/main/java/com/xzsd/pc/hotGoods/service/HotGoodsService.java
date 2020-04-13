@@ -1,9 +1,9 @@
-package com.xzsd.pc.HotGoods.service;
+package com.xzsd.pc.hotGoods.service;
 
 import com.neusoft.core.restful.AppResponse;
 import com.neusoft.util.StringUtil;
-import com.xzsd.pc.HotGoods.dao.HotGoodsDao;
-import com.xzsd.pc.HotGoods.entity.HotGoodsInfo;
+import com.xzsd.pc.hotGoods.dao.HotGoodsDao;
+import com.xzsd.pc.hotGoods.entity.HotGoodsInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,7 +22,7 @@ public class HotGoodsService {
         int countHotGoods = hotGoodsDao.countHotGoods(hotGoodsInfo);
         if (0 != countHotGoods)
         {
-            return AppResponse.success("账号已存在");
+            return AppResponse.success("编号已存在");
         }
         hotGoodsInfo.sethId(StringUtil.getCommonCode(2));
         int count=hotGoodsDao.saveHotGoods(hotGoodsInfo);

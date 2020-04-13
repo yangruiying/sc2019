@@ -1,4 +1,4 @@
-package com.xzsd.pc.HotGoods.entity;
+package com.xzsd.pc.hotGoods.entity;
 
 public class HotGoodsInfo {
     private String cId;

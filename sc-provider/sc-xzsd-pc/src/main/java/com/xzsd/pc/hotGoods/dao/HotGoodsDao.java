@@ -1,6 +1,6 @@
-package com.xzsd.pc.HotGoods.dao;
+package com.xzsd.pc.hotGoods.dao;
 
-import com.xzsd.pc.HotGoods.entity.HotGoodsInfo;
+import com.xzsd.pc.hotGoods.entity.HotGoodsInfo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
