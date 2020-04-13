@@ -41,14 +41,14 @@
              #{sell},
              #{num})
     </insert>
-
+    <!--查找商品-->
     <select id="getGoodsById" parameterType="java.lang.String" resultType="com.xzsd.pc.goods.entity.GoodsInfo">
         select
             *
         from t_commodity
         where c_id=#{Cid}
     </select>
-    
+    <!--删除商品-->
     <update id="deleteGoods" parameterType="com.xzsd.pc.goods.entity.GoodsInfo">
         update t_commodity
         set

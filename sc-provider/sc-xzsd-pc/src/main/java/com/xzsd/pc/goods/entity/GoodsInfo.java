@@ -90,6 +90,8 @@ public class GoodsInfo {
      */
     private int PageSize;
 
+    private String imagePath;
+
     public int getCid() {
         return Cid;
     }
@@ -264,5 +266,13 @@ public class GoodsInfo {
 
     public void setPageSize(int pageSize) {
         PageSize = pageSize;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

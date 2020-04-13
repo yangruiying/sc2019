@@ -8,9 +8,13 @@ public class UserInfo {
      */
     private String userId;
     /**
-     * 用户账号
+     * 用户名称
      */
     private String userName;
+    /**
+     * 用户账号
+     */
+    private String account;
     /**
      * 密码
      */
@@ -78,6 +82,11 @@ public class UserInfo {
      * 页面大小
      */
     private int PageSize;
+
+    /**
+     * 头像图片路径
+     */
+    private String imagePath;
 
     public int getPageNum() {
         return PageNum;
@@ -221,5 +230,21 @@ public class UserInfo {
 
     public void setVersion(String version) {
         this.version = version;
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

@@ -9,6 +9,8 @@
         insert into t_user
         (user_id,
          user_name,
+         image_path,
+         account,
          user_password,
          name,
          sex,
@@ -25,6 +27,8 @@
         values
             (#{userId},
              #{userName},
+             #{imagePath},
+             #{account},
              #{userPassword},
              #{name},
              #{sex},
@@ -62,6 +66,8 @@
         set
             user_name = #{userName},
             user_password = #{userPassword},
+            image_path = #{imagePath},
+            account = #{account},
             name = #{name},
             sex = #{sex},
             phone = #{phone},
@@ -85,7 +91,7 @@
 
 
     <!--用户列表-->
-    <select id="listUsersByPage" parameterType="com.xzsd.pc.user.entity.UserInfo" resultType="com.xzsd.pc.user.entity.UserInfo">
+    <select id="listUsersByPage" parameterType="java.lang.String" resultType="com.xzsd.pc.user.entity.UserInfo">
         select
         *
         from t_user a

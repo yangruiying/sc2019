@@ -7,6 +7,7 @@ public class DriverInfo {
     private String regionId;
     private String driverName;
     private String phone;
+    private String account;
     private String password;
     private String idCard;
     public String getDriverId() {
@@ -71,5 +72,13 @@ public class DriverInfo {
 
     public void setIdCard(String idCard) {
         this.idCard = idCard;
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
     }
 }

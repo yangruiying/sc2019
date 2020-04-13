@@ -45,4 +45,19 @@ public class DriverController {
     public AppResponse deleteDriver(String driverId){
         return  driverService.deleteDriver(driverId);
     }
+
+    /**
+     * 司机列表查询
+     * @param driverInfo
+     * @return
+     */
+    @RequestMapping(value = "listDriver")
+    public AppResponse listDriver(DriverInfo driverInfo){
+        return driverService.listDriver(driverInfo);
+    }
+
+    @RequestMapping(value = "queryDriver")
+    public AppResponse queryDriver(String driverId){
+        return driverService.queryDriver(driverId);
+    }
 }

@@ -19,6 +19,7 @@
     <insert id="saveUser" parameterType="com.xzsd.pc.driver.entity.DriverInfo">
         insert into t_user
             (user_id,
+             account,
              user_name,
              id_card,
              phone,
@@ -26,6 +27,7 @@
              role)
         values
             (#{driverId},
+             #{account}
              #{driverName},
              #{idCard},
              #{phone},
@@ -63,14 +65,48 @@
     
     <!--司机列表查询-->
     <select id="listDriver" parameterType="com.xzsd.pc.driver.entity.DriverInfo" resultType="com.xzsd.pc.driver.entity.DriverInfo">
-        select
-            driver_id,
-            user_name,
-            phone,
-            id_card,
-            user_id
-        from t_user
-        where
+    SELECT
+	    driver_id,
+	    user_name,
+	    phone,
+	    id_card,
+	    user_id
+    FROM
+	    t_driver a LEFT JOIN t_user b ON a.driver_id=b.user_id
+    WHERE b.is_delete=0
+    <if test="driverId != null and driverId != ''">
+        and driver_id like concat ('%',#{driverId},'%')
+    </if>
+    <if test="driverName != null and driverName != ''">
+        and user_name like concat ('%',#{driverName},'%')
+    </if>
+    <if test="provinceId != null and provinceId != ''">
+        and province_id like concat ('%',#{provinceId},'%')
+    </if>
+    <if test="cityId != null and cityId != ''">
+        and city_id like concat ('%',#{cityId},'%')
+    </if>
+    <if test="regionId != null and regionId != ''">
+        and region_id like concat ('%',#{regionId},'%')
+    </if>
+    </select>
+    
+    <!--查询司机详情-->
+    <select id="queryDriver" parameterType="java.lang.String" resultType="com.xzsd.pc.driver.entity.DriverInfo">
+    SELECT
+	    driver_id,
+	    user_name driver_name,
+	    phone,
+	    id_card,
+	    account,
+	    user_password,
+	    province_id,
+	    city_id,
+	    region_id
+    from
+        t_driver a
+    LEFT JOIN t_user b ON a.driver_id=b.user_id
+    where driver_id=#{driverId}
     </select>
     
 

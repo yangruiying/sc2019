@@ -9,6 +9,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
+
+import static com.neusoft.core.page.PageUtils.getPageInfo;
 
 @Service
 public class DriverService {
@@ -49,5 +52,20 @@ public class DriverService {
     public AppResponse deleteDriver(String driverId){
         driverDao.deleteDriver(driverId);
         return AppResponse.success("删除成功");
+    }
+
+    /**
+     * 司机列表查询
+     * @param driverInfo
+     * @return
+     */
+    public AppResponse listDriver(DriverInfo driverInfo){
+        List<DriverInfo> driverInfoList=driverDao.listDriver(driverInfo);
+        return AppResponse.success("查询成功",getPageInfo(driverInfoList));
+    }
+
+    public AppResponse queryDriver(String driverId){
+        DriverInfo driverInfo = driverDao.queryDriver(driverId);
+        return AppResponse.success("查询成功",driverInfo);
     }
 }

@@ -4,6 +4,8 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 
 import com.neusoft.core.restful.AppResponse;
+import com.neusoft.util.StringUtil;
+import com.neusoft.util.Upload;
 import com.xzsd.pc.user.dao.UserDao;
 import com.xzsd.pc.user.entity.UserInfo;
 import org.springframework.stereotype.Service;
@@ -26,7 +28,8 @@ public class UserService {
 //        if(0 != countUserAcct) {
 //            return AppResponse.bizError("用户账号已存在，请重新输入！");
 //        }
-        //userInfo.setUserCode(StringUtil.getCommonCode(2));
+        userInfo.setUserId(StringUtil.getCommonCode(2));
+        userInfo.setImagePath(Upload.upLoadImage(userInfo.getImagePath(),userInfo.getUserId()));
         userInfo.setIsDeleted(0);
         // 新增用户
         int count = userDao.saveUser(userInfo);

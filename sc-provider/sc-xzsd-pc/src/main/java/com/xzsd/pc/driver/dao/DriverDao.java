@@ -3,6 +3,8 @@ package com.xzsd.pc.driver.dao;
 import com.xzsd.pc.driver.entity.DriverInfo;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 @Mapper
 public interface DriverDao {
     int saveDriver(DriverInfo driverInfo);
@@ -10,4 +12,6 @@ public interface DriverDao {
     int updateDriver(DriverInfo driverInfo);
     int updateUser(DriverInfo driverInfo);
     int deleteDriver(String driverId);
+    List<DriverInfo> listDriver(DriverInfo driverInfo);
+    DriverInfo queryDriver(String driverId);
 }
