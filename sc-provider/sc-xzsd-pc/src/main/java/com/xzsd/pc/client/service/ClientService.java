@@ -30,7 +30,7 @@ public class ClientService {
      * @Date 2020-03-21
      */
     @Transactional(rollbackFor = Exception.class)
-    public AppResponse saveUser(ClientInfo clientInfo) {
+    public AppResponse saveClient(ClientInfo clientInfo) {
         // 校验账号是否存在
 //        int countUserAcct = clientDao.countUserAcct(clientInfo);
 //        if(0 != countUserAcct) {

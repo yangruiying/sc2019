@@ -36,7 +36,7 @@ public class ClientController {
             //获取用户id
             String userId = AuthUtils.getCurrentUserId();
             clientinfo.setCreateBy(userId);
-            AppResponse appResponse = clientService.saveUser(clientinfo);
+            AppResponse appResponse = clientService.saveClient(clientinfo);
             return appResponse;
         } catch (Exception e) {
             logger.error("用户新增失败", e);

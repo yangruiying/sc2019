@@ -16,16 +16,31 @@ public class DriverController {
     @Resource
     private DriverService driverService;
 
+    /**
+     * 新增司机
+     * @param driverInfo
+     * @return
+     */
     @PostMapping("saveDriver")
     public AppResponse saveDriver(DriverInfo driverInfo){
         return driverService.saveDriver(driverInfo);
     }
 
+    /**
+     * 更新司机
+     * @param driverInfo
+     * @return
+     */
     @PostMapping("updateDriver")
     public AppResponse updateDriver(DriverInfo driverInfo){
         return  driverService.updateDriver(driverInfo);
     }
 
+    /**
+     * 删除司机
+     * @param driverId
+     * @return
+     */
     @PostMapping("deleteDriver")
     public AppResponse deleteDriver(String driverId){
         return  driverService.deleteDriver(driverId);
