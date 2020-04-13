@@ -45,7 +45,7 @@
         from t_client
     </select>
 
-    <!--删除用户-->
+    <!--删除客户-->
     <update id="deleteClient" parameterType="com.xzsd.pc.client.entity.ClientInfo">
         update t_client
         set
@@ -60,7 +60,7 @@
     </update>
 
 
-    <!--修改用户信息-->
+    <!--修改客户信息-->
     <update id="updateClient" parameterType="com.xzsd.pc.client.entity.ClientInfo">
         update t_client
         set
