@@ -41,4 +41,11 @@ public interface UserDao {
      * @return
      */
     List<UserInfo> listUsersByPage(UserInfo userInfo);
+
+    /**
+     * 查询相同账号数量
+     * @param account
+     * @return
+     */
+    int countAcc(String account);
 }

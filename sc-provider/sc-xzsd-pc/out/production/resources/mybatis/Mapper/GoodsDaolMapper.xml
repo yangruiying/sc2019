@@ -27,6 +27,7 @@
         insert into t_commodity
         (c_id,
          c_name,
+         image_path,
          publish,
          state,
          price,
@@ -35,6 +36,7 @@
         values
             (#{Cid},
              #{Cname},
+             #{imagePath},
              #{publish},
              #{state},
              #{price},

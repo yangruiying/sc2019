@@ -2,7 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xzsd.pc.user.dao.UserDao">
 
-
+    <!--查找相同账号数量-->
+    <select id="countAcc" parameterType="java.lang.String" resultType="int">
+        select
+            count(*)
+        from t_user
+        where account=#{account}
+    </select>
 
     <!--新增用户-->
     <insert id="saveUser" parameterType="com.xzsd.pc.user.entity.UserInfo">
@@ -36,7 +42,7 @@
              #{email},
              #{idCard},
              #{role},
-             #{isDeleted},
+             0,
              #{gmtCreate},
              #{createBy},
              #{gmtModified},

@@ -1,16 +1,47 @@
 package com.xzsd.pc.shop.entity;
 
 public class ShopInfo {
+    /**
+     * 门店id
+     */
     private String shopId;
+    /**
+     * 门店名称
+     */
     private String shopName;
+    /**
+     * 省编号
+     */
     private String provenceId;
+    /**
+     * 市编号
+     */
     private String cityId;
+    /**
+     * 区编号
+     */
     private String regionId;
+    /**
+     * 店长手机
+     */
     private String phone;
+    /**
+     * 门店地址
+     */
     private String address;
+    /**
+     * 店长id
+     */
     private String userId;
+    /**
+     * 邀请码
+     */
     private String inviteCode;
+
     private String shopAccount;
+    /**
+     * 营业执照
+     */
     private String license;
     private int PageNum;
     private int PageSize;

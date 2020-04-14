@@ -2,13 +2,31 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xzsd.pc.shop.dao.ShopDao">
 
-    <!--查看门店数量-->
+    <!--查看邀请码重复数-->
+    <select id="countLicense" parameterType="com.xzsd.pc.shop.entity.ShopInfo" resultType="int">
+        select
+            count(*)
+        from
+            t_shop
+        where license=#{license}
+    </select>
+
+    <!--查看门店编号数-->
     <select id="countShop" parameterType="com.xzsd.pc.shop.entity.ShopInfo" resultType="int">
         select
             count(*)
         from
             t_shop
         where shop_id=#{shopId}
+    </select>
+
+    <!--查看邀请码数量-->
+    <select id="countInvite" parameterType="com.xzsd.pc.shop.entity.ShopInfo" resultType="int">
+        select
+            count(*)
+        from
+            t_shop
+        where invite_code=#{inviteCode}
     </select>
 
     <!--新增门店-->

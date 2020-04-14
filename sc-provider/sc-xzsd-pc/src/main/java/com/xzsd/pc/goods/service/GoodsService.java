@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.neusoft.core.restful.AppResponse;
 import com.neusoft.util.JsonUtils;
+import com.neusoft.util.StringUtil;
 import com.xzsd.pc.goods.dao.GoodsDao;
 import com.xzsd.pc.goods.entity.GoodsInfo;
 
@@ -15,6 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static com.neusoft.core.page.PageUtils.getPageInfo;
+import static com.neusoft.util.Upload.upLoadImage;
 
 @Service
 public class GoodsService {
@@ -82,10 +84,9 @@ public class GoodsService {
      */
     @Transactional(rollbackFor = Exception.class)
     public AppResponse saveGoods(GoodsInfo goodsInfo){
-        //将商品实体类转化为json
-        String jsonStr= JsonUtils.toJson(goodsInfo);
-        //将json传入ActiveMQ中
-        //producerController.sendQueue(jsonStr);
+        goodsInfo.setCid(StringUtil.getCommonCode(2));
+        //上传图片
+        goodsInfo.setImagePath(upLoadImage(goodsInfo.getImagePath(),goodsInfo.getCid()));
         goodsDao.saveGoods(goodsInfo);
         return AppResponse.success("新增成功");
     }

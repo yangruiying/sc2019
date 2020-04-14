@@ -19,7 +19,19 @@ public interface ShopDao {
      * @param shopInfo
      * @return
      */
+    int countLicense(ShopInfo shopInfo);
+
+    /**
+     * 统计门店数量
+     * @param shopInfo
+     * @return
+     */
     int countShop(ShopInfo shopInfo);
+
+    /**
+     * 统计邀请码数量
+     */
+    int countInvite(ShopInfo shopInfo);
 
     /**
      * 省下拉框
@@ -55,5 +67,10 @@ public interface ShopDao {
      */
     int deleteShop(@Param("shopIdList") List<String> shopIdList);
 
+    /**
+     * 门店详情
+     * @param shopId
+     * @return
+     */
     ShopInfo queryShop(String shopId);
 }

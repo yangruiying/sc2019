@@ -4,7 +4,7 @@ public class GoodsInfo {
     /**
      * 商品id
      */
-    private int Cid;
+    private String Cid;
     /**
      * 商品名称
      */
@@ -92,11 +92,11 @@ public class GoodsInfo {
 
     private String imagePath;
 
-    public int getCid() {
+    public String getCid() {
         return Cid;
     }
 
-    public void setCid(int cid) {
+    public void setCid(String cid) {
         Cid = cid;
     }
 
