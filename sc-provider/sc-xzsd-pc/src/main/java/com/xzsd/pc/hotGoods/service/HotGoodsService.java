@@ -76,4 +76,36 @@ public class HotGoodsService {
         HotGoodsInfo hotGoodsList=hotGoodsDao.listGoodsByPage(hotGoodsInfo);
         return AppResponse.success("查询成功",getPageInfo(hotGoodsList));
     }
+
+    /**
+     * 更新展示数量
+     * @param hotGoodsInfo
+     * @return
+     */
+    public AppResponse updateShowNum(HotGoodsInfo hotGoodsInfo){
+        int count = hotGoodsDao.updateShowNum(hotGoodsInfo);
+        if (count == 0){
+            return AppResponse.bizError("删除失败");
+        }
+        return AppResponse.success("删除成功");
+    }
+
+    /**
+     * 查找展示数量
+     * @return
+     */
+    public AppResponse getShowNum(){
+        int count = hotGoodsDao.getShowNum();
+        return AppResponse.success("查找成功",count);
+    }
+
+    /**
+     * 热门商品详情
+     * @param hId
+     * @return
+     */
+    public AppResponse queryHotGoods(String hId){
+        HotGoodsInfo hotGoodsInfo= hotGoodsDao.queryHotGoods(hId);
+        return AppResponse.success("查找成功",hotGoodsInfo);
+    }
 }

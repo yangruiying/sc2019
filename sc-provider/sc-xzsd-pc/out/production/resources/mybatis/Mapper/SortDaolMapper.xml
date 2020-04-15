@@ -60,9 +60,29 @@
             parent_id=#{parentId}
         where sort_id=#{sortId}
     </update>
+    
+    <!--删除分类-->
+    <update id="deleteSort" parameterType="java.lang.String">
+        update t_sort
+        set is_deleted = 1
+        where sort_id = #{sortId}
+    </update>
 
+    <!--查询子项数量-->
+    <select id="countSort" parameterType="java.lang.String" resultType="int">
+        select
+            count(*)
+        from t_sort
+        where parent_id = #{sortId}
+    </select>
 
-
-
+    <!--分类详情-->
+    <select id="querySort" parameterType="java.lang.String" resultType="com.xzsd.pc.sort.entity.SortInfo">
+        select
+            name,
+            remark
+        from t_sort
+        where sort_id = #{sortId}
+    </select>
 
 </mapper>

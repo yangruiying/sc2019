@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 @RestController
-@RequestMapping("HotGoods")
+@RequestMapping("hotGoods")
 public class HotGoodsController {
     @Resource
     private HotGoodsService hotGoodsService;
@@ -33,4 +33,34 @@ public class HotGoodsController {
     public AppResponse listGoods(HotGoodsInfo hotGoodsInfo){
         return hotGoodsService.listGoods(hotGoodsInfo);
     }
+
+    /**
+     * 更新展示数量
+     * @param hotGoodsInfo
+     * @return
+     */
+    @PostMapping("updateShowNum")
+    public AppResponse updateShowNum(HotGoodsInfo hotGoodsInfo){
+        return hotGoodsService.updateShowNum(hotGoodsInfo);
+    }
+
+    /**
+     * 查找展示数量
+     * @return
+     */
+    @RequestMapping(value = "getShowNum")
+    public AppResponse getShowNum(){
+        return hotGoodsService.getShowNum();
+    }
+
+    /**
+     * 热门商品详情
+     * @param hId
+     * @return
+     */
+    @RequestMapping(value = "queryHotGoods")
+    public AppResponse queryHotGoods(String hId){
+        return hotGoodsService.queryHotGoods(hId);
+    }
+
 }

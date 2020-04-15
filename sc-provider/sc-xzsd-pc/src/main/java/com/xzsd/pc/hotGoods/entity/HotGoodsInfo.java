@@ -17,6 +17,10 @@ public class HotGoodsInfo {
      * 商品名称
      */
     private String cName;
+    /**
+     * 展示数量
+     */
+    private int showNum;
     public String getcId() {
         return cId;
     }
@@ -47,5 +51,13 @@ public class HotGoodsInfo {
 
     public void setcName(String cName) {
         this.cName = cName;
+    }
+
+    public int getShowNum() {
+        return showNum;
+    }
+
+    public void setShowNum(int showNum) {
+        this.showNum = showNum;
     }
 }

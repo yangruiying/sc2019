@@ -23,6 +23,7 @@
             sort=#{sort},
             version = version + 1
         where h_id=#{hId}
+        and version = #{version}
     </update>
     <!--删除热门商品-->
     <update id="deleteHotGoods" parameterType="com.xzsd.pc.hotGoods.entity.HotGoodsInfo">
@@ -42,6 +43,7 @@
             c_name,
             price,
             introduce,
+            h_id,
             version
         from t_hot_goods a LEFT JOIN t_commodity b ON a.c_id=b.c_id
         where a.is_deleted=0
@@ -63,7 +65,32 @@
     </select>
 
     <!--展示数量修改-->
-
-
+    <update id="updateShowNum" parameterType="com.xzsd.pc.hotGoods.entity.HotGoodsInfo">
+        update t_dictionaries
+        set value = #{showNum},
+            version = version +1
+        where id = 123456
+        and version = #{version}
+    </update>
+    <!--查询展示数量-->
+    <select id="getShowNum" resultType="int">
+        select
+            value
+        from t_dictionaries
+        where id = 123456
+    </select>
+    <!--热门商品详情-->
+    <select id="queryHotGoods" parameterType="java.lang.String" resultType="com.xzsd.pc.hotGoods.entity.HotGoodsInfo">
+    SELECT
+	    sort,
+	    a.c_id,
+	    c_name,
+	    h_id,
+	    a.version
+    FROM
+	    t_hot_goods a
+    LEFT JOIN t_commodity b ON a.c_id = b.c_id
+    WHERE h_id = #{hId}
+    </select>
 
 </mapper>
