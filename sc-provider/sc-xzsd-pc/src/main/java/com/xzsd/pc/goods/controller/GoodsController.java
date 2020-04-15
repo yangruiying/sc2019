@@ -38,21 +38,31 @@ public class GoodsController {
 
     /**
      * 查询商品
-     * @param Cid
+     * @param cId
      * @return
      */
-    @PostMapping("getGoodsById")
-    public AppResponse getGoodsById(String Cid){
-        return goodsService.getGoodsById(Cid);
+    @PostMapping("queryGoods")
+    public AppResponse queryGoods(String cId){
+        return goodsService.queryGoods(cId);
     }
 
     /**
      * 删除商品
-     * @param Cid
+     * @param cId
      * @return
      */
     @PostMapping("deleteGoods")
-    public AppResponse deleteGoods(String Cid){
-        return goodsService.deleteGoods(Cid);
+    public AppResponse deleteGoods(String cId){
+        return goodsService.deleteGoods(cId);
+    }
+
+    /**
+     * 更新商品
+     * @param goodsInfo
+     * @return
+     */
+    @PostMapping("updateGoods")
+    public AppResponse updateGoods(GoodsInfo goodsInfo){
+        return goodsService.updateGoods(goodsInfo);
     }
 }

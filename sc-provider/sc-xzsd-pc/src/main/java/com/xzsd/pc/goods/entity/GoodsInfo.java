@@ -4,11 +4,11 @@ public class GoodsInfo {
     /**
      * 商品id
      */
-    private String Cid;
+    private String cId;
     /**
      * 商品名称
      */
-    private String Cname;
+    private String cName;
     /**
      * 出版社
      */
@@ -32,7 +32,12 @@ public class GoodsInfo {
     /**
      * 一级分类
      */
-    private String first_classify;
+    private String firstClassify;
+
+    /**
+     * 二级分类
+     */
+    private String secondClassify;
     /**
      * 广告词
      */
@@ -89,23 +94,35 @@ public class GoodsInfo {
      * 每页显示条数
      */
     private int PageSize;
-
+    /**
+     * 图片路径
+     */
     private String imagePath;
 
-    public String getCid() {
-        return Cid;
+    /**
+     * 书号
+     */
+    private String isbn;
+
+    /**
+     * 作者
+     */
+    private  String author;
+
+    public String getcId() {
+        return cId;
     }
 
-    public void setCid(String cid) {
-        Cid = cid;
+    public void setcId(String cId) {
+        this.cId = cId;
     }
 
-    public String getCname() {
-        return Cname;
+    public String getcName() {
+        return cName;
     }
 
-    public void setCname(String cname) {
-        Cname = cname;
+    public void setcName(String cName) {
+        this.cName = cName;
     }
 
     public String getPublish() {
@@ -148,13 +165,6 @@ public class GoodsInfo {
         this.num = num;
     }
 
-    public String getFirst_classify() {
-        return first_classify;
-    }
-
-    public void setFirst_classify(String first_classify) {
-        this.first_classify = first_classify;
-    }
 
     public String getAdvertising() {
         return advertising;
@@ -274,5 +284,37 @@ public class GoodsInfo {
 
     public void setImagePath(String imagePath) {
         this.imagePath = imagePath;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public String getFirstClassify() {
+        return firstClassify;
+    }
+
+    public void setFirstClassify(String firstClassify) {
+        this.firstClassify = firstClassify;
+    }
+
+    public String getSecondClassify() {
+        return secondClassify;
+    }
+
+    public void setSecondClassify(String secondClassify) {
+        this.secondClassify = secondClassify;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }

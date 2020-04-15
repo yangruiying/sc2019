@@ -4,16 +4,16 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.neusoft.core.restful.AppResponse;
 import com.neusoft.util.StringUtil;
+import com.xzsd.pc.PasswordUtils;
 import com.xzsd.pc.user.dao.UserDao;
+
 import com.xzsd.pc.user.entity.UserInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.neusoft.util.Upload.upLoadImage;
 
 @Service
 public class UserService {
@@ -31,11 +31,14 @@ public class UserService {
         }
         userInfo.setUserId(StringUtil.getCommonCode(2));
         //上传图片
-        try {
-            userInfo.setImagePath(upLoadImage(userInfo.getImagePath(), userInfo.getUserId()));
-        }catch (NullPointerException e){
-            return AppResponse.bizError("找不到图片路径");
-        }
+//        try {
+//            userInfo.setImagePath(upLoadImage(userInfo.getImagePath(), userInfo.getUserId()));
+//        }catch (NullPointerException e){
+//            return AppResponse.bizError("找不到图片路径");
+//        }
+        //密码加密
+        String pwd = PasswordUtils.generatePassword(userInfo.getUserPassword());
+        userInfo.setUserPassword(pwd);
         // 新增用户
         int count = userDao.saveUser(userInfo);
         if(0 == count) {
@@ -67,11 +70,11 @@ public class UserService {
             return AppResponse.bizError("账号已存在，请重新输入");
         }
         //上传图片
-        try {
-            userInfo.setImagePath(upLoadImage(userInfo.getImagePath(), userInfo.getUserId()));
-        }catch (NullPointerException e){
-            return AppResponse.bizError("找不到图片路径");
-        }
+//        try {
+//            userInfo.setImagePath(upLoadImage(userInfo.getImagePath(), userInfo.getUserId()));
+//        }catch (NullPointerException e){
+//            return AppResponse.bizError("找不到图片路径");
+//        }
         int count = userDao.updateUser(userInfo);
         //判断账号是否存在
         if(count==0){

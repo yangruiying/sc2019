@@ -47,6 +47,10 @@ public class ShopInfo {
     private int PageSize;
     private int version;
     private String userName;
+    /**
+     * 商品状态
+     */
+    private int state;
     public String getShopId() {
         return shopId;
     }
@@ -165,5 +169,13 @@ public class ShopInfo {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
     }
 }

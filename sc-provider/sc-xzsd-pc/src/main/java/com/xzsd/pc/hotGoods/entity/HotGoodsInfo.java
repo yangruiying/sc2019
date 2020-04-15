@@ -1,9 +1,21 @@
 package com.xzsd.pc.hotGoods.entity;
 
 public class HotGoodsInfo {
+    /**
+     * 商品id
+     */
     private String cId;
+    /**
+     * 排序
+     */
     private String sort;
+    /**
+     * 热门编号
+     */
     private String hId;
+    /**
+     * 商品名称
+     */
     private String cName;
     public String getcId() {
         return cId;

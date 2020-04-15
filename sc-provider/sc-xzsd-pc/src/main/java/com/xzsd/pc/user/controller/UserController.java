@@ -63,6 +63,13 @@ public class UserController {
     public AppResponse updateUser(UserInfo userInfo){
         return userService.updateUser(userInfo);
     }
+
+    /**
+     * 删除用户
+     * @param userId
+     * @param userName
+     * @return
+     */
     @PostMapping("deleteUser")
     public AppResponse delete(String userId,String userName){
         return userService.deleteUser(userId,userName);

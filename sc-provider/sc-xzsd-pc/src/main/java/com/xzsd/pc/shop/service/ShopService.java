@@ -1,6 +1,8 @@
 package com.xzsd.pc.shop.service;
 
 import com.neusoft.core.restful.AppResponse;
+
+import com.neusoft.util.RandomUtil;
 import com.neusoft.util.StringUtil;
 import com.xzsd.pc.shop.dao.ShopDao;
 import com.xzsd.pc.shop.entity.DictionariesInfo;
@@ -29,6 +31,7 @@ public class ShopService {
         if(countLicense != 0){
             return AppResponse.bizError("营业执照已存在");
         }
+
         //判断邀请码是否存在
         if (countInvite != 0){
             return AppResponse.bizError("邀请码已存在");
@@ -42,22 +45,12 @@ public class ShopService {
     }
 
     /**
-     * 省下拉查询
+     * 省市区下拉查询
      * @return
      */
-    public AppResponse provinceList(){
-        List<DictionariesInfo> provinceList=shopDao.provinceList();
+    public AppResponse listArea(String id){
+        List<DictionariesInfo> provinceList=shopDao.listArea(id);
         return AppResponse.success("查询成功",provinceList);
-    }
-
-    /**
-     * 市下拉查询
-     * @param dictionariesInfo
-     * @return
-     */
-    public AppResponse cityList(DictionariesInfo dictionariesInfo){
-        List<DictionariesInfo> cityList=shopDao.cityList(dictionariesInfo);
-        return AppResponse.success("查询成功",cityList);
     }
 
     /**

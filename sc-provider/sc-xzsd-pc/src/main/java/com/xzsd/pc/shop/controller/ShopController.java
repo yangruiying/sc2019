@@ -28,22 +28,12 @@ public class ShopController {
     }
 
     /**
-     * 省下拉查询
+     * 省市区下拉查询
      * @return
      */
-    @RequestMapping(value = "provinceList")
-    public AppResponse provinceList(){
-        return shopService.provinceList();
-    }
-
-    /**
-     * 市下拉查询
-     * @param dictionariesInfo
-     * @return
-     */
-    @RequestMapping(value = "cityList")
-    public AppResponse cityList(DictionariesInfo dictionariesInfo){
-        return shopService.cityList(dictionariesInfo);
+    @RequestMapping(value = "listArea")
+    public AppResponse listArea(String id){
+        return shopService.listArea(id);
     }
 
     /**

@@ -1,67 +1,23 @@
 package com.xzsd.pc.goods.service;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
+
 import com.neusoft.core.restful.AppResponse;
-import com.neusoft.util.JsonUtils;
 import com.neusoft.util.StringUtil;
 import com.xzsd.pc.goods.dao.GoodsDao;
 import com.xzsd.pc.goods.entity.GoodsInfo;
-
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.List;
-
 import static com.neusoft.core.page.PageUtils.getPageInfo;
-import static com.neusoft.util.Upload.upLoadImage;
+
 
 @Service
 public class GoodsService {
     @Resource
     private GoodsDao goodsDao;
-//    @Resource
-//    RedisOperator redis;
 
-
-
-
-    /**
-     * 商品列表查询
-     * @param goodsInfo
-     * @return
-     */
-//    public AppResponse listGoods(GoodsInfo goodsInfo){
-//        PageHelper.startPage(goodsInfo.getPageNum(), goodsInfo.getPageSize());
-//        // 包装Page对象
-//        PageInfo<GoodsInfo> pageData = null;
-//        String jsonStr=null;
-//        //将查询的信息整合成一条字符串
-//        String strKey = goodsInfo.getCname()+goodsInfo.getPageNum();
-//        //如果redis中有相同的数据说明5分钟内进行相同查询，进行redis查询，否则进行数据库查询
-//        if(redis.get(strKey)!=null){
-//            //在redis中调出查询数据
-//            jsonStr=redis.get(strKey);
-//            //将json格式转化为对象格式
-//            pageData=JsonUtils.fromJson(jsonStr, new PageInfo<GoodsInfo>().getClass());
-//            return AppResponse.success("redis查询成功！", pageData);
-//        }else{
-//            //调用数据库查询
-//            List<GoodsInfo> goodInfoList = goodsDao.listGoodsByPage(goodsInfo);
-//            pageData = new PageInfo<GoodsInfo>(goodInfoList);
-//            //将对象转化为json字符串
-//            jsonStr=JsonUtils.toJson(pageData);
-//            //将查询的字符串作为key，查询出来的结果作为value，有效时间设为300（5分钟），存入redis中
-//            redis.set(strKey,jsonStr,300);
-//            pageData=JsonUtils.fromJson(jsonStr,pageData.getClass());
-//            return AppResponse.success("数据库查询成功！", pageData);
-//        }
-//
-//    }
-//    @Autowired
-//    private ProducerController producerController;
 
     /**
      * 商品列表
@@ -69,9 +25,7 @@ public class GoodsService {
      * @return
      */
     public AppResponse listGoods(GoodsInfo goodsInfo){
-        //PageHelper.startPage(goodsInfo.getPageNum(),goodsInfo.getPageSize());
         List<GoodsInfo> goodsInfoList=goodsDao.listGoodsByPage(goodsInfo);
-        //PageInfo<GoodsInfo> pageData = new PageInfo<>(goodsInfoList);
         return AppResponse.success("查询成功",getPageInfo(goodsInfoList));
 
     }
@@ -84,31 +38,75 @@ public class GoodsService {
      */
     @Transactional(rollbackFor = Exception.class)
     public AppResponse saveGoods(GoodsInfo goodsInfo){
-        goodsInfo.setCid(StringUtil.getCommonCode(2));
+        goodsInfo.setcId(StringUtil.getCommonCode(2));
         //上传图片
-        goodsInfo.setImagePath(upLoadImage(goodsInfo.getImagePath(),goodsInfo.getCid()));
-        goodsDao.saveGoods(goodsInfo);
+//        try{
+//            goodsInfo.setImagePath(upLoadImage(goodsInfo.getImagePath(),goodsInfo.getcId()));
+//        }catch (NullPointerException e){
+//            return AppResponse.bizError("找不到图片路径");
+//        }
+        int countIsbn = goodsDao.countIsbn(goodsInfo.getIsbn());
+        if(countIsbn != 0){
+            return AppResponse.bizError("书名重复,请重新输入");
+        }
+        int count = goodsDao.saveGoods(goodsInfo);
+        if(count == 0){
+            return AppResponse.bizError("新增失败");
+        }
         return AppResponse.success("新增成功");
     }
 
     /**
      * 查询商品
-     * @param Cid
+     * @param cId
      * @return
      */
-    public AppResponse getGoodsById(String Cid){
-        GoodsInfo goodsInfo=goodsDao.getGoodsById(Cid);
+    public AppResponse queryGoods(String cId){
+        GoodsInfo goodsInfo=goodsDao.queryGoods(cId);
         return AppResponse.success("查询成功",goodsInfo);
     }
 
     /**
      * 删除商品
-     * @param Cid
+     * @param cId
      * @return
      */
-    public AppResponse deleteGoods(String Cid){
-        List<String> codeList= Arrays.asList(Cid.split(","));
-        goodsDao.deleteGoods(codeList);
+    @Transactional(rollbackFor = Exception.class)
+    public AppResponse deleteGoods(String cId){
+        List<String> codeList= Arrays.asList(cId.split(","));
+        int count = goodsDao.deleteGoods(codeList);
+        if (count == 0){
+            return AppResponse.bizError("删除失败");
+        }
         return AppResponse.success("删除成功");
+    }
+
+    /**
+     * 更新商品
+     * @param goodsInfo
+     * @return
+     */
+    @Transactional(rollbackFor = Exception.class)
+    public AppResponse updateGoods(GoodsInfo goodsInfo){
+        GoodsInfo goods = goodsDao.queryGoods(goodsInfo.getcId());
+        //判断是否修改图片
+        if (!goods.getImagePath().equals(goodsInfo.getImagePath())) {
+            //上传图片
+//            try {
+//                goodsInfo.setImagePath(upLoadImage(goodsInfo.getImagePath(), goodsInfo.getcId()));
+//            } catch (NullPointerException e) {
+//                return AppResponse.bizError("找不到图片路径");
+//            }
+        }
+            int countIsbn = goodsDao.countIsbn(goodsInfo.getIsbn());
+            if (countIsbn != 0) {
+                return AppResponse.bizError("书名重复,请重新输入");
+            }
+
+        int count = goodsDao.updateGoods(goodsInfo);
+        if (count == 0){
+            return AppResponse.bizError("更新失败");
+        }
+        return AppResponse.success("更新成功");
     }
 }

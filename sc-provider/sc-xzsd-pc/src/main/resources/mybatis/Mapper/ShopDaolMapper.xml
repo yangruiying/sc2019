@@ -62,18 +62,10 @@
           )
     </insert>
 
-    <!--省查询-->
-    <select id="provinceList" resultType="com.xzsd.pc.shop.entity.DictionariesInfo">
-        select
-            id,
-            value
-        from
-            t_dictionaries
-        where parent_id=0
-    </select>
 
-    <!--市区查取-->
-    <select id="cityList" parameterType="com.xzsd.pc.shop.entity.DictionariesInfo" resultType="com.xzsd.pc.shop.entity.DictionariesInfo">
+
+    <!--省市市区查询-->
+    <select id="listArea" parameterType="java.lang.String" resultType="com.xzsd.pc.shop.entity.DictionariesInfo">
         select
             id,
             value
@@ -93,7 +85,7 @@
         invite_code
         FROM
         t_shop a
-        LEFT JOIN t_user b ON a.user_id=b.user_id
+        LEFT JOIN t_user b ON a.user_id=b.user_code
         where a.is_deleted=0
         <if test="shopId !=null and shopId != ''">
             and shop_id like concat('%', #{shopId} ,'%')
@@ -102,11 +94,6 @@
         <if test="shopName !=null and shopName != ''">
             and shop_name like concat('%',  #{shopName} ,'%')
         </if>
-
-        <if test="userId !=null and userId != ''">
-            and user_id like concat('%',  #{userId} ,'%')
-        </if>
-
         <if test="provenceId !=null and provenceId != ''">
             and provence_id like concat('%',  #{provenceId} ,'%')
         </if>
@@ -117,6 +104,9 @@
 
         <if test="regionId !=null and regionId != ''">
             and region_id like concat('%',  #{regionId} ,'%')
+        </if>
+        <if test="state == 2">
+            and a.user_id = #{userId}
         </if>
     </select>
 
@@ -171,7 +161,6 @@
         LEFT JOIN t_user b ON a.user_id=b.user_id
         where shop_id=#{shopId}
     </select>
-
 
 
 

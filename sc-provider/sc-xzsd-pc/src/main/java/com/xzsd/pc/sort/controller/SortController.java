@@ -20,7 +20,7 @@ public class SortController {
      * 分类查询
      * @return
      */
-    @RequestMapping(value = "getNodeTree")
+    @RequestMapping(value = "sortList")
     public AppResponse getNodeTree(){
         return sortService.getNodeTree();
     }

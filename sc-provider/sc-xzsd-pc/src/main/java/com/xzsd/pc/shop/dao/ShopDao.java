@@ -33,18 +33,14 @@ public interface ShopDao {
      */
     int countInvite(ShopInfo shopInfo);
 
-    /**
-     * 省下拉框
-     * @return
-     */
-    List<DictionariesInfo> provinceList();
+
 
     /**
-     * 市下拉查询
-     * @param dictionariesInfo
+     * 省市区下拉查询
+     * @param id
      * @return
      */
-    List<DictionariesInfo> cityList(DictionariesInfo dictionariesInfo);
+    List<DictionariesInfo> listArea(String id);
 
     /**
      * 分页查询门店信息
