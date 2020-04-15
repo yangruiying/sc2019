@@ -5,20 +5,44 @@
 
     <!--商品列表-->
     <select id="listGoodsByPage" parameterType="com.xzsd.pc.goods.entity.GoodsInfo" resultType="com.xzsd.pc.goods.entity.GoodsInfo">
-        select
-        a.c_name Cname,
-        a.publish,
-        a.state,
-        a.price,
-        a.sell,
-        a.num,
-        a.first_classify firstClassify,
+        SELECT
+        price,
+        sell,
+        num,
+        b. NAME firstClassifyName,
+        c. NAME secondClassifyName,
         a.advertising,
-        a.introduce
-        from t_commodity a
-        where
-        <if test="Cname != null and Cname != ''">
-            a.c_name like concat('%', #{Cname}, '%')
+        a.introduce,
+        a.state,
+        a.putaway_time,
+        a.browse_num,
+        a.shop_name,
+        a.inventory,
+        a.isbn,
+        a.c_id,
+        a.version,
+        a.image_path
+        FROM
+        (
+        t_commodity a
+        LEFT JOIN t_sort b ON a.first_classify_id = b.sort_id
+        )
+        LEFT JOIN t_sort c ON a.second_classify_id = c.sort_id
+        where a.is_deleted = 0
+        <if test="cName != null and cName != ''">
+            and a.c_name like concat('%', #{cName}, '%')
+        </if>
+        <if test="state != null and state != ''">
+            and a.state like concat('%', #{state}, '%')
+        </if>
+        <if test="advertising != null and advertising != ''">
+            and a.advertising like concat('%', #{advertising}, '%')
+        </if>
+        <if test="author != null and author != ''">
+            and a.author like concat('%', #{author}, '%')
+        </if>
+        <if test="publish != null and publish != ''">
+            and a.publish like concat('%', #{publish}, '%')
         </if>
     </select>
 
@@ -26,6 +50,7 @@
     <insert id="saveGoods" parameterType="com.xzsd.pc.goods.entity.GoodsInfo">
         insert into t_commodity
         (c_id,
+         isbn,
          c_name,
          image_path,
          publish,
@@ -33,10 +58,17 @@
          price,
          sell,
          num,
+         first_classify_id,
+         second_classify_id,
+         advertising,
+         introduce,
+         inventory,
+         author,
          version,
          is_deleted)
         values
             (#{Cid},
+             #{isbn},
              #{Cname},
              #{imagePath},
              #{publish},
@@ -44,27 +76,41 @@
              #{price},
              #{sell},
              #{num},
+             #{firstClassifyId},
+             #{secondClassifyId},
+             #{advertising},
+             #{introduce}
+             #{inventory}
+             #{author}
              0,
              0)
     </insert>
     <!--查找商品-->
     <select id="queryGoods" parameterType="java.lang.String" resultType="com.xzsd.pc.goods.entity.GoodsInfo">
-        select
-            c_name,
-            publish,
-            state,
-            price,
-            sell,
-            num,
-            first_classify,
-            second_classify secondClassify,
-            advertising,
-            introduce,
-            inventory,
-            author,
-            image_path,
-            isbn
-        from t_commodity
+        SELECT
+        a.c_id,
+        a.c_name Cname,
+        a.publish,
+        a.state,
+        a.price,
+        a.sell,
+        a.num,
+        a.first_classify_id firstClassifyId,
+        b. NAME firstClassifyName,
+        a.second_classify_id secondClassifyId,
+        c. NAME secondClassifyName,
+        a.advertising,
+        a.introduce,
+        a.inventory,
+        a.author,
+        a.image_path,
+        a.isbn
+        FROM
+        (
+        t_commodity a
+        LEFT JOIN t_sort b ON a.first_classify_id = b.sort_id
+        )
+        LEFT JOIN t_sort c ON a.second_classify_id = c.sort_id
         where c_id=#{cId}
     </select>
     <!--删除商品-->

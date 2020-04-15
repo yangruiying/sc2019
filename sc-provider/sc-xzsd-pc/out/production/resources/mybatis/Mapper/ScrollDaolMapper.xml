@@ -5,9 +5,17 @@
     <!--轮播图列表-->
     <select id="listScroll" parameterType="com.xzsd.pc.scroll.entity.ScrollInfo" resultType="com.xzsd.pc.scroll.entity.ScrollInfo">
         select
-            *
+            sort,
+            picture_path picturePath,
+            state,
+            begin,
+            end,
+            version
         from t_scroll
-        where state=#{state}
+        where is_deleted = 0
+        <if test="state != null and state != ''">
+            and state = #{state}
+        </if>
     </select>
 
     <!--删除轮播图-->
@@ -39,7 +47,8 @@
                  sort,
                  begin,
                  end,
-                 state)
+                 state,
+                 version)
          values
          (#{pId},
           #{cId},
@@ -47,6 +56,38 @@
           #{sort},
           #{begin},
           #{end},
-          #{state})
+          #{state},
+          0)
     </insert>
+    <!--查询商品-->
+    <select id="listGoods" parameterType="com.xzsd.pc.goods.entity.GoodsInfo" resultType="com.xzsd.pc.goods.entity.GoodsInfo">
+        select
+            c_id,
+            c_name,
+            state,
+            first_classify,
+            second_classify secondClassify,
+            image_path
+        from t_commodity
+        where is_deleted = 0
+        <if test="cName != null and cName !=''">
+            and c_name = #{cName}
+        </if>
+        <if test="cId != null and cId !=''">
+            and c_id = #{cId}
+        </if>
+    </select>
+    <!--修改轮播图状态-->
+    <update id="stateScroll" parameterType="com.xzsd.pc.scroll.entity.ScrollInfo">
+        update t_scroll
+        set
+            state = #{state},
+            version = version +1
+        where p_id in
+        <foreach collection="idList" item="pId" index="index" open="(" separator="," close=")">
+            #{pId}
+        </foreach>
+    </update>
+
+
 </mapper>

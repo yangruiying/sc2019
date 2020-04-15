@@ -6,6 +6,7 @@ import com.neusoft.core.restful.AppResponse;
 import com.xzsd.pc.sort.dao.SortDao;
 import com.xzsd.pc.sort.entity.SortInfo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -29,6 +30,7 @@ public class SortService {
      * @param sortInfo
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public AppResponse saveSort(SortInfo sortInfo){
         sortDao.saveSort(sortInfo);
         return AppResponse.success("新增成功");
@@ -39,8 +41,38 @@ public class SortService {
      * @param sortInfo
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public AppResponse updateSort(SortInfo sortInfo){
         sortDao.updateSort(sortInfo);
         return AppResponse.success("更新成功");
+    }
+
+    /**
+     * 删除分类
+     * @param sortId
+     * @return
+     */
+    @Transactional(rollbackFor = Exception.class)
+    public AppResponse deleteSort(String sortId){
+        int countSort = sortDao.countSort(sortId);
+        //查询下级分类
+        if (countSort != 0){
+            return AppResponse.bizError("有下级分类,删除失败");
+        }
+        int count = sortDao.deleteSort(sortId);
+        if (count == 0){
+            return AppResponse.bizError("删除失败");
+        }
+        return AppResponse.success("删除成功");
+    }
+
+    /**
+     * 分类详情
+     * @param sortId
+     * @return
+     */
+    public AppResponse querySort(String sortId){
+        SortInfo sortInfo = sortDao.querySort(sortId);
+        return AppResponse.success("查询成功",sortInfo);
     }
 }

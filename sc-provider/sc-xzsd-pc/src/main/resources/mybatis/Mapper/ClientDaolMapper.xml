@@ -4,11 +4,19 @@
     <!--客户列表-->
     <select id="listClientsByPage" parameterType="com.xzsd.pc.client.entity.ClientInfo" resultType="com.xzsd.pc.client.entity.ClientInfo">
         select
-        a.client_id clientId,
-        a.name
-        from t_client a
+            name,
+            account,
+            sex,
+            phone,
+            email
+            idCard,
+            version
+        from t_client
         <if test="name != null and name != ''">
-            and a.name like concat('%', #{clientName}, '%')
+            and name like concat('%', #{nmae}, '%')
+        </if>
+        <if test="account != null and account != ''">
+            and account like concat('%', #{account}, '%')
         </if>
     </select>
 </mapper>

@@ -11,4 +11,25 @@ public interface SortDao {
     List<SortInfo> getNodeTree();
     int saveSort(SortInfo sortInfo);
     int updateSort(SortInfo sortInfo);
+
+    /**
+     * 查询子项数量
+     * @param sortId
+     * @return
+     */
+    int countSort(String sortId);
+
+    /**
+     * 删除分类
+     * @param sortId
+     * @return
+     */
+    int deleteSort(String sortId);
+
+    /**
+     * 分类详情
+     * @param sortId
+     * @return
+     */
+    SortInfo querySort(String sortId);
 }

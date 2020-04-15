@@ -32,12 +32,21 @@ public class GoodsInfo {
     /**
      * 一级分类
      */
-    private String firstClassify;
+    private String firstClassifyId;
 
     /**
-     * 二级分类
+     * 一级分类名称
      */
-    private String secondClassify;
+    private String firstClassifyName;
+
+    /**
+     * 二级分类编号
+     */
+    private String secondClassifyId;
+    /**
+     * 二级分类名称
+     */
+    private String secondClassifyName;
     /**
      * 广告词
      */
@@ -49,19 +58,19 @@ public class GoodsInfo {
     /**
      * 上架时间
      */
-    private String putaway_time;
+    private String putawayTime;
     /**
      * 浏览量
      */
-    private int browse_num;
+    private int browseNum;
     /**
      * 商家编码
      */
-    private String shop_id;
+    private String shopId;
     /**
      * 商家名称
      */
-    private String shop_name;
+    private String shopName;
     /**
      * 库存
      */
@@ -182,38 +191,6 @@ public class GoodsInfo {
         this.introduce = introduce;
     }
 
-    public String getPutaway_time() {
-        return putaway_time;
-    }
-
-    public void setPutaway_time(String putaway_time) {
-        this.putaway_time = putaway_time;
-    }
-
-    public int getBrowse_num() {
-        return browse_num;
-    }
-
-    public void setBrowse_num(int browse_num) {
-        this.browse_num = browse_num;
-    }
-
-    public String getShop_id() {
-        return shop_id;
-    }
-
-    public void setShop_id(String shop_id) {
-        this.shop_id = shop_id;
-    }
-
-    public String getShop_name() {
-        return shop_name;
-    }
-
-    public void setShop_name(String shop_name) {
-        this.shop_name = shop_name;
-    }
-
     public int getInventory() {
         return inventory;
     }
@@ -294,27 +271,75 @@ public class GoodsInfo {
         this.isbn = isbn;
     }
 
-    public String getFirstClassify() {
-        return firstClassify;
-    }
-
-    public void setFirstClassify(String firstClassify) {
-        this.firstClassify = firstClassify;
-    }
-
-    public String getSecondClassify() {
-        return secondClassify;
-    }
-
-    public void setSecondClassify(String secondClassify) {
-        this.secondClassify = secondClassify;
-    }
-
     public String getAuthor() {
         return author;
     }
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public String getFirstClassifyId() {
+        return firstClassifyId;
+    }
+
+    public void setFirstClassifyId(String firstClassifyId) {
+        this.firstClassifyId = firstClassifyId;
+    }
+
+    public String getFirstClassifyName() {
+        return firstClassifyName;
+    }
+
+    public void setFirstClassifyName(String firstClassifyName) {
+        this.firstClassifyName = firstClassifyName;
+    }
+
+    public String getSecondClassifyId() {
+        return secondClassifyId;
+    }
+
+    public void setSecondClassifyId(String secondClassifyId) {
+        this.secondClassifyId = secondClassifyId;
+    }
+
+    public String getSecondClassifyName() {
+        return secondClassifyName;
+    }
+
+    public void setSecondClassifyName(String secondClassifyName) {
+        this.secondClassifyName = secondClassifyName;
+    }
+
+    public String getPutawayTime() {
+        return putawayTime;
+    }
+
+    public void setPutawayTime(String putawayTime) {
+        this.putawayTime = putawayTime;
+    }
+
+    public int getBrowseNum() {
+        return browseNum;
+    }
+
+    public void setBrowseNum(int browseNum) {
+        this.browseNum = browseNum;
+    }
+
+    public String getShopId() {
+        return shopId;
+    }
+
+    public void setShopId(String shopId) {
+        this.shopId = shopId;
+    }
+
+    public String getShopName() {
+        return shopName;
+    }
+
+    public void setShopName(String shopName) {
+        this.shopName = shopName;
     }
 }

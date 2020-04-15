@@ -120,7 +120,7 @@ public class GoodsService {
         List<SortInfo> sortList = goodsDao.listGoodsClassify(sortId);
         return AppResponse.success("查询成功",sortList);
     }
-
+    @Transactional(rollbackFor = Exception.class)
     public AppResponse goodsState(String cId,int state){
         List<String> idList = Arrays.asList(cId.split(","));
         int count = goodsDao.goodsState(idList,state);

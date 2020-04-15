@@ -20,7 +20,7 @@ public class SortController {
      * 分类查询
      * @return
      */
-    @RequestMapping(value = "sortList")
+    @RequestMapping(value = "listSort")
     public AppResponse getNodeTree(){
         return sortService.getNodeTree();
     }
@@ -43,5 +43,25 @@ public class SortController {
     @PostMapping("updateSort")
     public AppResponse updateSort(SortInfo sortInfo){
         return sortService.updateSort(sortInfo);
+    }
+
+    /**
+     * 删除分类
+     * @param sortId
+     * @return
+     */
+    @PostMapping("deleteSort")
+    public AppResponse deleteSort(String sortId){
+        return sortService.deleteSort(sortId);
+    }
+
+    /**
+     * 分类详情
+     * @param sortId
+     * @return
+     */
+    @RequestMapping(value = "querySort")
+    public AppResponse querySort(String sortId){
+        return sortService.querySort(sortId);
     }
 }

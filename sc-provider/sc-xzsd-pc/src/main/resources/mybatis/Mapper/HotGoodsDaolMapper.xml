@@ -6,11 +6,13 @@
         insert into t_hot_goods
             (h_id,
              c_id,
-             sort)
+             sort,
+             version)
          values
             (#{hId},
              #{cId},
-             #{sort})
+             #{sort},
+             0)
     </insert>
 
     <!--更新热门商品-->
@@ -18,7 +20,8 @@
         update t_hot_goods
         set
             c_id=#{cId},
-            sort=#{sort}
+            sort=#{sort},
+            version = version + 1
         where h_id=#{hId}
     </update>
     <!--删除热门商品-->
@@ -38,7 +41,8 @@
             a.c_id,
             c_name,
             price,
-            introduce
+            introduce,
+            version
         from t_hot_goods a LEFT JOIN t_commodity b ON a.c_id=b.c_id
         where a.is_deleted=0
         <if test="cName != null and cName != ''">
@@ -58,6 +62,7 @@
         where c_id=#{cId}
     </select>
 
+    <!--展示数量修改-->
 
 
 

@@ -21,7 +21,10 @@ public class SortInfo implements Serializable {
      * 子节点
      */
     private List<SortInfo> treeNode;
-
+    /**
+     * 备注
+     */
+    private String remark;
     public Integer getSortId() {
         return sortId;
     }
@@ -52,5 +55,13 @@ public class SortInfo implements Serializable {
 
     public void setTreeNode(List<SortInfo> treeNode) {
         this.treeNode = treeNode;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 }
