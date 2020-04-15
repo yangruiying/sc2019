@@ -5,6 +5,7 @@ import com.neusoft.core.restful.AppResponse;
 import com.neusoft.util.StringUtil;
 import com.xzsd.pc.goods.dao.GoodsDao;
 import com.xzsd.pc.goods.entity.GoodsInfo;
+import com.xzsd.pc.sort.entity.SortInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
@@ -104,6 +105,25 @@ public class GoodsService {
             }
 
         int count = goodsDao.updateGoods(goodsInfo);
+        if (count == 0){
+            return AppResponse.bizError("更新失败");
+        }
+        return AppResponse.success("更新成功");
+    }
+
+    /**
+     * 商品分类下拉框
+     * @param sortId
+     * @return
+     */
+    public AppResponse listGoodsClassify(String sortId){
+        List<SortInfo> sortList = goodsDao.listGoodsClassify(sortId);
+        return AppResponse.success("查询成功",sortList);
+    }
+
+    public AppResponse goodsState(String cId,int state){
+        List<String> idList = Arrays.asList(cId.split(","));
+        int count = goodsDao.goodsState(idList,state);
         if (count == 0){
             return AppResponse.bizError("更新失败");
         }

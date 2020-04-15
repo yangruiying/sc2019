@@ -53,4 +53,24 @@ public class MenuController {
     public AppResponse saveMenu(MenuInfo menuInfo){
         return menuService.saveMenu(menuInfo);
     }
+
+    /**
+     * 根据角色查菜单
+     * @param role
+     * @return
+     */
+    @RequestMapping(value = "listMenuHome")
+    public AppResponse listMenuHome(int role){
+        return menuService.listMenuHome(role);
+    }
+
+    /**
+     * 查找菜单详情
+     * @param menuId
+     * @return
+     */
+    @RequestMapping(value = "queryMenu")
+    public AppResponse queryMenu(String menuId){
+        return menuService.queryMenu(menuId);
+    }
 }

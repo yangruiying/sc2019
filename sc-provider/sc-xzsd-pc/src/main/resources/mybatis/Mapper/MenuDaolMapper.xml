@@ -14,6 +14,7 @@
             t_menu
         set menu_id = #{menuId},
             menu_name = #{menuName},
+            role = #{role},
             route = #{route},
             remark = #{remark},
             version = 0,
@@ -32,10 +33,28 @@
         set menu_name = #{menuName},
             version = #{version},
             remark = #{remark},
+            role = #{role},
             route = #{route},
             version = version +1
         where menu_id =#{menuId}
         and version = #{version}
     </update>
+    <!--根据角色查找菜单-->
+    <select id="listMenuHome" parameterType="int" resultType="java.lang.String">
+        select
+            menu_name
+        from t_menu
+        where role = #{role}
+    </select>
+    <!--查询菜单详情-->
+    <select id="queryMenu" parameterType="java.lang.String" resultType="com.xzsd.pc.menu.entity.MenuInfo">
+        select
+            menu_name,
+            route,
+            remark,
+            role
+        from t_menu
+        where menu_id = #{menuId}
+    </select>
 
 </mapper>

@@ -21,6 +21,7 @@ public class MenuInfo {
      * 版本
      */
     private String version;
+    private int role;
     public String getMenuId() {
         return menuId;
     }
@@ -59,5 +60,13 @@ public class MenuInfo {
 
     public void setVersion(String version) {
         this.version = version;
+    }
+
+    public int getRole() {
+        return role;
+    }
+
+    public void setRole(int role) {
+        this.role = role;
     }
 }

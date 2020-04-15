@@ -49,7 +49,7 @@
              #{createBy},
              #{gmtModified},
              #{lastModifiedBy},
-             #{version})
+             0)
     </insert>
 
     <!--获取用户信息-->
@@ -63,7 +63,8 @@
             phone,
             email,
             id_card idCard,
-            role
+            role,
+            version
         from t_user
         where user_id=#{userId}
 
@@ -81,8 +82,10 @@
             phone = #{phone},
             email = #{email},
             id_card = #{idCard},
-            role = #{role}
+            role = #{role},
+            version = version + 1
         where user_id=#{userId}
+        and version = #{version}
     </update>
 
     <!--删除用户信息-->
@@ -101,7 +104,14 @@
     <!--用户列表-->
     <select id="listUsersByPage" parameterType="java.lang.String" resultType="com.xzsd.pc.user.entity.UserInfo">
         select
-        *
+            account,
+            user_name,
+            role,
+            email,
+            id_card,
+            password userPassword,
+            user_code userId,
+            version
         from t_user a
         where a.is_deleted = 0
         <if test="userName != null and userName != ''">

@@ -2,6 +2,7 @@ package com.xzsd.pc.scroll.controller;
 
 
 import com.neusoft.core.restful.AppResponse;
+import com.xzsd.pc.goods.entity.GoodsInfo;
 import com.xzsd.pc.scroll.entity.ScrollInfo;
 import com.xzsd.pc.scroll.service.ScrollService;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -56,5 +57,24 @@ public class ScrollController {
         return scrollService.saveScroll(scrollInfo);
     }
 
+    /**
+     * 商品列表
+     * @param goodsInfo
+     * @return
+     */
+    @RequestMapping(value = "listGoods")
+    public AppResponse listGoods(GoodsInfo goodsInfo){
+        return scrollService.listGoods(goodsInfo);
+    }
 
+    /**
+     * 修改轮播图状态
+     * @param pId
+     * @param state
+     * @return
+     */
+    @PostMapping("stateScroll")
+    public AppResponse stateScroll(String pId,int state){
+        return scrollService.stateScroll(pId,state);
+    }
 }

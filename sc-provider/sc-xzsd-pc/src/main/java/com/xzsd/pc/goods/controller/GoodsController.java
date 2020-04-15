@@ -65,4 +65,20 @@ public class GoodsController {
     public AppResponse updateGoods(GoodsInfo goodsInfo){
         return goodsService.updateGoods(goodsInfo);
     }
+
+    @RequestMapping(value = "listGoodsClassify")
+    public AppResponse listGoodsClassify(String sortId){
+        return goodsService.listGoodsClassify(sortId);
+    }
+
+    /**
+     * 更新商品状态
+     * @param cId
+     * @param state
+     * @return
+     */
+    @PostMapping("goodsState")
+    public AppResponse goodsState(String cId,int state){
+        return goodsService.goodsState(cId,state);
+    }
 }

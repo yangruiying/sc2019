@@ -33,4 +33,18 @@ public interface MenuDao {
      * @return
      */
     int saveMenu(MenuInfo menuInfo);
+
+    /**
+     * 根据角色查菜单
+     * @param role
+     * @return
+     */
+    List<String> listMenuHome(int role);
+
+    /**
+     * 查找菜单详情
+     * @param menuId
+     * @return
+     */
+    MenuInfo queryMenu(String menuId);
 }

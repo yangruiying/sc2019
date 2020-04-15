@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.neusoft.core.restful.AppResponse;
 
 import com.neusoft.util.StringUtil;
+import com.xzsd.pc.goods.entity.GoodsInfo;
 import com.xzsd.pc.scroll.dao.ScrollDao;
 import com.xzsd.pc.scroll.entity.ScrollInfo;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,8 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.Arrays;
 import java.util.List;
+
+import static com.neusoft.core.page.PageUtils.getPageInfo;
 
 @Service
 public class ScrollService {
@@ -24,10 +27,8 @@ public class ScrollService {
      * @return
      */
     public AppResponse listScroll(ScrollInfo scrollInfo){
-        PageHelper.startPage(scrollInfo.getPageNum(),scrollInfo.getPageSize());
         List<ScrollInfo> scrolllist=scrollDao.listScroll(scrollInfo);
-        PageInfo<ScrollInfo> pageDate = new PageInfo<>(scrolllist);
-        return AppResponse.success("查询成功",pageDate);
+        return AppResponse.success("查询成功",getPageInfo(scrolllist));
     }
 
     /**
@@ -60,6 +61,31 @@ public class ScrollService {
         scrollInfo.setpId(StringUtil.getCommonCode(2));
         scrollDao.saveScroll(scrollInfo);
         return AppResponse.success("新增成功");
+    }
+
+    /**
+     * 查询商品
+     * @param goodsInfo
+     * @return
+     */
+    public AppResponse listGoods(GoodsInfo goodsInfo){
+        List<GoodsInfo> goodsList = scrollDao.listGoods(goodsInfo);
+        return AppResponse.success("查询成功",goodsList);
+    }
+
+    /**
+     * 修改轮播图状态
+     * @param pId
+     * @param state
+     * @return
+     */
+    public AppResponse stateScroll(String pId,int state){
+        List<String> idList = Arrays.asList(pId.split(","));
+        int count = scrollDao.stateScroll(idList,state);
+        if (count == 0){
+            return AppResponse.bizError("修改失败");
+        }
+        return AppResponse.success("修改成功");
     }
 
 

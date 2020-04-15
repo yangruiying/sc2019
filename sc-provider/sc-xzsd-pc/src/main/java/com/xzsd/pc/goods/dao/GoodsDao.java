@@ -1,6 +1,7 @@
 package com.xzsd.pc.goods.dao;
 
 import com.xzsd.pc.goods.entity.GoodsInfo;
+import com.xzsd.pc.sort.entity.SortInfo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -56,4 +57,19 @@ public interface GoodsDao {
      * @return
      */
     int countCid(String cId);
+
+    /**
+     * 商品分类下拉
+     * @param sortId
+     * @return
+     */
+    List<SortInfo> listGoodsClassify(String sortId);
+
+    /**
+     * 修改商品状态
+     * @param idList
+     * @param state
+     * @return
+     */
+    int goodsState(@Param("idList") List<String> idList,@Param("state") int state);
 }

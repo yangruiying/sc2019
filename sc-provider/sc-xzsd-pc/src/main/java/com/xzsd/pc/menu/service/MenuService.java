@@ -67,4 +67,24 @@ public class MenuService {
         }
         return AppResponse.success("新增成功");
     }
+
+    /**
+     * 根据角色查菜单
+     * @param role
+     * @return
+     */
+    public AppResponse listMenuHome(int role){
+        List<String> menuList = menuDao.listMenuHome(role);
+        return AppResponse.success("查询成功",menuList);
+    }
+
+    /**
+     * 查找菜单详情
+     * @param menuId
+     * @return
+     */
+    public AppResponse queryMenu(String menuId){
+        MenuInfo menuInfo = menuDao.queryMenu(menuId);
+        return AppResponse.success("查询成功",menuInfo);
+    }
 }
