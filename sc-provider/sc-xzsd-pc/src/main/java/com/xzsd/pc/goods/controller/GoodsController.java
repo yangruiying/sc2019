@@ -78,7 +78,7 @@ public class GoodsController {
      * @return
      */
     @PostMapping("goodsState")
-    public AppResponse goodsState(String cId,int state){
-        return goodsService.goodsState(cId,state);
+    public AppResponse goodsState(String cId,String version,int state){
+        return goodsService.goodsState(cId,version,state);
     }
 }

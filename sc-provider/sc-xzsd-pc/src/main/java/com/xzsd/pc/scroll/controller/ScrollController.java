@@ -74,7 +74,7 @@ public class ScrollController {
      * @return
      */
     @PostMapping("stateScroll")
-    public AppResponse stateScroll(String pId,int state){
-        return scrollService.stateScroll(pId,state);
+    public AppResponse stateScroll(String pId,String version,int state){
+        return scrollService.stateScroll(pId,version,state);
     }
 }

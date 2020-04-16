@@ -11,7 +11,7 @@ public class ScrollInfo {
     private int isDeleted;
     private int pageNum;
     private int pageSize;
-
+    private int version;
     public String getpId() {
         return pId;
     }
@@ -90,5 +90,13 @@ public class ScrollInfo {
 
     public void setPageSize(int pageSize) {
         this.pageSize = pageSize;
+    }
+
+    public int getVersion() {
+        return version;
+    }
+
+    public void setVersion(int version) {
+        this.version = version;
     }
 }

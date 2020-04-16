@@ -6,11 +6,13 @@ import com.neusoft.core.restful.AppResponse;
 
 import com.neusoft.util.StringUtil;
 import com.xzsd.pc.goods.entity.GoodsInfo;
+import com.xzsd.pc.order.entity.OrderInfo;
 import com.xzsd.pc.scroll.dao.ScrollDao;
 import com.xzsd.pc.scroll.entity.ScrollInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -79,9 +81,17 @@ public class ScrollService {
      * @param state
      * @return
      */
-    public AppResponse stateScroll(String pId,int state){
+    public AppResponse stateScroll(String pId,String version,int state){
         List<String> idList = Arrays.asList(pId.split(","));
-        int count = scrollDao.stateScroll(idList,state);
+        List<String> stateList = Arrays.asList(version.split(","));
+        List<ScrollInfo> scrollStateList = new ArrayList();
+        for(int i = 0 ; i < idList.size() ; i++){
+            ScrollInfo scrollInfo = new ScrollInfo();
+            scrollInfo.setpId(idList.get(i));
+            scrollInfo.setVersion(Integer.parseInt(stateList.get(i)));
+            scrollStateList.add(scrollInfo);
+        }
+        int count = scrollDao.stateScroll(scrollStateList,state);
         if (count == 0){
             return AppResponse.bizError("修改失败");
         }

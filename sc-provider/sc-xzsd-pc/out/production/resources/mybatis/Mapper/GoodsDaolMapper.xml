@@ -67,21 +67,21 @@
          version,
          is_deleted)
         values
-            (#{Cid},
+            (#{cId},
              #{isbn},
-             #{Cname},
+             #{cName},
              #{imagePath},
              #{publish},
-             #{1},
+             1,
              #{price},
              #{sell},
              #{num},
              #{firstClassifyId},
              #{secondClassifyId},
              #{advertising},
-             #{introduce}
-             #{inventory}
-             #{author}
+             #{introduce},
+             #{inventory},
+             #{author},
              0,
              0)
     </insert>
@@ -89,7 +89,7 @@
     <select id="queryGoods" parameterType="java.lang.String" resultType="com.xzsd.pc.goods.entity.GoodsInfo">
         SELECT
         a.c_id,
-        a.c_name Cname,
+        a.c_name cName,
         a.publish,
         a.state,
         a.price,
@@ -173,18 +173,16 @@
         where parent_id = #{sortId}
     </select>
 
-    <!--商品状态修改-->
-    <update id="goodsState" parameterType="com.xzsd.pc.goods.entity.GoodsInfo">
-        update
-            t_commodity
-        set
-            state = #{state},
-            version = version +1
-        where c_id in
-        <foreach collection="idList" item="cId" index="index" open="(" separator="," close=")">
-            #{cId}
+    <!--修改轮播图状态-->
+    <update id="goodsState" parameterType="java.util.List">
+        <foreach collection="listUpdate" item="item" index="index" open="" separator=";" close=";">
+            update t_commodity
+                set
+                state = #{state},
+                version = version + 1
+            where
+                order_id = #{item.orderId} and
+                version = #{item.version}
         </foreach>
     </update>
-
-
 </mapper>

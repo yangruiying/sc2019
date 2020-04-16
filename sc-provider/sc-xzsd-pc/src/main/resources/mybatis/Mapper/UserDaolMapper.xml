@@ -100,7 +100,7 @@
     <select id="listUsersByPage" parameterType="java.lang.String" resultType="com.xzsd.pc.user.entity.UserInfo">
         select
             account,
-            user_name,
+            user_name userName,
             role,
             email,
             sex,

@@ -96,7 +96,7 @@ public class UserService {
         List<String> listCode = Arrays.asList(userId.split(","));
         int count = userDao.deleteUser(listCode,userName);
         if(count == 0){
-            return AppResponse.bizError("删除失败");
+            return AppResponse.bizError("版本不对,删除失败");
         }
         return AppResponse.success("删除成功");
     }

@@ -9,6 +9,7 @@ import com.xzsd.pc.sort.entity.SortInfo;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import static com.neusoft.core.page.PageUtils.getPageInfo;
@@ -124,13 +125,22 @@ public class GoodsService {
     /**
      * 商品状态修改
      * @param cId
-     * @param state
+     * @param version
      * @return
      */
     @Transactional(rollbackFor = Exception.class)
-    public AppResponse goodsState(String cId,int state){
+    public AppResponse goodsState(String cId,String version,int state){
         List<String> idList = Arrays.asList(cId.split(","));
-        int count = goodsDao.goodsState(idList,state);
+        List<String> stateList = Arrays.asList(version.split(","));
+        List<GoodsInfo> goodsStateList = new ArrayList();
+        for(int i = 0 ; i < idList.size() ; i++){
+            GoodsInfo goodsInfo = new GoodsInfo();
+            goodsInfo.setcId(idList.get(i));
+            goodsInfo.setVersion(Integer.parseInt(stateList.get(i)));
+            goodsStateList.add(goodsInfo);
+        }
+        System.out.println();
+        int count = goodsDao.goodsState(goodsStateList,state);
         if (count == 0){
             return AppResponse.bizError("更新失败");
         }

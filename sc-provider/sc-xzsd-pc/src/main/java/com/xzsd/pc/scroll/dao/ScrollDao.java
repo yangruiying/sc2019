@@ -2,6 +2,7 @@ package com.xzsd.pc.scroll.dao;
 
 
 import com.xzsd.pc.goods.entity.GoodsInfo;
+import com.xzsd.pc.order.entity.OrderInfo;
 import com.xzsd.pc.scroll.entity.ScrollInfo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -27,10 +28,10 @@ public interface ScrollDao {
 
     /**
      * 修改轮播图状态
-     * @param idList
+     * @param listUpdate
      * @param state
      * @return
      */
-    int stateScroll(@Param("idList") List<String> idList,@Param("state") int state);
+    int stateScroll(@Param("listUpdate") List<ScrollInfo> listUpdate, @Param("state") int state);
 
 }

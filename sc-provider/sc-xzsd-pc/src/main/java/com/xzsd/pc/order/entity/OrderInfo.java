@@ -21,7 +21,7 @@ public class OrderInfo {
     private float order_sum;
     private float price;
     private float sell;
-
+    private int version;
     public String getOrderId() {
         return orderId;
     }
@@ -152,5 +152,11 @@ public class OrderInfo {
         this.sell = sell;
     }
 
+    public int getVersion() {
+        return version;
+    }
 
+    public void setVersion(int version) {
+        this.version = version;
+    }
 }

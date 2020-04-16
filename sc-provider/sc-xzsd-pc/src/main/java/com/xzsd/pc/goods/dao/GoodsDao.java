@@ -67,9 +67,10 @@ public interface GoodsDao {
 
     /**
      * 修改商品状态
-     * @param idList
+     * @param listUpdate
      * @param state
      * @return
      */
-    int goodsState(@Param("idList") List<String> idList,@Param("state") int state);
+//    int goodsState(@Param("idList") List<String> idList,@Param("state") int state);
+    int goodsState(@Param("listUpdate") List<GoodsInfo> listUpdate,@Param("state") int state);
 }

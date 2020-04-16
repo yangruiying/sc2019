@@ -57,11 +57,17 @@
     LEFT JOIN t_commodity b ON a.c_id = b.c_id
     WHERE order_id=#{orderId}
    </select>
-    
+
     <!--订单状态修改-->
-    <update id="updateOrder" parameterType="com.xzsd.pc.order.entity.OrderInfo">
-        update t_order
-        set order_state=#{orderState}
-        where order_id=#{orderId}
+    <update id="updateOrder" parameterType="java.util.List">
+        <foreach collection="listUpdate" item="item" index="index" open="" separator=";" close=";">
+            update t_order
+            set
+            order_state = #{state},
+            version = version + 1
+            where
+            order_id = #{item.orderId} and
+            version = #{item.version}
+        </foreach>
     </update>
 </mapper>

@@ -37,11 +37,13 @@ public class OrderController {
 
     /**
      * 更新订单
-     * @param orderInfo
+     * @param orderId
+     * @param version
+     * @param state
      * @return
      */
     @PostMapping("updateOrder")
-    public AppResponse updateOrder(OrderInfo orderInfo){
-        return orderService.updateOrder(orderInfo);
+    public AppResponse updateOrder(String orderId,String version,int state){
+        return orderService.updateOrder(orderId,version,state);
     }
 }
