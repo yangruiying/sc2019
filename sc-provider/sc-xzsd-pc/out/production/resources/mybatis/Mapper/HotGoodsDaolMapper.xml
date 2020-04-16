@@ -23,6 +23,7 @@
             sort=#{sort},
             version = version + 1
         where h_id=#{hId}
+        and version = #{version}
     </update>
     <!--删除热门商品-->
     <update id="deleteHotGoods" parameterType="com.xzsd.pc.hotGoods.entity.HotGoodsInfo">
@@ -42,6 +43,7 @@
             c_name,
             price,
             introduce,
+            h_id,
             version
         from t_hot_goods a LEFT JOIN t_commodity b ON a.c_id=b.c_id
         where a.is_deleted=0

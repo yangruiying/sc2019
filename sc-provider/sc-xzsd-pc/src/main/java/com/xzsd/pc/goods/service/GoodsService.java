@@ -120,6 +120,13 @@ public class GoodsService {
         List<SortInfo> sortList = goodsDao.listGoodsClassify(sortId);
         return AppResponse.success("查询成功",sortList);
     }
+
+    /**
+     * 商品状态修改
+     * @param cId
+     * @param state
+     * @return
+     */
     @Transactional(rollbackFor = Exception.class)
     public AppResponse goodsState(String cId,int state){
         List<String> idList = Arrays.asList(cId.split(","));
@@ -129,4 +136,5 @@ public class GoodsService {
         }
         return AppResponse.success("更新成功");
     }
+
 }

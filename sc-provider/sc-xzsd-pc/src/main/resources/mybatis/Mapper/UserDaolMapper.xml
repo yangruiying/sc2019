@@ -15,11 +15,9 @@
         insert into t_user
         (user_code,
          user_name,
-         image_path,
          account,
          password,
          image_path,
-         name,
          sex,
          phone,
          email,
@@ -34,11 +32,9 @@
         values
             (#{userId},
              #{userName},
-             #{imagePath},
              #{account},
              #{userPassword},
              #{imagePath},
-             #{name},
              #{sex},
              #{phone},
              #{email},
@@ -55,9 +51,9 @@
     <!--获取用户信息-->
     <select id="getUserByUserCode" parameterType="java.lang.String" resultType="com.xzsd.pc.user.entity.UserInfo">
         select
-            user_id userId,
+            user_code userId,
             user_name userName,
-            user_password userPassword,
+            password userPassword,
             name,
             sex,
             phone,
@@ -66,15 +62,14 @@
             role,
             version
         from t_user
-        where user_id=#{userId}
-
+        where user_code=#{userId}
     </select>
     <!--更新用户信息-->
     <update id="updateUser" parameterType="com.xzsd.pc.user.entity.UserInfo">
         update t_user
         set
             user_name = #{userName},
-            user_password = #{userPassword},
+            password = #{userPassword},
             image_path = #{imagePath},
             account = #{account},
             name = #{name},
@@ -84,7 +79,7 @@
             id_card = #{idCard},
             role = #{role},
             version = version + 1
-        where user_id=#{userId}
+        where user_code=#{userId}
         and version = #{version}
     </update>
 
@@ -94,7 +89,7 @@
         set
             is_deleted=1,
             user_name = #{userName}
-        where user_id in
+        where user_code in
         <foreach  item="item" index="index" collection="listCode" open="(" separator="," close=")">
             #{item}
         </foreach>
@@ -108,6 +103,8 @@
             user_name,
             role,
             email,
+            sex,
+            phone,
             id_card,
             password userPassword,
             user_code userId,
@@ -118,7 +115,7 @@
             and a.user_name like concat('%', #{userName}, '%')
         </if>
         <if test="userId != null and userId != ''">
-            and a.user_id like concat('%', #{userId}, '%')
+            and a.user_code like concat('%', #{userId}, '%')
         </if>
         <if test="role != null and role != ''">
             and a.role like concat('%', #{role}, '%')

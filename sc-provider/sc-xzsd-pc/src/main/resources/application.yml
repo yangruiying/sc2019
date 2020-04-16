@@ -60,6 +60,7 @@ mybatis:
 sc:
   cloud:
     dev: true
+#    dubug: true
     task:
       core-pool-size: 20
       max-pool-size: 50
