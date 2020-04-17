@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 @RestController
-@RequestMapping("/TopOfColumn")
+@RequestMapping("/topOfColumn")
 public class TopOfColumnController {
     @Resource
     private TopOfColumnService topOfColumnService;

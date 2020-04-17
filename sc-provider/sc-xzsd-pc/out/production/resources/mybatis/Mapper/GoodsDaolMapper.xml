@@ -65,7 +65,8 @@
          inventory,
          author,
          version,
-         is_deleted)
+         is_deleted,
+         create_by)
         values
             (#{cId},
              #{isbn},
@@ -83,7 +84,8 @@
              #{inventory},
              #{author},
              0,
-             0)
+             0,
+             #{createBy})
     </insert>
     <!--查找商品-->
     <select id="queryGoods" parameterType="java.lang.String" resultType="com.xzsd.pc.goods.entity.GoodsInfo">

@@ -41,9 +41,9 @@
              #{idCard},
              #{role},
              0,
-             #{gmtCreate},
+             now(),
              #{createBy},
-             #{gmtModified},
+             now(),
              #{lastModifiedBy},
              0)
     </insert>
@@ -57,6 +57,7 @@
             name,
             sex,
             phone,
+            account,
             email,
             id_card idCard,
             role,
@@ -120,8 +121,13 @@
         <if test="role != null and role != ''">
             and a.role like concat('%', #{role}, '%')
         </if>
+        <if test="account != null and account != ''">
+            and a.account like concat('%', #{account}, '%')
+        </if>
         order by gmt_create desc
     </select>
+
+    <!--获取用户权限-->
 
 
 

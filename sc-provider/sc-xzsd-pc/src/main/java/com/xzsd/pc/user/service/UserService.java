@@ -66,10 +66,13 @@ public class UserService {
      */
     @Transactional(rollbackFor = Exception.class)
     public AppResponse updateUser(UserInfo userInfo){
-        int countAcc = userDao.countAcc(userInfo.getAccount());
-        //判断账号重复
-        if(countAcc != 0){
-            return AppResponse.bizError("账号已存在，请重新输入");
+        UserInfo info = userDao.getUserByUserCode(userInfo.getUserId());
+        if (!info.getAccount().equals(userInfo.getAccount())){
+            int countAcc = userDao.countAcc(userInfo.getAccount());
+            //判断账号重复
+            if(countAcc != 0){
+                return AppResponse.bizError("账号已存在，请重新输入");
+            }
         }
         //上传图片
 //        try {
@@ -78,9 +81,8 @@ public class UserService {
 //            return AppResponse.bizError("找不到图片路径");
 //        }
         int count = userDao.updateUser(userInfo);
-        //判断账号是否存在
         if(count==0){
-            return AppResponse.bizError("修改失败");
+            return AppResponse.bizError("版本错误 修改失败");
         }
         return AppResponse.success("修改成功");
     }

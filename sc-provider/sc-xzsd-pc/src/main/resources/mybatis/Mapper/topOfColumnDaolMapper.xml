@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xzsd.pc.topOfColumn.dao.TopOfColumnDao">
     <!--客户列表-->
-    <select id="getTopOfColumn" parameterType="int" resultType="com.xzsd.pc.topOfColumn.entity.TopOfColumnInfo">
+    <select id="getTopOfColumn" parameterType="java.lang.String" resultType="com.xzsd.pc.topOfColumn.entity.TopOfColumnInfo">
         select
             user_name,
             image_path,
             user_code userId,
             role
         from t_user
-        where userId = #{userId}
+        where user_code = #{userId}
     </select>
 </mapper>

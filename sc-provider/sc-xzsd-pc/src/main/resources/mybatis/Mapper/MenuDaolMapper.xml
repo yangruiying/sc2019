@@ -52,7 +52,8 @@
             menu_name,
             route,
             remark,
-            role
+            role,
+            version
         from t_menu
         where menu_id = #{menuId}
     </select>

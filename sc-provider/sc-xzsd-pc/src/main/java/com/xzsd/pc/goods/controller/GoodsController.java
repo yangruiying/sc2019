@@ -1,6 +1,7 @@
 package com.xzsd.pc.goods.controller;
 
 import com.neusoft.core.restful.AppResponse;
+import com.neusoft.security.client.utils.SecurityUtils;
 import com.xzsd.pc.goods.entity.GoodsInfo;
 import com.xzsd.pc.goods.service.GoodsService;
 
@@ -33,6 +34,8 @@ public class GoodsController {
      */
     @PostMapping("saveGoods")
     public AppResponse saveGoods(GoodsInfo goodsInfo){
+        String id = SecurityUtils.getCurrentUserId();;
+        goodsInfo.setCreateBy(id);
         return goodsService.saveGoods(goodsInfo);
     }
 

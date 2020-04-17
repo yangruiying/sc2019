@@ -33,7 +33,7 @@
     <update id="stateGoods" parameterType="com.xzsd.pc.scroll.entity.ScrollInfo">
         update
             t_scroll
-        set state=#{state}
+        set state=#{state}2
         where p_id=#{pId}
     </update>
 

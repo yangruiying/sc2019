@@ -33,7 +33,7 @@
     <update id="stateGoods" parameterType="com.xzsd.pc.scroll.entity.ScrollInfo">
         update
             t_scroll
-        set state=#{state}
+        set state=#{state}2
         where p_id=#{pId}
     </update>
 
@@ -77,17 +77,18 @@
             and c_id = #{cId}
         </if>
     </select>
+
     <!--修改轮播图状态-->
-    <update id="stateScroll" parameterType="com.xzsd.pc.scroll.entity.ScrollInfo">
-        update t_scroll
-        set
+    <update id="stateScroll" parameterType="java.util.List">
+        <foreach collection="listUpdate" item="item" index="index" open="" separator=";" close=";">
+            update t_scroll
+            set
             state = #{state},
-            version = version +1
-        where p_id in
-        <foreach collection="idList" item="pId" index="index" open="(" separator="," close=")">
-            #{pId}
+            version = version + 1
+            where
+            p_id = #{item.pId} and
+            version = #{item.version}
         </foreach>
     </update>
-
 
 </mapper>

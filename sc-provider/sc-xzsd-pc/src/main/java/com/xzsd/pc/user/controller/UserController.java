@@ -2,6 +2,7 @@ package com.xzsd.pc.user.controller;
 
 
 import com.neusoft.core.restful.AppResponse;
+import com.neusoft.security.client.utils.SecurityUtils;
 import com.neusoft.util.AuthUtils;
 import com.xzsd.pc.user.entity.UserInfo;
 import com.xzsd.pc.user.service.UserService;
@@ -27,7 +28,7 @@ public class UserController {
     public AppResponse saveUser(UserInfo userInfo){
         try {
             //获取用户id
-            String userId = AuthUtils.getCurrentUserId();
+            String userId = SecurityUtils.getCurrentUserId();
             userInfo.setCreateBy(userId);
             AppResponse appResponse = userService.saveUser(userInfo);
             return appResponse;

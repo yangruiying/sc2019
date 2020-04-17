@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xzsd.app.register.dao.RegisterDao">
+    <insert id="clientRegister" parameterType="com.xzsd.app.register.entity.RegisterInfo">
+        insert into
+            t_user
+                (user_code,
+                 account,
+                 user_name,
+                 sex,
+                 phone,
+                 email,
+                 id_card,
+                 password,
+                 image_path)
+            values
+                (#{clientId},
+                 #{account},
+                 #{userName},
+                 #{sex},
+                 #{phone},
+                 #{email},
+                 #{idCard},
+                 #{password},
+                 #{imagePath});
+        insert into
+            t_client
+                (client_id,
+                 invited_code)
+    </insert>
+</mapper>
