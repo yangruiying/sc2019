@@ -18,7 +18,7 @@ public class OrderInfo {
     private String cId;
     private String cName;
     private int num;
-    private float order_sum;
+    private float orderSum;
     private float price;
     private float sell;
     private int version;
@@ -128,12 +128,12 @@ public class OrderInfo {
         this.num = num;
     }
 
-    public float getOrder_sum() {
-        return order_sum;
+    public float getOrderSum() {
+        return orderSum;
     }
 
-    public void setOrder_sum(float order_sum) {
-        this.order_sum = order_sum;
+    public void setOrderSum(float orderSum) {
+        this.orderSum = orderSum;
     }
 
     public float getPrice() {

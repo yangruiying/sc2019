@@ -35,10 +35,10 @@
     </select>
 
     <resultMap id="BaseTreeResultMap" type="com.xzsd.app.clientGoods.entity.firstSortInfo">
-        <result column="sort_id" property="sortId"/>
-        <result column="name" property="name"/>
-        <collection column="sort_id" property="goodsList" javaType="java.util.ArrayList"
-                    ofType="com.xzsd.pc.sort.entity.SortInfo" select="getNextNodeTree"/>
+    <result column="sort_id" property="sortId"/>
+    <result column="name" property="name"/>
+    <collection column="sort_id" property="goodsList" javaType="java.util.ArrayList"
+                ofType="com.xzsd.pc.sort.entity.SortInfo" select="getNextNodeTree"/>
     </resultMap>
 
     <resultMap id="NextTreeResultMap" type="com.xzsd.app.clientGoods.entity.goodsListInfo">

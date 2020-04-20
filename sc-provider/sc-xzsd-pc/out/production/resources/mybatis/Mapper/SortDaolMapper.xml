@@ -28,6 +28,7 @@
         name
         FROM t_sort
         WHERE parent_id = #{sortId}
+        and is_deleted = 0
     </select>
 
     <select id="getNodeTree" resultMap="BaseTreeResultMap">
@@ -38,9 +39,8 @@
         name
         FROM t_sort
         WHERE parent_id = 0
+        and is_deleted = 0
     </select>
-
-
 
     <!--新增分类-->
     <insert id="saveSort" parameterType="com.xzsd.pc.sort.entity.SortInfo">
@@ -61,7 +61,8 @@
         update t_sort
         set
             name=#{name},
-            parent_id=#{parentId}
+            parent_id=#{parentId},
+            remark = #{remark}
         where sort_id=#{sortId}
     </update>
     
@@ -78,6 +79,7 @@
             count(*)
         from t_sort
         where parent_id = #{sortId}
+        and is_deleted = 0
     </select>
 
     <!--分类详情-->

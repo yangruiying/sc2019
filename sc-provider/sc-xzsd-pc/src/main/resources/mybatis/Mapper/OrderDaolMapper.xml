@@ -17,7 +17,7 @@
 		    t_order a
 		    LEFT JOIN t_commodity b ON a.c_id = b.c_id
 	    )
-    LEFT JOIN t_user d ON a.user_id = d.user_id
+    LEFT JOIN t_user d ON a.user_id = d.user_code
     WHERE 1=1
     <if test="userName!=null and userName!=''">
         AND user_name LIKE concat ('%',#{userName},'%')
@@ -37,9 +37,13 @@
     <if test="end!=null and end!=''">
         AND affirm_time &lt;= #{end}
     </if>
-    GROUP BY
-	    a.user_id,
-	    a.order_id
+        GROUP BY
+        a.user_id,
+        a.order_id,
+        a.order_state,
+        a.shop_id,
+        a.affirm_time,
+        a.version
     </select>
 
     <!--订单详情查询-->

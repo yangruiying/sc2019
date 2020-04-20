@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xzsd.app.clientOrder.dao.ClientOrderDao">
+
+    <resultMap id="BaseTreeResultMap" type="com.xzsd.app.clientGoods.entity.firstSortInfo">
+        <result column="order_id" property="orderId"/>
+        <result column="order_state" property="orderState"/>
+        <collection column="sort_id" property="goodsList" javaType="java.util.ArrayList"
+                    ofType="com.xzsd.pc.sort.entity.SortInfo" select="getNextNodeTree"/>
+    </resultMap>
+
+    <resultMap id="NextTreeResultMap" type="com.xzsd.app.clientGoods.entity.goodsListInfo">
+        <result column="c_id" property="cId"/>
+        <result column="c_name" property="cName"/>
+        <result column="image_path" property="imagePath"/>
+        <result column="sell" property="sell"/>
+    </resultMap>
+    <insert id="addOrder" parameterType="java.util.List">
+        <foreach collection="orderList" index="index" item="item" open="" separator=";" close="">
+            insert into
+                t_order
+                (order_id,
+                 c_id,
+                 num,
+                 shop_id)
+            values
+                (#{item.orderId},
+                 #{item.cId},
+                 #{item.goodsCount},
+                 #{item.shopId})
+        </foreach>
+    </insert>
+    
+    <!--查询列表-->
+    <select id="listOrderByPage" parameterType="java.lang.String" resultMap="BaseTreeResultMap">
+        SELECT
+	    order_id orderId,
+	    sum(price * a.num) orderAllCost,
+	    sum(a.num) orderAllGoodsCount,
+	    order_state orderState,
+	    a.version
+    FROM
+	    (
+		    t_order a
+		    LEFT JOIN t_commodity b ON a.c_id = b.c_id
+	    )
+    LEFT JOIN t_user d ON a.user_id = d.user_code
+    WHERE orderState=#{orderState}
+    GROUP BY
+	        a.user_id,
+	        a.order_id,
+			a.order_state,
+			a.shop_id,
+			a.affirm_time,
+			a.version
+    </select>
+</mapper>
