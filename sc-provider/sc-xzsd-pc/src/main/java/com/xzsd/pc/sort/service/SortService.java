@@ -3,6 +3,7 @@ package com.xzsd.pc.sort.service;
 
 import com.neusoft.core.restful.AppResponse;
 
+import com.neusoft.util.StringUtil;
 import com.xzsd.pc.sort.dao.SortDao;
 import com.xzsd.pc.sort.entity.SortInfo;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,8 @@ public class SortService {
      */
     @Transactional(rollbackFor = Exception.class)
     public AppResponse saveSort(SortInfo sortInfo){
+        String sortId = StringUtil.getCommonCode(2);
+        sortInfo.setSortId(sortId);
         sortDao.saveSort(sortInfo);
         return AppResponse.success("新增成功");
     }
@@ -57,11 +60,11 @@ public class SortService {
         int countSort = sortDao.countSort(sortId);
         //查询下级分类
         if (countSort != 0){
-            return AppResponse.bizError("有下级分类,删除失败");
+            return AppResponse.notFound("有下级分类,删除失败");
         }
         int count = sortDao.deleteSort(sortId);
         if (count == 0){
-            return AppResponse.bizError("删除失败");
+            return AppResponse.versionError("版本错误,删除失败");
         }
         return AppResponse.success("删除成功");
     }

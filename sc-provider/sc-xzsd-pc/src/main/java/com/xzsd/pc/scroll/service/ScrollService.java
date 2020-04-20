@@ -10,6 +10,7 @@ import com.xzsd.pc.order.entity.OrderInfo;
 import com.xzsd.pc.scroll.dao.ScrollDao;
 import com.xzsd.pc.scroll.entity.ScrollInfo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -38,6 +39,7 @@ public class ScrollService {
      * @param Pid
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public AppResponse deleteScroll(String Pid){
         List<String> scrollList = Arrays.asList(Pid.split(","));
         scrollDao.deleteScroll(scrollList);
@@ -49,6 +51,7 @@ public class ScrollService {
      * @param scrollInfo
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public AppResponse stateGoods(ScrollInfo scrollInfo){
         scrollDao.stateGoods(scrollInfo);
         return AppResponse.success("修改成功");
@@ -59,6 +62,7 @@ public class ScrollService {
      * @param scrollInfo
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public AppResponse saveScroll(ScrollInfo scrollInfo){
         scrollInfo.setpId(StringUtil.getCommonCode(2));
         scrollDao.saveScroll(scrollInfo);
@@ -81,6 +85,7 @@ public class ScrollService {
      * @param state
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public AppResponse stateScroll(String pId,String version,int state){
         List<String> idList = Arrays.asList(pId.split(","));
         List<String> stateList = Arrays.asList(version.split(","));
@@ -93,7 +98,7 @@ public class ScrollService {
         }
         int count = scrollDao.stateScroll(scrollStateList,state);
         if (count == 0){
-            return AppResponse.bizError("修改失败");
+            return AppResponse.versionError("版本错误,修改失败");
         }
         return AppResponse.success("修改成功");
     }

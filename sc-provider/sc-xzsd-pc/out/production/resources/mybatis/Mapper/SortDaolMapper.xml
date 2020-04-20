@@ -3,35 +3,39 @@
 <mapper namespace="com.xzsd.pc.sort.dao.SortDao">
 
     <resultMap id="BaseTreeResultMap" type="com.xzsd.pc.sort.entity.SortInfo">
-        <result column="sort_id" property="sortId"/>
         <result column="parent_id" property="parentId"/>
+        <result column="sort_id" property="sortId"/>
+        <result column="remark" property="remark"/>
         <result column="name" property="name"/>
-<!--        <result column="dept_id" property="deptId"/>-->
-<!--        <result column="order_num" property="orderNum"/>-->
-        <collection column="sort_id" property="treeNode" javaType="java.util.ArrayList"
+        <collection column="sort_id" property="secondSort" javaType="java.util.ArrayList"
                     ofType="com.xzsd.pc.sort.entity.SortInfo" select="getNextNodeTree"/>
     </resultMap>
 
     <resultMap id="NextTreeResultMap" type="com.xzsd.pc.sort.entity.SortInfo">
-        <result column="sort_id" property="sortId"/>
         <result column="parent_id" property="parentId"/>
+        <result column="sort_id" property="sortId"/>
+        <result column="remark" property="remark"/>
         <result column="name" property="name"/>
-<!--        <result column="dept_id" property="deptId"/>-->
-<!--        <result column="order_num" property="orderNum"/>-->
-        <collection column="sort_id" property="treeNode" javaType="java.util.ArrayList"
-                    ofType="com.xzsd.pc.sort.entity.SortInfo" select="getNextNodeTree"/>
+<!--        <collection column="sort_id" property="secondSort" javaType="java.util.ArrayList"-->
+<!--                    ofType="com.xzsd.pc.sort.entity.SortInfo" select="getNextNodeTree"/>-->
     </resultMap>
     <!--分类查询-->
     <select id="getNextNodeTree" resultMap="NextTreeResultMap">
         SELECT
-        *
+        sort_id,
+        parent_id,
+        remark,
+        name
         FROM t_sort
-        WHERE parent_id = #{parentId}
+        WHERE parent_id = #{sortId}
     </select>
 
     <select id="getNodeTree" resultMap="BaseTreeResultMap">
         SELECT
-        *
+        sort_id,
+        parent_id,
+        remark,
+        name
         FROM t_sort
         WHERE parent_id = 0
     </select>

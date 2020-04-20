@@ -29,12 +29,12 @@ public class ShopService {
         int countInvite = shopDao.countInvite(shopInfo);
         //判断营业执照是否存在
         if(countLicense != 0){
-            return AppResponse.bizError("营业执照已存在");
+            return AppResponse.notFound("营业执照已存在");
         }
 
         //判断邀请码是否存在
         if (countInvite != 0){
-            return AppResponse.bizError("邀请码已存在");
+            return AppResponse.notFound("邀请码已存在");
         }
         shopInfo.setShopId(StringUtil.getCommonCode(2));
         int count = shopDao.saveShop(shopInfo);
@@ -73,7 +73,7 @@ public class ShopService {
         int countShop = shopDao.countShop(shopInfo);
         //判断编号是否存在
         if (countShop == 0){
-            return AppResponse.bizError("编号不存在,请重新输入");
+            return AppResponse.notFound("编号不存在,请重新输入");
         }
         ShopInfo shopInfo1 = shopDao.queryShop(shopInfo.getShopId());
         //判断是否修改营业执照
@@ -81,7 +81,7 @@ public class ShopService {
             int countLicense = shopDao.countLicense(shopInfo);
             //判断营业执照是否存在
             if(countLicense != 0){
-                return AppResponse.bizError("营业执照已存在");
+                return AppResponse.notFound("营业执照已存在");
             }
         }
         //判断是否修改邀请码
@@ -89,7 +89,7 @@ public class ShopService {
             int countInvite = shopDao.countInvite(shopInfo);
             //判断邀请码是否存在
             if (countInvite != 0){
-                return AppResponse.bizError("邀请码已存在");
+                return AppResponse.notFound("邀请码已存在");
             }
         }
         int count = shopDao.updateShop(shopInfo);
@@ -109,7 +109,7 @@ public class ShopService {
         List<String> shopList = Arrays.asList(shop_id.split(","));
         int count = shopDao.deleteShop(shopList);
         if(count == 0){
-            return AppResponse.bizError("删除失败");
+            return AppResponse.versionError("版本错误,删除失败");
         }
         return AppResponse.success("删除成功");
     }

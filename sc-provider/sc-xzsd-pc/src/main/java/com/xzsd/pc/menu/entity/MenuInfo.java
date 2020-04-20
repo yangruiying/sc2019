@@ -22,6 +22,8 @@ public class MenuInfo {
      */
     private String version;
     private int role;
+    private String createBy;
+    private String lastModifiedBy;
     public String getMenuId() {
         return menuId;
     }
@@ -68,5 +70,21 @@ public class MenuInfo {
 
     public void setRole(int role) {
         this.role = role;
+    }
+
+    public String getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy;
+    }
+
+    public String getLastModifiedBy() {
+        return lastModifiedBy;
+    }
+
+    public void setLastModifiedBy(String lastModifiedBy) {
+        this.lastModifiedBy = lastModifiedBy;
     }
 }

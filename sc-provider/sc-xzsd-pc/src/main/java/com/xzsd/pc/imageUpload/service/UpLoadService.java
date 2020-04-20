@@ -20,6 +20,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.Date;
 @Service
 public class UpLoadService {
@@ -31,10 +32,10 @@ public class UpLoadService {
         // 3 生成cos客户端
         COSClient cosclient = new COSClient(cred, clientConfig);
         // 存储桶bucket名需包含appid
-        String bucketName = "demo-1301643402";
+        String bucketName = "xzsd-1301643402";
         // 指定要上传到 COS 上对象键
         // 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg` 中，对象键为 doc1/pic1.jpg, 详情参考 [对象键](https://cloud.tencent.com/document/product/436/13324)
-        String key = StringUtil.getCommonCode(2);
+        String key = StringUtil.getCommonCode(2)+".jpg";
         File localFile = null;
         try {
             localFile = multipartFileToFile(imageFile);
@@ -52,7 +53,8 @@ public class UpLoadService {
             System.out.println("图片在COS服务器上的url:"+url);
             // putobjectResult会返回文件的etag
             String etag = putObjectResult.getETag();
-            return AppResponse.success("图片上传成功",url.toString());
+            String path = Arrays.asList(url.toString().split("\\?")).get(0);
+            return AppResponse.success("图片上传成功",path);
         } catch (CosServiceException e) {
             e.printStackTrace();
         } catch (CosClientException e) {

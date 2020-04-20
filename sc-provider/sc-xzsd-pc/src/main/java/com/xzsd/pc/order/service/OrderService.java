@@ -5,6 +5,7 @@ import com.xzsd.pc.goods.entity.GoodsInfo;
 import com.xzsd.pc.order.dao.OrderDao;
 import com.xzsd.pc.order.entity.OrderInfo;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -43,6 +44,7 @@ public class OrderService {
      * @param state
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public AppResponse updateOrder(String orderId,String version,int state){
         List<String> idList = Arrays.asList(orderId.split(","));
         List<String> stateList = Arrays.asList(version.split(","));
@@ -55,7 +57,7 @@ public class OrderService {
         }
         int count = orderDao.updateOrder(orderStateList,state);
         if (count == 0){
-            return AppResponse.bizError("更新失败");
+            return AppResponse.versionError("版本错误,更新失败");
         }
         return AppResponse.success("更新成功");
     }

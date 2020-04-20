@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xzsd.app.register.dao.RegisterDao">
+    <!--用户注册-->
     <insert id="clientRegister" parameterType="com.xzsd.app.register.entity.RegisterInfo">
         insert into
             t_user
@@ -26,6 +27,18 @@
         insert into
             t_client
                 (client_id,
-                 invited_code)
+                 invite_code)
+            values
+                (#{clientId},
+                 #{inviteCode})
     </insert>
+
+    <!--检查账号重复-->
+    <select id="countAcc" parameterType="java.lang.String" resultType="int">
+        select
+            count(*)
+        from
+            t_user
+        where account = #{account}
+    </select>
 </mapper>

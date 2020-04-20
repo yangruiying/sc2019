@@ -47,4 +47,11 @@ public interface MenuDao {
      * @return
      */
     MenuInfo queryMenu(String menuId);
+
+    /**
+     * 判断菜单名重复
+     * @param menuName
+     * @return
+     */
+    int countName(String menuName);
 }

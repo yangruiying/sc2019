@@ -5,7 +5,7 @@
     <select id="getTopOfColumn" parameterType="java.lang.String" resultType="com.xzsd.pc.topOfColumn.entity.TopOfColumnInfo">
         select
             user_name,
-            image_path,
+            image_path imagePath,
             user_code userId,
             role
         from t_user

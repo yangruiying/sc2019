@@ -6,6 +6,7 @@
     <!--商品列表-->
     <select id="listGoodsByPage" parameterType="com.xzsd.pc.goods.entity.GoodsInfo" resultType="com.xzsd.pc.goods.entity.GoodsInfo">
         SELECT
+        c_name,
         price,
         sell,
         num,
@@ -73,7 +74,7 @@
              #{cName},
              #{imagePath},
              #{publish},
-             1,
+             3,
              #{price},
              #{sell},
              #{num},
@@ -90,23 +91,23 @@
     <!--查找商品-->
     <select id="queryGoods" parameterType="java.lang.String" resultType="com.xzsd.pc.goods.entity.GoodsInfo">
         SELECT
-        a.c_id,
+        a.c_id cId,
         a.c_name cName,
-        a.publish,
-        a.state,
-        a.price,
-        a.sell,
-        a.num,
+        a.publish publish,
+        a.shop_name shopName,
+        a.price price,
+        a.sell sell,
+        a.num num,
         a.first_classify_id firstClassifyId,
         b. NAME firstClassifyName,
         a.second_classify_id secondClassifyId,
         c. NAME secondClassifyName,
-        a.advertising,
-        a.introduce,
-        a.inventory,
-        a.author,
-        a.image_path,
-        a.isbn
+        a.advertising advertising,
+        a.introduce,introduce,
+        a.inventory,inventory,
+        a.author author,
+        a.image_path imagePath,
+        a.isbn isbn
         FROM
         (
         t_commodity a
@@ -144,17 +145,22 @@
             isbn = #{isbn},
             image_path = #{imagePath},
             publish = #{publish},
-            state = #{state},
             price = #{price},
             sell = #{sell},
             num = #{num},
-            first_classify = #{firstClassify},
-            second_classify = #{secondClassify},
+            first_classify_id = #{firstClassifyId},
+            second_classify_id = #{secondClassifyId},
             advertising = #{advertising},
             introduce = #{introduce},
+            inventory = #{inventory},
             author = #{author}
         where c_id = #{cId}
-        and version = #{version}
+        and version = #{version};
+
+        update
+            t_commodity
+        set state = 0
+        where inventory = 0
     </update>
 
     <!--商品编号数量-->
@@ -175,7 +181,7 @@
         where parent_id = #{sortId}
     </select>
 
-    <!--修改轮播图状态-->
+    <!--修改商品状态-->
     <update id="goodsState" parameterType="java.util.List">
         <foreach collection="listUpdate" item="item" index="index" open="" separator=";" close=";">
             update t_commodity
@@ -183,8 +189,10 @@
                 state = #{state},
                 version = version + 1
             where
-                order_id = #{item.orderId} and
+                c_id = #{item.cId} and
                 version = #{item.version}
         </foreach>
     </update>
+
+
 </mapper>

@@ -7,7 +7,7 @@ import java.util.List;
 
 public class SortInfo implements Serializable {
 
-    private Integer sortId;
+    private String sortId;
     /**
      * 父Id
      */
@@ -16,20 +16,22 @@ public class SortInfo implements Serializable {
      * 部门名称
      */
     private String name;
-
-    /**
-     * 子节点
-     */
-    private List<SortInfo> treeNode;
     /**
      * 备注
      */
     private String remark;
-    public Integer getSortId() {
+
+    /**
+     * 子节点
+     */
+    private List<SortInfo> secondSort;
+
+
+    public String getSortId() {
         return sortId;
     }
 
-    public void setSortId(Integer sortId) {
+    public void setSortId(String sortId) {
         this.sortId = sortId;
     }
 
@@ -49,12 +51,12 @@ public class SortInfo implements Serializable {
         this.name = name;
     }
 
-    public List<SortInfo> getTreeNode() {
-        return treeNode;
+    public List<SortInfo> getSecondSort() {
+        return secondSort;
     }
 
-    public void setTreeNode(List<SortInfo> treeNode) {
-        this.treeNode = treeNode;
+    public void setSecondSort(List<SortInfo> secondSort) {
+        this.secondSort = secondSort;
     }
 
     public String getRemark() {

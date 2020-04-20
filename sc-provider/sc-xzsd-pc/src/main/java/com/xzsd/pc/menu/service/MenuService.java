@@ -1,9 +1,11 @@
 package com.xzsd.pc.menu.service;
 
 import com.neusoft.core.restful.AppResponse;
+import com.neusoft.security.client.utils.SecurityUtils;
 import com.neusoft.util.StringUtil;
 import com.xzsd.pc.menu.dao.MenuDao;
 import com.xzsd.pc.menu.entity.MenuInfo;
+import org.apache.catalina.security.SecurityUtil;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -35,7 +37,7 @@ public class MenuService {
     public AppResponse deleteMenu(String menuId){
         int count = menuDao.deleteMenu(menuId);
         if(count == 0){
-            return AppResponse.bizError("删除失败");
+            return AppResponse.versionError("版本错误,删除失败");
         }
         return AppResponse.success("删除成功");
     }
@@ -47,9 +49,11 @@ public class MenuService {
      */
     @Transactional(rollbackFor = Exception.class)
     public AppResponse updateMenu(MenuInfo menuInfo){
+        String lastCreateBy = SecurityUtils.getCurrentUserId();
+        menuInfo.setLastModifiedBy(lastCreateBy);
         int count = menuDao.updateMenu(menuInfo);
         if (count == 0){
-            return AppResponse.bizError("更新失败");
+            return AppResponse.versionError("版本错误,更新失败");
         }
         return AppResponse.success("更新成功");
     }
@@ -59,11 +63,18 @@ public class MenuService {
      * @param menuInfo
      * @return
      */
+    @Transactional(rollbackFor = Exception.class)
     public AppResponse saveMenu(MenuInfo menuInfo){
+        String createBy = SecurityUtils.getCurrentUserId();
+        menuInfo.setCreateBy(createBy);
+        int countName = menuDao.countName(menuInfo.getMenuName());
+        if (countName != 0){
+            return AppResponse.notFound("菜单名称重复,请重新输入");
+        }
         menuInfo.setMenuId(StringUtil.getCommonCode(2));
         int count = menuDao.saveMenu(menuInfo);
         if(count == 0){
-            return AppResponse.bizError("新增失败");
+            return AppResponse.versionError("版本错误,新增失败");
         }
         return AppResponse.success("新增成功");
     }

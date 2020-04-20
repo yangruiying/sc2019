@@ -7,18 +7,35 @@
             menu_id,
             menu_name
         from t_menu
+        where is_deleted = 0
     </select>
     <!--新增菜单-->
     <insert id="saveMenu" parameterType="com.xzsd.pc.menu.entity.MenuInfo">
         insert into
             t_menu
-        set menu_id = #{menuId},
-            menu_name = #{menuName},
-            role = #{role},
-            route = #{route},
-            remark = #{remark},
-            version = 0,
-            is_deleted = 0
+                (menu_id,
+                 menu_name,
+                 role,
+                 route,
+                 remark,
+                 version,
+                 is_deleted,
+                 create_by,
+                 gmt_create,
+                 gmt_modified,
+                 last_modified_by)
+            values
+                (#{menuId},
+                 #{menuName},
+                 #{role},
+                 #{route},
+                 #{remark},
+                 0,
+                 0,
+                 #{createBy},
+                 now(),
+                 now(),
+                 #{createBy})
     </insert>
     <!--删除菜单-->
     <update id="deleteMenu" parameterType="java.lang.String">
@@ -35,7 +52,9 @@
             remark = #{remark},
             role = #{role},
             route = #{route},
-            version = version +1
+            version = version +1,
+            gmt_modified = now(),
+            last_modified_by = #{lastModifiedBy}
         where menu_id =#{menuId}
         and version = #{version}
     </update>
@@ -44,7 +63,15 @@
         select
             menu_name
         from t_menu
-        where role = #{role}
+        where role >= #{role}
+    </select>
+
+    <!--判断菜单名重复-->
+    <select id="countName" parameterType="java.lang.String" resultType="int">
+        select
+            count(*)
+        from t_menu
+        where menu_name = #{menuName}
     </select>
     <!--查询菜单详情-->
     <select id="queryMenu" parameterType="java.lang.String" resultType="com.xzsd.pc.menu.entity.MenuInfo">

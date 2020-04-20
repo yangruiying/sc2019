@@ -88,6 +88,8 @@ public class UserInfo {
      */
     private String imagePath;
 
+
+
     public int getPageNum() {
         return PageNum;
     }

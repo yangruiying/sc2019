@@ -16,7 +16,7 @@ public class TopOfColumnInfo {
     private String userId;
 
     private int role;
-
+    private String imagePath;
     public String getUserName() {
         return userName;
     }
@@ -47,5 +47,13 @@ public class TopOfColumnInfo {
 
     public void setRole(int role) {
         this.role = role;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 }

@@ -6,7 +6,7 @@
     <select id="listScroll" parameterType="com.xzsd.pc.scroll.entity.ScrollInfo" resultType="com.xzsd.pc.scroll.entity.ScrollInfo">
         select
             sort,
-            picture_path picturePath,
+            image_path imagePath,
             state,
             begin,
             end,
@@ -33,7 +33,7 @@
     <update id="stateGoods" parameterType="com.xzsd.pc.scroll.entity.ScrollInfo">
         update
             t_scroll
-        set state=#{state}2
+        set state=#{state}
         where p_id=#{pId}
     </update>
 
@@ -43,7 +43,7 @@
             t_scroll
                 (p_id,
                  c_id,
-                 picture_path,
+                 image_path,
                  sort,
                  begin,
                  end,
@@ -52,7 +52,7 @@
          values
          (#{pId},
           #{cId},
-          #{picturePath},
+          #{imagePath},
           #{sort},
           #{begin},
           #{end},

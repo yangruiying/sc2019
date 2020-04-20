@@ -44,7 +44,7 @@
              now(),
              #{createBy},
              now(),
-             #{lastModifiedBy},
+             #{createBy},
              0)
     </insert>
 
@@ -126,9 +126,4 @@
         </if>
         order by gmt_create desc
     </select>
-
-    <!--获取用户权限-->
-
-
-
 </mapper>

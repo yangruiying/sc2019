@@ -47,7 +47,7 @@ public class HotGoodsService {
     public AppResponse updateHotGoods(HotGoodsInfo hotGoodsInfo){
         int count = hotGoodsDao.updateHotGoods((hotGoodsInfo));
         if (count == 0){
-            return AppResponse.bizError("修改失败");
+            return AppResponse.versionError("版本错误,修改失败");
         }
         return AppResponse.success("修改成功");
     }
@@ -62,7 +62,7 @@ public class HotGoodsService {
         List<String> hotGoodsList = Arrays.asList(hId.split(","));
         int count = hotGoodsDao.deleteHotGoods(hotGoodsList);
         if (count == 0){
-            return AppResponse.bizError("删除失败");
+            return AppResponse.versionError("版本错误,删除失败");
 
         }        return AppResponse.success("删除成功");
     }
@@ -85,7 +85,7 @@ public class HotGoodsService {
     public AppResponse updateShowNum(HotGoodsInfo hotGoodsInfo){
         int count = hotGoodsDao.updateShowNum(hotGoodsInfo);
         if (count == 0){
-            return AppResponse.bizError("删除失败");
+            return AppResponse.versionError("版本错误,删除失败");
         }
         return AppResponse.success("删除成功");
     }

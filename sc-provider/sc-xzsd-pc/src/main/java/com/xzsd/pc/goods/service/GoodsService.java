@@ -41,19 +41,13 @@ public class GoodsService {
     @Transactional(rollbackFor = Exception.class)
     public AppResponse saveGoods(GoodsInfo goodsInfo){
         goodsInfo.setcId(StringUtil.getCommonCode(2));
-        //上传图片
-//        try{
-//            goodsInfo.setImagePath(upLoadImage(goodsInfo.getImagePath(),goodsInfo.getcId()));
-//        }catch (NullPointerException e){
-//            return AppResponse.bizError("找不到图片路径");
-//        }
         int countIsbn = goodsDao.countIsbn(goodsInfo.getIsbn());
         if(countIsbn != 0){
-            return AppResponse.bizError("书名重复,请重新输入");
+            return AppResponse.notFound("书名重复,请重新输入");
         }
         int count = goodsDao.saveGoods(goodsInfo);
         if(count == 0){
-            return AppResponse.bizError("新增失败");
+            return AppResponse.versionError("新增失败");
         }
         return AppResponse.success("新增成功");
     }
@@ -78,7 +72,7 @@ public class GoodsService {
         List<String> codeList= Arrays.asList(cId.split(","));
         int count = goodsDao.deleteGoods(codeList);
         if (count == 0){
-            return AppResponse.bizError("删除失败");
+            return AppResponse.versionError("版本错误,删除失败");
         }
         return AppResponse.success("删除成功");
     }
@@ -91,23 +85,16 @@ public class GoodsService {
     @Transactional(rollbackFor = Exception.class)
     public AppResponse updateGoods(GoodsInfo goodsInfo){
         GoodsInfo goods = goodsDao.queryGoods(goodsInfo.getcId());
-        //判断是否修改图片
-        if (!goods.getImagePath().equals(goodsInfo.getImagePath())) {
-            //上传图片
-//            try {
-//                goodsInfo.setImagePath(upLoadImage(goodsInfo.getImagePath(), goodsInfo.getcId()));
-//            } catch (NullPointerException e) {
-//                return AppResponse.bizError("找不到图片路径");
-//            }
-        }
             int countIsbn = goodsDao.countIsbn(goodsInfo.getIsbn());
-            if (countIsbn != 0) {
-                return AppResponse.bizError("书名重复,请重新输入");
+            GoodsInfo info = goodsDao.queryGoods(goodsInfo.getcId());
+            if (!info.getIsbn().equals(goodsInfo.getIsbn())){
+                if (countIsbn != 0) {
+                    return AppResponse.notFound("isbn重复,请重新输入");
+                }
             }
-
         int count = goodsDao.updateGoods(goodsInfo);
         if (count == 0){
-            return AppResponse.bizError("更新失败");
+            return AppResponse.notFound("更新失败");
         }
         return AppResponse.success("更新成功");
     }
@@ -142,7 +129,7 @@ public class GoodsService {
         System.out.println();
         int count = goodsDao.goodsState(goodsStateList,state);
         if (count == 0){
-            return AppResponse.bizError("更新失败");
+            return AppResponse.versionError("版本错误,更新失败");
         }
         return AppResponse.success("更新成功");
     }

@@ -1,8 +1,8 @@
 package com.xzsd.pc.user.service;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
+
 import com.neusoft.core.restful.AppResponse;
+import com.neusoft.security.client.utils.SecurityUtils;
 import com.neusoft.util.StringUtil;
 import com.xzsd.pc.PasswordUtils;
 import com.xzsd.pc.user.dao.UserDao;
@@ -26,25 +26,21 @@ public class UserService {
      */
     @Transactional(rollbackFor = Exception.class)
     public AppResponse saveUser(UserInfo userInfo){
+        String createBy = SecurityUtils.getCurrentUserId();
+        userInfo.setCreateBy(createBy);
         int countAcc = userDao.countAcc(userInfo.getAccount());
         //判断账号重复
         if(countAcc != 0){
-            return AppResponse.bizError("账号已存在，请重新输入");
+            return AppResponse.notFound("账号已存在，请重新输入");
         }
         userInfo.setUserId(StringUtil.getCommonCode(2));
-        //上传图片
-//        try {
-//            userInfo.setImagePath(upLoadImage(userInfo.getImagePath(), userInfo.getUserId()));
-//        }catch (NullPointerException e){
-//            return AppResponse.bizError("找不到图片路径");
-//        }
         //密码加密
         String pwd = PasswordUtils.generatePassword(userInfo.getUserPassword());
         userInfo.setUserPassword(pwd);
         // 新增用户
         int count = userDao.saveUser(userInfo);
         if(0 == count) {
-            return AppResponse.bizError("新增失败，请重试！");
+            return AppResponse.versionError("新增失败，请重试！");
         }
         return AppResponse.success("新增成功！");
     }
@@ -71,18 +67,12 @@ public class UserService {
             int countAcc = userDao.countAcc(userInfo.getAccount());
             //判断账号重复
             if(countAcc != 0){
-                return AppResponse.bizError("账号已存在，请重新输入");
+                return AppResponse.notFound("账号已存在，请重新输入");
             }
         }
-        //上传图片
-//        try {
-//            userInfo.setImagePath(upLoadImage(userInfo.getImagePath(), userInfo.getUserId()));
-//        }catch (NullPointerException e){
-//            return AppResponse.bizError("找不到图片路径");
-//        }
         int count = userDao.updateUser(userInfo);
         if(count==0){
-            return AppResponse.bizError("版本错误 修改失败");
+            return AppResponse.versionError("版本错误 修改失败");
         }
         return AppResponse.success("修改成功");
     }
@@ -98,7 +88,7 @@ public class UserService {
         List<String> listCode = Arrays.asList(userId.split(","));
         int count = userDao.deleteUser(listCode,userName);
         if(count == 0){
-            return AppResponse.bizError("版本不对,删除失败");
+            return AppResponse.versionError("版本错误,删除失败");
         }
         return AppResponse.success("删除成功");
     }

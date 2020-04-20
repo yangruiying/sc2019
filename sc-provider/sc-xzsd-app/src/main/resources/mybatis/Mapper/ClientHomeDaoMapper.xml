@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xzsd.app.clientHome.dao.ClientHomeDao">
+    <!--首页轮播图-->
+    <select id="listRotationCharHome" resultType="com.xzsd.app.clientHome.entity.ClientHomeInfo">
+        select
+            image_path,
+            c_id
+        from t_scroll
+    </select>
+    <!--首页热门商品-->
+    <select id="listHotGoods" resultType="com.xzsd.app.clientHome.entity.ClientHomeInfo">
+        SELECT
+	        a.c_id,
+	        c_name,
+	        image_path,
+	        sell
+        FROM
+	    t_hot_goods a
+        LEFT JOIN t_commodity b ON a.c_id = b.c_id
+    </select>
+
+
+</mapper>

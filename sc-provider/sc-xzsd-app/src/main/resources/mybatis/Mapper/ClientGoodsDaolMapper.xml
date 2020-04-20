@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xzsd.app.clientGoods.dao.ClientGoodsDao">
+    <!--查询商品信息详情-->
+    <select id="getGoods" resultType="com.xzsd.app.clientGoods.entity.ClientGoodsInfo">
+    SELECT
+	c_name,
+	isbn,
+	introduce,
+	sell,
+	image_path,
+	grade,
+	author,
+	publish,
+	(
+		SELECT
+			shop_name
+		FROM
+			t_client a
+		LEFT JOIN t_shop b ON a.invite_code = b.invite_code
+		WHERE
+			client_id = #{clientId}
+	) shopName
+    FROM
+	t_commodity
+	where c_id = #{cId}
+    </select>
+
+    <select id="listOneGoodsClassify" resultType="com.xzsd.app.clientGoods.entity.ClientGoodsInfo">
+        select
+            sort_id,
+            name
+        from t_sort
+        where parent_id = 0
+    </select>
+
+    <resultMap id="BaseTreeResultMap" type="com.xzsd.app.clientGoods.entity.firstSortInfo">
+        <result column="sort_id" property="sortId"/>
+        <result column="name" property="name"/>
+        <collection column="sort_id" property="goodsList" javaType="java.util.ArrayList"
+                    ofType="com.xzsd.pc.sort.entity.SortInfo" select="getNextNodeTree"/>
+    </resultMap>
+
+    <resultMap id="NextTreeResultMap" type="com.xzsd.app.clientGoods.entity.goodsListInfo">
+        <result column="c_id" property="cId"/>
+        <result column="c_name" property="cName"/>
+        <result column="image_path" property="imagePath"/>
+        <result column="sell" property="sell"/>
+    </resultMap>
+    <!--分类查询-->
+    <select id="getNextNodeTree" resultMap="NextTreeResultMap">
+    SELECT
+	    c_id,
+	    c_name,
+	    image_path,
+	    sell
+    FROM
+	t_commodity a
+    LEFT JOIN t_sort b ON a.second_classify_id=b.sort_id
+    WHERE sort_id = #{sortId}
+    </select>
+
+    <select id="getNodeTree" parameterType="java.lang.String" resultMap="BaseTreeResultMap">
+    SELECT
+        sort_id,
+        name
+    FROM t_sort
+    WHERE parent_id = #{sortId}
+    </select>
+
+</mapper>

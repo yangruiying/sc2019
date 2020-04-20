@@ -3,7 +3,7 @@ package com.xzsd.pc.scroll.entity;
 public class ScrollInfo {
     private String pId;
     private String cId;
-    private String picturePath;
+    private String imagePath;
     private int sort;
     private int state;
     private String begin;
@@ -28,12 +28,12 @@ public class ScrollInfo {
         this.cId = cId;
     }
 
-    public String getPicturePath() {
-        return picturePath;
+    public String getImagePath() {
+        return imagePath;
     }
 
-    public void setPicturePath(String picturePath) {
-        this.picturePath = picturePath;
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     public int getSort() {
