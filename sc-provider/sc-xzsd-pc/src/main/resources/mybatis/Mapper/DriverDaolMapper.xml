@@ -18,7 +18,7 @@
     <!--将司机添加到用户表中-->
     <insert id="saveUser" parameterType="com.xzsd.pc.driver.entity.DriverInfo">
         insert into t_user
-            (user_id,
+            (user_code,
              account,
              user_name,
              id_card,
@@ -43,6 +43,7 @@
              city_id=#{cityId},
              region_id=#{regionId}
         where driver_id=#{driverId}
+        and version = #{version}
     </update>
     
     <!--修改用户表-->
@@ -64,16 +65,17 @@
     </update>
     
     <!--司机列表查询-->
-    <select id="listDriver" parameterType="com.xzsd.pc.driver.entity.DriverInfo" resultType="com.xzsd.pc.driver.entity.DriverInfo">
-    SELECT
-	    driver_id,
-	    user_name,
-	    phone,
-	    id_card,
-	    user_id
-    FROM
-	    t_driver a LEFT JOIN t_user b ON a.driver_id=b.user_id
-    WHERE b.is_delete=0
+    <select id="listDriverByPage" parameterType="com.xzsd.pc.driver.entity.DriverInfo" resultType="com.xzsd.pc.driver.entity.DriverInfo">
+        SELECT
+        driver_id,
+        user_name,
+        phone,
+        id_card,
+        a.driver_id,
+        a.version
+        FROM
+        t_driver a LEFT JOIN t_user b ON a.driver_id=b.user_code
+        WHERE b.is_deleted=0
     <if test="driverId != null and driverId != ''">
         and driver_id like concat ('%',#{driverId},'%')
     </if>
@@ -99,13 +101,13 @@
 	    phone,
 	    id_card,
 	    account,
-	    user_password,
+	    b.`password`,
 	    province_id,
 	    city_id,
 	    region_id
     from
         t_driver a
-    LEFT JOIN t_user b ON a.driver_id=b.user_id
+    LEFT JOIN t_user b ON a.driver_id=b.user_code
     where driver_id=#{driverId}
     </select>
     

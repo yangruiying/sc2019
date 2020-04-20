@@ -60,7 +60,7 @@ public class DriverService {
      * @return
      */
     public AppResponse listDriver(DriverInfo driverInfo){
-        List<DriverInfo> driverInfoList=driverDao.listDriver(driverInfo);
+        List<DriverInfo> driverInfoList=driverDao.listDriverByPage(driverInfo);
         return AppResponse.success("查询成功",getPageInfo(driverInfoList));
     }
 

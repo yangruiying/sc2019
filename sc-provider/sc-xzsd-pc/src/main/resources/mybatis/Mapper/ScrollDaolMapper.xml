@@ -3,8 +3,9 @@
 <mapper namespace="com.xzsd.pc.scroll.dao.ScrollDao">
 
     <!--轮播图列表-->
-    <select id="listScroll" parameterType="com.xzsd.pc.scroll.entity.ScrollInfo" resultType="com.xzsd.pc.scroll.entity.ScrollInfo">
+    <select id="listScrollByPage" parameterType="com.xzsd.pc.scroll.entity.ScrollInfo" resultType="com.xzsd.pc.scroll.entity.ScrollInfo">
         select
+            p_id,
             sort,
             image_path imagePath,
             state,
@@ -13,7 +14,7 @@
             version
         from t_scroll
         where is_deleted = 0
-        <if test="state != null and state != ''">
+        <if test="state != null and state != '' ">
             and state = #{state}
         </if>
     </select>
@@ -48,7 +49,8 @@
                  begin,
                  end,
                  state,
-                 version)
+                 version,
+                 is_deleted)
          values
          (#{pId},
           #{cId},
@@ -57,19 +59,22 @@
           #{begin},
           #{end},
           #{state},
+          0,
           0)
     </insert>
     <!--查询商品-->
-    <select id="listGoods" parameterType="com.xzsd.pc.goods.entity.GoodsInfo" resultType="com.xzsd.pc.goods.entity.GoodsInfo">
-        select
-            c_id,
-            c_name,
-            state,
-            first_classify,
-            second_classify secondClassify,
-            image_path
-        from t_commodity
-        where is_deleted = 0
+    <select id="listGoodsByPage" parameterType="com.xzsd.pc.goods.entity.GoodsInfo" resultType="com.xzsd.pc.goods.entity.GoodsInfo">
+        SELECT
+        c_id,
+        c_name,
+        state,
+        b.name firstClassifyName,
+        c.name secondClassifyName
+        FROM
+        (t_commodity a LEFT JOIN t_sort b ON a.first_classify_id = b.sort_id)
+        LEFT JOIN t_sort c ON a.second_classify_id = c.sort_id
+        WHERE
+        a.is_deleted = 0
         <if test="cName != null and cName !=''">
             and c_name = #{cName}
         </if>
@@ -90,5 +95,12 @@
             version = #{item.version}
         </foreach>
     </update>
+    <!--查询相同商品数量-->
+    <select id="countGoods" parameterType="java.lang.String" resultType="int">
+        select
+            count(*)
+        from t_scroll
+        where c_id = #{cId}
+    </select>
 
 </mapper>

@@ -30,7 +30,7 @@ public class ScrollService {
      * @return
      */
     public AppResponse listScroll(ScrollInfo scrollInfo){
-        List<ScrollInfo> scrolllist=scrollDao.listScroll(scrollInfo);
+        List<ScrollInfo> scrolllist=scrollDao.listScrollByPage(scrollInfo);
         return AppResponse.success("查询成功",getPageInfo(scrolllist));
     }
 
@@ -65,7 +65,14 @@ public class ScrollService {
     @Transactional(rollbackFor = Exception.class)
     public AppResponse saveScroll(ScrollInfo scrollInfo){
         scrollInfo.setpId(StringUtil.getCommonCode(2));
-        scrollDao.saveScroll(scrollInfo);
+        int goodsCount = scrollDao.countGoods(scrollInfo.getcId());
+        if (goodsCount != 0){
+            return AppResponse.notFound("商品重复，新增失败");
+        }
+        int count = scrollDao.saveScroll(scrollInfo);
+        if (count == 0){
+            return AppResponse.versionError("新增失败");
+        }
         return AppResponse.success("新增成功");
     }
 
@@ -75,8 +82,8 @@ public class ScrollService {
      * @return
      */
     public AppResponse listGoods(GoodsInfo goodsInfo){
-        List<GoodsInfo> goodsList = scrollDao.listGoods(goodsInfo);
-        return AppResponse.success("查询成功",goodsList);
+        List<GoodsInfo> goodsList = scrollDao.listGoodsByPage(goodsInfo);
+        return AppResponse.success("查询成功",getPageInfo(goodsList));
     }
 
     /**

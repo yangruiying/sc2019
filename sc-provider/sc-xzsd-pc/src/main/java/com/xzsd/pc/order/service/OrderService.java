@@ -23,7 +23,7 @@ public class OrderService {
      * @return
      */
     public AppResponse listOrder(OrderInfo orderInfo){
-        List<OrderInfo> orderList=orderDao.listOrder(orderInfo);
+        List<OrderInfo> orderList=orderDao.listOrderByPage(orderInfo);
         return AppResponse.success("查询成功",orderList);
     }
 

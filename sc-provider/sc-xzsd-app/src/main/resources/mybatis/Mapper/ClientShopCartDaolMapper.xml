@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xzsd.app.clientShopCart.dao.ClientShopCartDao">
+    <!--新增购物车-->
+    <insert id="addShoppingCart" parameterType="com.xzsd.app.clientShopCart.entity.ClientShopCartInfo">
+        insert into
+            t_cart
+            (cart_id,
+             user_id,
+             goods_count,
+             c_id,
+             is_deleted,
+             gmt_create,
+             create_by,
+             gmt_modified,
+             last_modified_by,
+             version)
+        values
+            (#{cartId},
+             #{userId},
+             #{goodsCount},
+             #{cId},
+             0,
+             now(),
+             #{userId},
+             now(),
+             #{userId},
+             0)
+    </insert>
+
+    <!--购物车列表-->
+    <select id="listShoppingCartsByPage" parameterType="java.lang.String" resultType="com.xzsd.app.clientShopCart.entity.ClientShopCartInfo">
+    SELECT
+	    a.c_id,
+	    c_name,
+	    image_path,
+	    sell,
+	    goods_count,
+	    cart_id
+    FROM
+	t_cart a LEFT JOIN t_commodity b ON a.c_id = b.c_id
+    where user_id = #{userId}
+    and a.is_deleted = 0
+    </select>
+
+    <!--判断同个商品-->
+    <select id="countGoods" parameterType="com.xzsd.app.clientShopCart.entity.ClientShopCartInfo" resultType="int">
+        select
+            count(*)
+        from t_cart
+        where c_id = #{cId}
+        and user_id = #{userId}
+    </select>
+
+    <!--增加数量-->
+    <update id="addCount" parameterType="com.xzsd.app.clientShopCart.entity.ClientShopCartInfo">
+        update t_cart
+        set goods_count = goods_count +#{goodsCount}
+        where c_id = #{cId}
+        and user_id = #{userId}
+    </update>
+    <!--修改购物车-->
+    <update id="updateShoppingCart" parameterType="com.xzsd.app.clientShopCart.entity.ClientShopCartInfo">
+        update t_cart
+        set goods_count = #{goodsCount}
+        where cart_id = #{cartId}
+    </update>
+    
+    <!--删除购物粗-->
+    <update id="deleteShoppingCart" parameterType="java.util.ArrayList">
+        update t_cart
+        set is_deleted = 1
+        where cart_id in
+        <foreach collection="idList" item="cartId" index="index" open="(" separator="," close=")">
+            #{cartId}
+        </foreach>
+    </update>
+</mapper>

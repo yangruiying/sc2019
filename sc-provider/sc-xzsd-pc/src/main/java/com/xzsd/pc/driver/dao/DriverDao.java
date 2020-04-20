@@ -12,6 +12,6 @@ public interface DriverDao {
     int updateDriver(DriverInfo driverInfo);
     int updateUser(DriverInfo driverInfo);
     int deleteDriver(String driverId);
-    List<DriverInfo> listDriver(DriverInfo driverInfo);
+    List<DriverInfo> listDriverByPage(DriverInfo driverInfo);
     DriverInfo queryDriver(String driverId);
 }

@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Param;
 import java.util.List;
 @Mapper
 public interface OrderDao {
-    List<OrderInfo> listOrder(OrderInfo orderInfo);
+    List<OrderInfo> listOrderByPage(OrderInfo orderInfo);
 
     List<OrderInfo> queryOrder(String orderId);
 

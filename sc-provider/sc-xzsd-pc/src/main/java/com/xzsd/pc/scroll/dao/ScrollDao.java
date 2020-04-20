@@ -11,7 +11,7 @@ import java.util.List;
 
 @Mapper
 public interface ScrollDao {
-    List<ScrollInfo> listScroll(ScrollInfo scrollInfo);
+    List<ScrollInfo> listScrollByPage(ScrollInfo scrollInfo);
 
     int deleteScroll(@Param("scrollList") List<String> scrollList);
 
@@ -24,7 +24,7 @@ public interface ScrollDao {
      * @param goodsInfo
      * @return
      */
-    List<GoodsInfo> listGoods(GoodsInfo goodsInfo);
+    List<GoodsInfo> listGoodsByPage(GoodsInfo goodsInfo);
 
     /**
      * 修改轮播图状态
@@ -34,4 +34,10 @@ public interface ScrollDao {
      */
     int stateScroll(@Param("listUpdate") List<ScrollInfo> listUpdate, @Param("state") int state);
 
+    /**
+     * 判断商品重复
+     * @param cId
+     * @return
+     */
+    int countGoods(String cId);
 }

@@ -83,7 +83,9 @@
         b.phone,
         address,
         user_name,
-        invite_code
+        invite_code,
+        b.user_code userId,
+        a.version
         FROM
         t_shop a
         LEFT JOIN t_user b ON a.user_id=b.user_code

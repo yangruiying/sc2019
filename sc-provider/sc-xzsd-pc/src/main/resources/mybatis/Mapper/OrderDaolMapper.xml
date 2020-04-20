@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xzsd.pc.order.dao.OrderDao">
     <!--订单列表查询-->
-    <select id="listOrder" parameterType="com.xzsd.pc.order.entity.OrderInfo" resultType="com.xzsd.pc.order.entity.OrderInfo">
+    <select id="listOrderByPage" parameterType="com.xzsd.pc.order.entity.OrderInfo" resultType="com.xzsd.pc.order.entity.OrderInfo">
     SELECT
 	    order_id orderId,
 	    sum(price * a.num) orderSum,
@@ -10,7 +10,8 @@
 	    a.shop_id shopId,
 	    user_name userName,
 	    d.phone phone,
-	    a.affirm_time affirmTime
+	    a.affirm_time affirmTime,
+	    a.version
     FROM
 	    (
 		    t_order a
