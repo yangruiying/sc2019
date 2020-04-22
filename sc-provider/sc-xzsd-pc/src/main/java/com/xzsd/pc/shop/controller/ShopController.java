@@ -41,7 +41,7 @@ public class ShopController {
      * @param shopInfo
      * @return
      */
-    @RequestMapping(value = "listShopByPage")
+    @RequestMapping(value = "listShop")
     public AppResponse listShopByPage(ShopInfo shopInfo){
         return shopService.listShopByPage(shopInfo);
     }

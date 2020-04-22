@@ -38,8 +38,11 @@ public class DriverService {
      */
     @Transactional(rollbackFor = Exception.class)
     public AppResponse updateDriver(DriverInfo driverInfo){
-        driverDao.updateUser(driverInfo);
-        driverDao.updateDriver(driverInfo);
+        int count1 = driverDao.updateUser(driverInfo);
+        int count2 = driverDao.updateDriver(driverInfo);
+        if (count1 == 0 || count2 == 0){
+            return AppResponse.versionError("版本错误,更新失败");
+        }
         return AppResponse.success("更新成功");
     }
 

@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.neusoft.core.page.PageUtils.getPageInfo;
+
 @Service
 public class OrderService {
     @Resource
@@ -24,7 +26,7 @@ public class OrderService {
      */
     public AppResponse listOrder(OrderInfo orderInfo){
         List<OrderInfo> orderList=orderDao.listOrderByPage(orderInfo);
-        return AppResponse.success("查询成功",orderList);
+        return AppResponse.success("查询成功",getPageInfo(orderList));
     }
 
     /**

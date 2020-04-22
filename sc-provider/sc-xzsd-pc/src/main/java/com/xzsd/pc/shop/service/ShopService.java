@@ -25,6 +25,10 @@ public class ShopService {
      */
     @Transactional(rollbackFor = Exception.class)
     public AppResponse saveShop(ShopInfo shopInfo){
+        String license = StringUtil.getCommonCode(2);
+        String invite = StringUtil.getCommonCode(2);
+        shopInfo.setLicense(license);
+        shopInfo.setInviteCode(invite);
         int countLicense = shopDao.countLicense(shopInfo);
         int countInvite = shopDao.countInvite(shopInfo);
         //判断营业执照是否存在

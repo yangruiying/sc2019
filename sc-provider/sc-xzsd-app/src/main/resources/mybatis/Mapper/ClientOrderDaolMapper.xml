@@ -2,19 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xzsd.app.clientOrder.dao.ClientOrderDao">
 
-    <resultMap id="BaseTreeResultMap" type="com.xzsd.app.clientGoods.entity.firstSortInfo">
+    <resultMap id="QueryResultMap" type="com.xzsd.app.clientOrder.entity.QueryInfo">
         <result column="order_id" property="orderId"/>
         <result column="order_state" property="orderState"/>
-        <collection column="sort_id" property="goodsList" javaType="java.util.ArrayList"
+        <collection column="order_id" property="goodsList" javaType="java.util.ArrayList"
                     ofType="com.xzsd.pc.sort.entity.SortInfo" select="getNextNodeTree"/>
     </resultMap>
 
-    <resultMap id="NextTreeResultMap" type="com.xzsd.app.clientGoods.entity.goodsListInfo">
+    <resultMap id="BaseTreeResultMap" type="com.xzsd.app.clientOrder.entity.FirstInfo">
+        <result column="order_id" property="orderId"/>
+        <result column="order_state" property="orderState"/>
+        <collection column="order_id" property="goodsList" javaType="java.util.ArrayList"
+                    ofType="com.xzsd.pc.sort.entity.SortInfo" select="getNextNodeTree"/>
+    </resultMap>
+
+    <resultMap id="NextTreeResultMap" type="com.xzsd.app.clientOrder.entity.SecondInfo">
         <result column="c_id" property="cId"/>
-        <result column="c_name" property="cName"/>
         <result column="image_path" property="imagePath"/>
         <result column="sell" property="sell"/>
     </resultMap>
+    <!--新增订单-->
     <insert id="addOrder" parameterType="java.util.List">
         <foreach collection="orderList" index="index" item="item" open="" separator=";" close="">
             insert into
@@ -30,14 +37,24 @@
                  #{item.shopId})
         </foreach>
     </insert>
-    
+    <select id="getNextNodeTree" resultMap="NextTreeResultMap">
+    SELECT
+	    c_name,
+	    image_path,
+	    introduce,
+	    sell,
+	    a.num goodsCount,
+	    a.c_id cId
+    FROM t_order a LEFT JOIN t_commodity b on a.c_id = b.c_id
+    where order_id = #{orderId}
+    </select>
     <!--查询列表-->
     <select id="listOrderByPage" parameterType="java.lang.String" resultMap="BaseTreeResultMap">
         SELECT
-	    order_id orderId,
+	    order_id,
 	    sum(price * a.num) orderAllCost,
 	    sum(a.num) orderAllGoodsCount,
-	    order_state orderState,
+	    order_state order_state,
 	    a.version
     FROM
 	    (
@@ -45,7 +62,10 @@
 		    LEFT JOIN t_commodity b ON a.c_id = b.c_id
 	    )
     LEFT JOIN t_user d ON a.user_id = d.user_code
-    WHERE orderState=#{orderState}
+    WHERE 1=1
+    <if test="orderState != null and orderState != ''">
+        and order_state = #{orderState}
+    </if>
     GROUP BY
 	        a.user_id,
 	        a.order_id,
@@ -54,4 +74,68 @@
 			a.affirm_time,
 			a.version
     </select>
+
+    <!--修改订单状态-->
+    <update id="updateOrderState" parameterType="com.xzsd.app.clientOrder.entity.ClientOrderInfo">
+        update t_order
+        set order_state = #{orderState}
+        where order_id = #{orderId}
+        and version = #{version}
+    </update>
+
+    <!--查询订单详情-->
+    <select id="listOrderDeepen" parameterType="java.lang.String" resultMap="QueryResultMap">
+    SELECT
+	d.shop_name,
+	address,
+	order_id,
+	sum(price * a.num) orderAllCost,
+	sum(a.num) orderAllGoodsCount,
+	order_id
+    FROM
+	(
+		t_order a
+		LEFT JOIN t_commodity b ON a.c_id = b.c_id
+	)
+    LEFT JOIN t_shop d ON a.shop_id = d.shop_id
+    WHERE
+	order_id = #{orderId}
+    GROUP BY
+	a.order_id,
+	a.shop_id
+    </select>
+
+    <!--查询订单评价商品信息列表-->
+    <select id="listGoodsForEvaluate" parameterType="java.lang.String" resultType="com.xzsd.app.clientOrder.entity.ClientOrderInfo">
+    SELECT
+	    a.c_id cId,
+	    b.image_path imagePath
+    FROM
+	t_order a
+        LEFT JOIN t_commodity b ON a.c_id = b.c_id
+    WHERE
+	    a.order_id = #{orderId}
+    </select>
+    <!--新增订单评价-->
+    <insert id="addGoodsEvaluate" parameterType="java.util.ArrayList">
+        <foreach collection="firstList" item="item" index="index" separator=";">
+            insert into t_comment
+            (c_id,
+             info,
+             grade)
+             values
+            (#{item.cId},
+             #{item.info},
+             #{item.grade});
+            <foreach collection="item.evaluate" item="item2" index="index2" separator=";">
+                insert into t_picture
+                (image_num,
+                 image_path)
+                values
+                (#{item2.imageNum},
+                 #{item2.imagePath})
+            </foreach>
+        </foreach>
+    </insert>
+
 </mapper>

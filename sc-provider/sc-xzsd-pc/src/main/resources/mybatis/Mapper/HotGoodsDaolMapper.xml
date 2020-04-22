@@ -7,11 +7,13 @@
             (h_id,
              c_id,
              sort,
-             version)
+             version,
+             is_deleted)
          values
             (#{hId},
              #{cId},
              #{sort},
+             0,
              0)
     </insert>
 
@@ -44,7 +46,7 @@
             price,
             introduce,
             h_id,
-            version
+            a.version
         from t_hot_goods a LEFT JOIN t_commodity b ON a.c_id=b.c_id
         where a.is_deleted=0
         <if test="cName != null and cName != ''">
@@ -70,15 +72,16 @@
         update t_dictionaries
         set value = #{showNum},
             version = version +1
-        where id = 123456
+        where id = '999999'
         and version = #{version}
     </update>
     <!--查询展示数量-->
-    <select id="getShowNum" resultType="int">
+    <select id="getShowNum" resultType="com.xzsd.pc.hotGoods.entity.HotGoodsInfo">
         select
-            value
+            value showNum,
+            version
         from t_dictionaries
-        where id = 123456
+        where id = '999999'
     </select>
     <!--热门商品详情-->
     <select id="queryHotGoods" parameterType="java.lang.String" resultType="com.xzsd.pc.hotGoods.entity.HotGoodsInfo">

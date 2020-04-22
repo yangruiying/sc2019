@@ -10,6 +10,8 @@ public class DriverInfo {
     private String account;
     private String password;
     private String idCard;
+    private String version;
+    private String userName;
     public String getDriverId() {
         return driverId;
     }
@@ -80,5 +82,21 @@ public class DriverInfo {
 
     public void setAccount(String account) {
         this.account = account;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

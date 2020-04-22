@@ -11,7 +11,7 @@ public interface HotGoodsDao {
     int saveHotGoods(HotGoodsInfo hotGoodsInfo);
     int updateHotGoods(HotGoodsInfo hotGoodsInfo);
     int deleteHotGoods(@Param("hotGoodsList") List<String> hotGoodsList);
-    HotGoodsInfo listGoodsByPage(HotGoodsInfo hotGoodsInfo);
+    List<HotGoodsInfo> listGoodsByPage(HotGoodsInfo hotGoodsInfo);
     int countHotGoods(HotGoodsInfo hotGoodsInfo);
 
     /**
@@ -25,7 +25,7 @@ public interface HotGoodsDao {
      * 查找展示数量
      * @return
      */
-    int getShowNum();
+    HotGoodsInfo getShowNum();
 
     /**
      * 热门商品编号

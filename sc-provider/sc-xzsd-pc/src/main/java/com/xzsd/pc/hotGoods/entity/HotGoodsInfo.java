@@ -20,7 +20,11 @@ public class HotGoodsInfo {
     /**
      * 展示数量
      */
-    private int showNum;
+    private String showNum;
+    private String pageNum;
+    private String pageSize;
+    private String version;
+    private String value;
     public String getcId() {
         return cId;
     }
@@ -53,11 +57,43 @@ public class HotGoodsInfo {
         this.cName = cName;
     }
 
-    public int getShowNum() {
+    public String getShowNum() {
         return showNum;
     }
 
-    public void setShowNum(int showNum) {
+    public void setShowNum(String showNum) {
         this.showNum = showNum;
+    }
+
+    public String getPageNum() {
+        return pageNum;
+    }
+
+    public void setPageNum(String pageNum) {
+        this.pageNum = pageNum;
+    }
+
+    public String getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(String pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
     }
 }

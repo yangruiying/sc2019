@@ -7,12 +7,16 @@
             (driver_id,
              province_id,
              city_id,
-             region_id)
+             region_id,
+             version,
+             is_deleted)
         values
             (#{driverId},
              #{provinceId},
              #{cityId},
-             #{regionId})
+             #{regionId},
+             0,
+             0)
     </insert>
 
     <!--将司机添加到用户表中-->
@@ -23,25 +27,30 @@
              user_name,
              id_card,
              phone,
-             user_password,
-             role)
+             password,
+             role,
+             version,
+             is_deleted)
         values
             (#{driverId},
-             #{account}
+             #{account},
              #{driverName},
              #{idCard},
              #{phone},
              #{password},
-              2)
+              2,
+              0,
+              0)
     </insert>
 
     <!--修改司机信息-->
     <update id="updateDriver" parameterType="com.xzsd.pc.driver.entity.DriverInfo">
         update t_driver
-        set 
+        set
              province_id=#{provinceId},
-             city_id=#{cityId},
-             region_id=#{regionId}
+             city_id = #{cityId},
+             region_id = #{regionId},
+             version = version +1
         where driver_id=#{driverId}
         and version = #{version}
     </update>
@@ -53,15 +62,18 @@
              user_name=#{driverName},
              id_card=#{idCard},
              phone=#{phone},
-             user_password=#{password}
-        where user_id=#{driverId}
+             account = #{account},
+             password = #{password},
+             version = version +1
+        where user_code=#{driverId}
+        and version = #{version}
     </update>
 
     <!--删除司机-->
     <update id="deleteDriver" parameterType="java.lang.String">
         update t_user
         set is_delete=1
-        where user_id=#{driverId}
+        where user_code=#{driverId}
     </update>
     
     <!--司机列表查询-->
@@ -71,8 +83,7 @@
         user_name,
         phone,
         id_card,
-        a.driver_id,
-        a.version
+        a.version version
         FROM
         t_driver a LEFT JOIN t_user b ON a.driver_id=b.user_code
         WHERE b.is_deleted=0

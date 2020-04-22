@@ -73,7 +73,7 @@ public class HotGoodsService {
      * @return
      */
     public AppResponse listGoods(HotGoodsInfo hotGoodsInfo){
-        HotGoodsInfo hotGoodsList=hotGoodsDao.listGoodsByPage(hotGoodsInfo);
+        List<HotGoodsInfo> hotGoodsList=hotGoodsDao.listGoodsByPage(hotGoodsInfo);
         return AppResponse.success("查询成功",getPageInfo(hotGoodsList));
     }
 
@@ -85,9 +85,9 @@ public class HotGoodsService {
     public AppResponse updateShowNum(HotGoodsInfo hotGoodsInfo){
         int count = hotGoodsDao.updateShowNum(hotGoodsInfo);
         if (count == 0){
-            return AppResponse.versionError("版本错误,删除失败");
+            return AppResponse.versionError("版本错误,更新失败");
         }
-        return AppResponse.success("删除成功");
+        return AppResponse.success("更新成功");
     }
 
     /**
@@ -95,7 +95,7 @@ public class HotGoodsService {
      * @return
      */
     public AppResponse getShowNum(){
-        int count = hotGoodsDao.getShowNum();
+        HotGoodsInfo count = hotGoodsDao.getShowNum();
         return AppResponse.success("查找成功",count);
     }
 

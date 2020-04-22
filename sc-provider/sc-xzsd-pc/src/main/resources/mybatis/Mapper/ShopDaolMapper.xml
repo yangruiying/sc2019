@@ -78,9 +78,9 @@
     <!--分页查询门店-->
     <select id="listShopByPage" parameterType="com.xzsd.pc.shop.entity.ShopInfo" resultType="com.xzsd.pc.shop.entity.ShopInfo">
         SELECT
-        a.shop_id,
+        a.shop_id shopId,
         shop_name,
-        b.phone,
+        b.phone phone,
         address,
         user_name,
         invite_code,
@@ -161,7 +161,7 @@
             license
         FROM
         t_shop a
-        LEFT JOIN t_user b ON a.user_id=b.user_id
+        LEFT JOIN t_user b ON a.user_id=b.user_code
         where shop_id=#{shopId}
     </select>
 
