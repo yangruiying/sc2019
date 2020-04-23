@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xzsd.app.userInformation.dao.UserInformationDao">
+	<!--查询个人信息-->
     <select id="getUser" parameterType="java.lang.String" resultType="com.xzsd.app.userInformation.entity.UserInformationInfo">
     SELECT
 	    user_name,
@@ -20,4 +21,20 @@
     LEFT JOIN t_shop c ON b.invite_code = c.invite_code
     WHERE user_code = #{userId}
     </select>
+	
+	<!--修改密码-->
+	<update id="updateUserPassword" parameterType="com.xzsd.app.userInformation.entity.UserInformationInfo">
+		update t_user
+		set password = #{newPassword},
+			version = version +1
+		where user_code= #{userId}
+		and version = #{version}
+	</update>
+
+	<!--获取用户密码-->
+	<select id="getPassword" parameterType="java.lang.String" resultType="java.lang.String">
+		select password
+		from t_user
+		where user_code = #{userId}
+	</select>
 </mapper>

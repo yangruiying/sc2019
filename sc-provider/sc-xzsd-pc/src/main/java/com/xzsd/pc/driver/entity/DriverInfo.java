@@ -12,6 +12,9 @@ public class DriverInfo {
     private String idCard;
     private String version;
     private String userName;
+    private String provinceName;
+    private String cityName;
+    private String regionName;
     public String getDriverId() {
         return driverId;
     }
@@ -98,5 +101,29 @@ public class DriverInfo {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getProvinceName() {
+        return provinceName;
+    }
+
+    public void setProvinceName(String provinceName) {
+        this.provinceName = provinceName;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public String getRegionName() {
+        return regionName;
+    }
+
+    public void setRegionName(String regionName) {
+        this.regionName = regionName;
     }
 }

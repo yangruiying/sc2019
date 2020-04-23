@@ -7,7 +7,6 @@ public class OrderInfo {
     private String orderState;
     private String userId;
     private String userName;
-
     private String shopId;
     private String phone;
     private String affirmTime;

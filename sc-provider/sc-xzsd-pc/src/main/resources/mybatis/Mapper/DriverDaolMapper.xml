@@ -112,13 +112,19 @@
 	    phone,
 	    id_card,
 	    account,
-	    b.`password`,
+	    b.`password` password,
 	    province_id,
 	    city_id,
-	    region_id
+	    region_id,
+		c.value province_name,
+		d.value city_name,
+		e.value region_name
     from
         t_driver a
     LEFT JOIN t_user b ON a.driver_id=b.user_code
+    LEFT JOIN t_dictionaries c ON a.province_id = c.id
+    LEFT JOIN t_dictionaries d ON a.city_id = d.id
+    LEFT JOIN t_dictionaries e ON a.region_id = e.id
     where driver_id=#{driverId}
     </select>
     

@@ -47,7 +47,7 @@
     </select>
 
     <!--订单详情查询-->
-   <select id="queryOrder" parameterType="java.lang.String" resultType="com.xzsd.pc.order.entity.OrderInfo">
+   <select id="queryOrderByPage" parameterType="java.lang.String" resultType="com.xzsd.pc.order.entity.OrderInfo">
     SELECT
 	    user_id userId,
 	    order_id orderId,

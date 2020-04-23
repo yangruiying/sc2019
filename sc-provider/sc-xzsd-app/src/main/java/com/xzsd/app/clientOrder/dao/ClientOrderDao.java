@@ -20,10 +20,10 @@ public interface ClientOrderDao {
 
     /**
      * 订单列表
-     * @param orderState
+     * @param clientOrderInfo
      * @return
      */
-    List<FirstInfo> listOrderByPage(String orderState);
+    List<FirstInfo> listOrderByPage(ClientOrderInfo clientOrderInfo);
 
     /**
      * 订单状态修改

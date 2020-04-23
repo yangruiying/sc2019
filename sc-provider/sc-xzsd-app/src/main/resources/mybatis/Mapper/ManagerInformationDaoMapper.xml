@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xzsd.app.managerInformation.dao.ManagerInformationDao">
+
+<select id="listManagerDrivers" parameterType="java.lang.String" resultType="com.xzsd.app.managerInformation.entity.ManagerInformationInfo">
+	SELECT
+	user_name,
+	b.phone
+	FROM
+	t_driver a
+	LEFT JOIN t_user b ON a.driver_id = b.user_code
+	LEFT JOIN t_shop c ON a.region_id = c.region_id
+	WHERE
+	c.user_id = #{userId}
+</select>
+</mapper>

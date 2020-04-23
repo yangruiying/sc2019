@@ -10,7 +10,7 @@ import java.util.List;
 public interface OrderDao {
     List<OrderInfo> listOrderByPage(OrderInfo orderInfo);
 
-    List<OrderInfo> queryOrder(String orderId);
+    List<OrderInfo> queryOrderByPage(String orderId);
 
     /**
      * 订单状态修改

@@ -9,8 +9,10 @@ public class UserInformationInfo {
     private String inviteCode;
     private String address;
     private String phone;
-    private int version;
-
+    private String version;
+    private String oldPassword;
+    private String userId;
+    private String newPassword;
     public String getUserName() {
         return userName;
     }
@@ -75,11 +77,35 @@ public class UserInformationInfo {
         this.phone = phone;
     }
 
-    public int getVersion() {
+    public String getVersion() {
         return version;
     }
 
-    public void setVersion(int version) {
+    public void setVersion(String version) {
         this.version = version;
+    }
+
+    public String getOldPassword() {
+        return oldPassword;
+    }
+
+    public void setOldPassword(String oldPassword) {
+        this.oldPassword = oldPassword;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getNewPassword() {
+        return newPassword;
+    }
+
+    public void setNewPassword(String newPassword) {
+        this.newPassword = newPassword;
     }
 }

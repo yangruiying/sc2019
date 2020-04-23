@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xzsd.app.manangerOrder.dao.ManangerOrderDao">
+
+
+    <resultMap id="BaseTreeResultMap" type="com.xzsd.app.manangerOrder.entity.ManangerOrderInfo">
+        <result column="order_id" property="orderId"/>
+        <collection column="order_id" property="goodsList" javaType="java.util.ArrayList"
+                    select="getNextNodeTree"/>
+    </resultMap>
+
+    <resultMap id="NextTreeResultMap" type="com.xzsd.app.manangerOrder.entity.ManangerOrderInfo">
+
+    </resultMap>
+
+    <!--查询列表-->
+    <select id="listManagerOrdersByPage" parameterType="java.lang.String" resultMap="BaseTreeResultMap">
+        SELECT
+        order_id,
+        sum(price * a.num) orderAllCost,
+        sum(a.num) orderAllGoodsCount,
+        order_state order_state,
+        a.user_id userId,
+        d.user_name,
+        a.version
+        FROM
+        (
+        t_order a
+        LEFT JOIN t_commodity b ON a.c_id = b.c_id
+        )
+        LEFT JOIN t_user d ON a.user_id = d.user_code
+        WHERE 1=1
+        <if test="orderState != null and orderState != ''">
+            and order_state = #{orderState}
+        </if>
+        GROUP BY
+        a.user_id,
+        a.order_id,
+        a.order_state,
+        a.shop_id,
+        a.affirm_time,
+        a.version,
+        d.user_name
+    </select>
+
+    <select id="getNextNodeTree" resultMap="NextTreeResultMap">
+    SELECT
+    c_name,
+    image_path,
+    introduce,
+    sell,
+    a.num goodsCount,
+    a.c_id cId
+    FROM t_order a LEFT JOIN t_commodity b on a.c_id = b.c_id
+    where order_id = #{orderId}
+    </select>
+
+    <!--店长订单状态修改-->
+    <update id="updateManangerOrderState" parameterType="com.xzsd.app.manangerOrder.entity.ManangerOrderInfo">
+        update t_order
+        set order_state = #{orderState},
+            version = version +1
+        where order_id = #{orderId}
+        and   version = #{version}
+    </update>
+
+    <!--店长查询订单详情-->
+    <select id="listManagerOrderDeepen" parameterType="java.lang.String" resultMap="BaseTreeResultMap">
+    SELECT
+	order_id,
+	a.affirm_time affirmTime,
+	a.order_state orderState,
+	e.user_name userName,
+	e.phone phone,
+	d.shop_name shopName,
+	d.address address,
+	sum(price * a.num) orderAllCost,
+	sum(a.num) orderAllGoodsCount
+    FROM
+	(
+		t_order a
+		LEFT JOIN t_commodity b ON a.c_id = b.c_id
+	)
+    LEFT JOIN t_shop d ON a.shop_id = d.shop_id
+    LEFT JOIN t_user e ON a.user_id = e.user_code
+    where order_id = #{orderId}
+    GROUP BY
+	a.order_id,
+	a.affirm_time,
+	a.order_state,
+	e.user_name,
+	e.phone,
+	d.shop_name,
+	d.address
+    </select>
+</mapper>

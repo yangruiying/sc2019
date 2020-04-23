@@ -12,7 +12,7 @@ public class ShopInfo {
     /**
      * 省编号
      */
-    private String provenceId;
+    private String provinceId;
     /**
      * 市编号
      */
@@ -43,14 +43,17 @@ public class ShopInfo {
      * 营业执照
      */
     private String license;
-    private int PageNum;
-    private int PageSize;
-    private int version;
+    private String PageNum;
+    private String PageSize;
+    private String version;
     private String userName;
+    private String provinceName;
+    private String cityName;
+    private String regionName;
     /**
      * 商品状态
      */
-    private int state;
+    private String state;
     public String getShopId() {
         return shopId;
     }
@@ -67,12 +70,12 @@ public class ShopInfo {
         this.shopName = shopName;
     }
 
-    public String getProvenceId() {
-        return provenceId;
+    public String getProvinceId() {
+        return provinceId;
     }
 
-    public void setProvenceId(String provenceId) {
-        this.provenceId = provenceId;
+    public void setProvinceId(String provinceId) {
+        this.provinceId = provinceId;
     }
 
     public String getCityId() {
@@ -139,29 +142,7 @@ public class ShopInfo {
         this.license = license;
     }
 
-    public int getPageNum() {
-        return PageNum;
-    }
 
-    public void setPageNum(int pageNum) {
-        PageNum = pageNum;
-    }
-
-    public int getPageSize() {
-        return PageSize;
-    }
-
-    public void setPageSize(int pageSize) {
-        PageSize = pageSize;
-    }
-
-    public int getVersion() {
-        return version;
-    }
-
-    public void setVersion(int version) {
-        this.version = version;
-    }
 
     public String getUserName() {
         return userName;
@@ -171,11 +152,61 @@ public class ShopInfo {
         this.userName = userName;
     }
 
-    public int getState() {
+
+
+    public String getProvinceName() {
+        return provinceName;
+    }
+
+    public void setProvinceName(String provinceName) {
+        this.provinceName = provinceName;
+    }
+
+    public String getCityName() {
+        return cityName;
+    }
+
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
+    }
+
+    public String getRegionName() {
+        return regionName;
+    }
+
+    public void setRegionName(String regionName) {
+        this.regionName = regionName;
+    }
+
+    public String getPageNum() {
+        return PageNum;
+    }
+
+    public void setPageNum(String pageNum) {
+        PageNum = pageNum;
+    }
+
+    public String getPageSize() {
+        return PageSize;
+    }
+
+    public void setPageSize(String pageSize) {
+        PageSize = pageSize;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
+    public String getState() {
         return state;
     }
 
-    public void setState(int state) {
+    public void setState(String state) {
         this.state = state;
     }
 }

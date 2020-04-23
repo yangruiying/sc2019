@@ -1,6 +1,7 @@
 package com.xzsd.app.clientOrder.service;
 
 import com.alibaba.fastjson.JSONObject;
+import com.neusoft.security.client.utils.SecurityUtils;
 import com.xzsd.app.clientOrder.dao.ClientOrderDao;
 import com.xzsd.app.clientOrder.entity.ClientOrderInfo;
 import com.xzsd.app.clientOrder.entity.FirstInfo;
@@ -50,11 +51,13 @@ public class ClientOrderService {
 
     /**
      * 订单查询
-     * @param orderState
+     * @param clientOrderInfo
      * @return
      */
-    public AppResponse listOrder(String orderState){
-        List<FirstInfo> orderList = clientOrderDao.listOrderByPage(orderState);
+    public AppResponse listOrder(ClientOrderInfo clientOrderInfo){
+        String userId = SecurityUtils.getCurrentUserId();
+        clientOrderInfo.setUserId(userId);
+        List<FirstInfo> orderList = clientOrderDao.listOrderByPage(clientOrderInfo);
         return AppResponse.success("查询成功",getPageInfo(orderList));
     }
 

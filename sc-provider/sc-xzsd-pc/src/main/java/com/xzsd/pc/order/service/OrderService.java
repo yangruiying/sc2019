@@ -35,8 +35,8 @@ public class OrderService {
      * @return
      */
     public AppResponse queryOrder(String orderId){
-        List<OrderInfo> cList = orderDao.queryOrder(orderId);
-        return AppResponse.success("查询成功",cList);
+        List<OrderInfo> cList = orderDao.queryOrderByPage(orderId);
+        return AppResponse.success("查询成功",getPageInfo(cList));
     }
 
     /**

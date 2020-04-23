@@ -28,12 +28,12 @@ public class ClientOrderController {
 
     /**
      * 订单列表
-     * @param orderState
+     * @param clientOrderInfo
      * @return
      */
     @RequestMapping(value = "listOrder")
-    public AppResponse listOrder(String orderState){
-        return clientOrderService.listOrder(orderState);
+    public AppResponse listOrder(ClientOrderInfo clientOrderInfo){
+        return clientOrderService.listOrder(clientOrderInfo);
     }
 
     /**

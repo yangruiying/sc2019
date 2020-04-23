@@ -15,6 +15,7 @@ public class ClientOrderInfo {
     private String imageNum;
     private String rank;
     private String grade;
+    private String userId;
     private List<ClientOrderInfo> evaluate;
     private List<ClientOrderInfo> image;
     private String info;
@@ -140,5 +141,13 @@ public class ClientOrderInfo {
 
     public void setGrade(String grade) {
         this.grade = grade;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 }

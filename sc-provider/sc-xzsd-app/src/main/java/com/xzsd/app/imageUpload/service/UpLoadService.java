@@ -20,6 +20,7 @@ import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.Date;
 
 @Service
@@ -53,7 +54,8 @@ public class UpLoadService {
             System.out.println("图片在COS服务器上的url:"+url);
             // putobjectResult会返回文件的etag
             String etag = putObjectResult.getETag();
-            return AppResponse.success("图片上传成功",url.toString());
+            String path = Arrays.asList(url.toString().split("\\?")).get(0);
+            return AppResponse.success("图片上传成功",path);
         } catch (CosServiceException e) {
             e.printStackTrace();
         } catch (CosClientException e) {

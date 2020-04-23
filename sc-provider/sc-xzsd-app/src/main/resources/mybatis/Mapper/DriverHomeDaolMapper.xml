@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xzsd.app.driverHome.dao.DriverHomeDao">
+    <select id="listDriverStores" parameterType="java.lang.String" resultType="com.xzsd.app.driverHome.entity.DriverHomeInfo">
+    SELECT
+	shop_id,
+	shop_name,
+	a.address,
+	user_name,
+	c.phone
+    FROM t_shop a LEFT JOIN t_driver b ON a.region_id = b.region_id
+    LEFT JOIN t_user c ON b.driver_id = c.user_code
+    WHERE b.driver_id = #{userId}
+    </select>
+</mapper>

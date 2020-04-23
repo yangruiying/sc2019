@@ -34,7 +34,7 @@
         insert into t_shop
         ( shop_id,
           shop_name,
-          provence_id,
+          province_id,
           city_id,
           region_id,
           phone,
@@ -49,7 +49,7 @@
           values
           (#{shopId},
            #{shopName},
-           #{provenceId},
+           #{provinceId},
            #{cityId},
            #{regionId},
            #{phone},
@@ -97,8 +97,8 @@
         <if test="shopName !=null and shopName != ''">
             and shop_name like concat('%',  #{shopName} ,'%')
         </if>
-        <if test="provenceId !=null and provenceId != ''">
-            and provence_id like concat('%',  #{provenceId} ,'%')
+        <if test="provinceId !=null and provinceId != ''">
+            and province_id like concat('%',  #{provinceId} ,'%')
         </if>
 
         <if test="cityId !=null and cityId != ''">
@@ -119,7 +119,7 @@
             t_shop
         set
             shop_name=#{shopName},
-            provence_id=#{provenceId},
+            province_id=#{provinceId},
             city_id=#{cityId},
             region_id=#{regionId},
             phone=#{phone},
@@ -148,21 +148,28 @@
 
     <!--门店详情查询-->
     <select id="queryShop" parameterType="java.lang.String" resultType="com.xzsd.pc.shop.entity.ShopInfo">
-        select
-            shop_id,
-            shop_name,
-            provence_id,
-            city_id,
-            region_id,
-            b.phone,
-            address,
-            user_name,
-            invite_code,
-            license
-        FROM
-        t_shop a
-        LEFT JOIN t_user b ON a.user_id=b.user_code
-        where shop_id=#{shopId}
+    SELECT
+	shop_id,
+	shop_name,
+	province_id,
+	city_id,
+	region_id,
+	c.value province_name,
+	d.value city_name,
+	e.value region_name,
+	b.phone phone,
+	user_id,
+	address,
+	user_name,
+	invite_code,
+	license
+    FROM
+	(t_shop a
+    LEFT JOIN t_user b ON a.user_id = b.user_code)
+    LEFT JOIN t_dictionaries c ON a.province_id = c.id
+    LEFT JOIN t_dictionaries d ON a.city_id = d.id
+    LEFT JOIN t_dictionaries e ON a.region_id = e.id
+    where shop_id=#{shopId}
     </select>
 
 
