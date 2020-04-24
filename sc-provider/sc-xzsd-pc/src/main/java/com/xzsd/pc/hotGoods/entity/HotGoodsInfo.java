@@ -25,6 +25,7 @@ public class HotGoodsInfo {
     private String pageSize;
     private String version;
     private String value;
+    private String createBy;
     public String getcId() {
         return cId;
     }
@@ -95,5 +96,13 @@ public class HotGoodsInfo {
 
     public void setValue(String value) {
         this.value = value;
+    }
+
+    public String getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy;
     }
 }

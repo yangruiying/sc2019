@@ -2,6 +2,7 @@ package com.xzsd.pc.driver.service;
 
 
 import com.neusoft.core.restful.AppResponse;
+import com.neusoft.security.client.utils.SecurityUtils;
 import com.neusoft.util.StringUtil;
 import com.xzsd.pc.driver.dao.DriverDao;
 import com.xzsd.pc.driver.entity.DriverInfo;
@@ -25,6 +26,8 @@ public class DriverService {
      */
     @Transactional(rollbackFor = Exception.class)
     public AppResponse saveDriver(DriverInfo driverInfo){
+        String userId = SecurityUtils.getCurrentUserId();
+        driverInfo.setCreateBy(userId);
         driverInfo.setDriverId(StringUtil.getCommonCode(2));
         driverDao.saveUser(driverInfo);
         driverDao.saveDriver(driverInfo);
@@ -38,6 +41,8 @@ public class DriverService {
      */
     @Transactional(rollbackFor = Exception.class)
     public AppResponse updateDriver(DriverInfo driverInfo){
+        String userId = SecurityUtils.getCurrentUserId();
+        driverInfo.setCreateBy(userId);
         int count1 = driverDao.updateUser(driverInfo);
         int count2 = driverDao.updateDriver(driverInfo);
         if (count1 == 0 || count2 == 0){

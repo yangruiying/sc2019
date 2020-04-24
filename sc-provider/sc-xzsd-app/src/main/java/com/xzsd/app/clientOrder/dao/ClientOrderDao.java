@@ -5,6 +5,7 @@ import com.xzsd.app.clientOrder.entity.FirstInfo;
 import com.xzsd.app.clientOrder.entity.QueryInfo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.security.access.method.P;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -12,11 +13,13 @@ import java.util.List;
 @Mapper
 public interface ClientOrderDao {
     /**
-     * 新增等待
+     * 新增订单
      * @param orderList
+     * @param userId
+     * @param shopId
      * @return
      */
-    int addOrder(@Param("orderList") List<ClientOrderInfo> orderList);
+    int addOrder(@Param("orderList") List<ClientOrderInfo> orderList, @Param("userId") String userId, @Param("shopId") String shopId);
 
     /**
      * 订单列表
@@ -47,9 +50,18 @@ public interface ClientOrderDao {
     List<ClientOrderInfo> listGoodsForEvaluate(String orderId);
 
     /**
-     * 新增订单商品评价接口
+     * 新增订单评价
      * @param firstList
+     * @param userId
      * @return
      */
-    int addGoodsEvaluate(@Param("firstList") List<ClientOrderInfo> firstList);
+    int addGoodsEvaluate(@Param("firstList") List<ClientOrderInfo> firstList,@Param("userId") String userId);
+
+    /**
+     * 清空购物车
+     * @param cList
+     * @param userId
+     * @return
+     */
+    int clearCart(@Param("cList") List<String> cList,@Param("userId") String userId);
 }

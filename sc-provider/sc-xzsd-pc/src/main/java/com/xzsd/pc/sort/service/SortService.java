@@ -3,6 +3,7 @@ package com.xzsd.pc.sort.service;
 
 import com.neusoft.core.restful.AppResponse;
 
+import com.neusoft.security.client.utils.SecurityUtils;
 import com.neusoft.util.StringUtil;
 import com.xzsd.pc.sort.dao.SortDao;
 import com.xzsd.pc.sort.entity.SortInfo;
@@ -34,6 +35,8 @@ public class SortService {
     @Transactional(rollbackFor = Exception.class)
     public AppResponse saveSort(SortInfo sortInfo){
         String sortId = StringUtil.getCommonCode(2);
+        String userId = SecurityUtils.getCurrentUserId();
+        sortInfo.setCreateBy(userId);
         sortInfo.setSortId(sortId);
         sortDao.saveSort(sortInfo);
         return AppResponse.success("新增成功");

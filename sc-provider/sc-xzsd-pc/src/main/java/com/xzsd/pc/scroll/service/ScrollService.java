@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.neusoft.core.restful.AppResponse;
 
+import com.neusoft.security.client.utils.SecurityUtils;
 import com.neusoft.util.StringUtil;
 import com.xzsd.pc.goods.entity.GoodsInfo;
 import com.xzsd.pc.order.entity.OrderInfo;
@@ -64,6 +65,8 @@ public class ScrollService {
      */
     @Transactional(rollbackFor = Exception.class)
     public AppResponse saveScroll(ScrollInfo scrollInfo){
+        String userId = SecurityUtils.getCurrentUserId();
+        scrollInfo.setCreateBy(userId);
         scrollInfo.setpId(StringUtil.getCommonCode(2));
         int goodsCount = scrollDao.countGoods(scrollInfo.getcId());
         if (goodsCount != 0){
@@ -100,10 +103,11 @@ public class ScrollService {
         for(int i = 0 ; i < idList.size() ; i++){
             ScrollInfo scrollInfo = new ScrollInfo();
             scrollInfo.setpId(idList.get(i));
-            scrollInfo.setVersion(Integer.parseInt(stateList.get(i)));
+            scrollInfo.setVersion(stateList.get(i));
             scrollStateList.add(scrollInfo);
         }
-        int count = scrollDao.stateScroll(scrollStateList,state);
+        String createBy = SecurityUtils.getCurrentUserId();
+        int count = scrollDao.stateScroll(scrollStateList,state,createBy);
         if (count == 0){
             return AppResponse.versionError("版本错误,修改失败");
         }

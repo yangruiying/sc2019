@@ -2,6 +2,7 @@ package com.xzsd.pc.shop.service;
 
 import com.neusoft.core.restful.AppResponse;
 
+import com.neusoft.security.client.utils.SecurityUtils;
 import com.neusoft.util.RandomUtil;
 import com.neusoft.util.StringUtil;
 import com.xzsd.pc.shop.dao.ShopDao;
@@ -25,6 +26,8 @@ public class ShopService {
      */
     @Transactional(rollbackFor = Exception.class)
     public AppResponse saveShop(ShopInfo shopInfo){
+        String userId = SecurityUtils.getCurrentUserId();
+        shopInfo.setCreateBy(userId);
         String license = StringUtil.getCommonCode(2);
         String invite = StringUtil.getCommonCode(2);
         shopInfo.setLicense(license);

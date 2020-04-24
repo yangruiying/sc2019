@@ -48,12 +48,20 @@
             (name,
              sort_id,
              parent_id,
-             is_deleted)
+             is_deleted,
+             gmt_create,
+             create_by,
+             gmt_modified,
+             last_modified_by)
         values
             (#{name},
              #{sortId},
              #{parentId},
-             0)
+             0,
+             now(),
+             #{createBy},
+             now(),
+             #{createBy})
     </insert>
 
     <!--更新分类-->
@@ -62,7 +70,9 @@
         set
             name=#{name},
             parent_id=#{parentId},
-            remark = #{remark}
+            remark = #{remark},
+            gmt_modified = now(),
+            last_modified_by = #{createBy}
         where sort_id=#{sortId}
     </update>
     

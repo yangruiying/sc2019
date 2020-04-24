@@ -15,6 +15,7 @@ public class DriverInfo {
     private String provinceName;
     private String cityName;
     private String regionName;
+    private String createBy;
     public String getDriverId() {
         return driverId;
     }
@@ -125,5 +126,13 @@ public class DriverInfo {
 
     public void setRegionName(String regionName) {
         this.regionName = regionName;
+    }
+
+    public String getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy;
     }
 }

@@ -15,7 +15,12 @@ public interface ClientHomeDao {
 
     /**
      * 热门商品
+     * @param showNum
      * @return
      */
-    List<ClientHomeInfo> listHotGoods();
+    List<ClientHomeInfo> listHotGoods(int showNum);
+    /**
+     * 查询热门商品展示数量
+     */
+    int getShowNum();
 }

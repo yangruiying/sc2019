@@ -7,6 +7,8 @@
             image_path,
             c_id
         from t_scroll
+        where state = 1
+        and now() between begin and end
     </select>
     <!--首页热门商品-->
     <select id="listHotGoods" resultType="com.xzsd.app.clientHome.entity.ClientHomeInfo">
@@ -18,7 +20,15 @@
         FROM
 	    t_hot_goods a
         LEFT JOIN t_commodity b ON a.c_id = b.c_id
+        ORDER BY a.sort
+        limit #{shopNum}
     </select>
 
-
+    <!--查询展示数量-->
+    <select id="getShowNum" parameterType="int" resultType="int">
+        select
+            value showNum,
+        from t_dictionaries
+        where id = '999999'
+    </select> 
 </mapper>

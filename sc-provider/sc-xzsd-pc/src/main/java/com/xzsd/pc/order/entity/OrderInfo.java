@@ -13,7 +13,6 @@ public class OrderInfo {
     private String start;
     private String end;
     private  int sum;
-
     private String cId;
     private String cName;
     private int num;
@@ -21,6 +20,7 @@ public class OrderInfo {
     private float price;
     private float sell;
     private int version;
+    private String createBy;
     public String getOrderId() {
         return orderId;
     }
@@ -157,5 +157,13 @@ public class OrderInfo {
 
     public void setVersion(int version) {
         this.version = version;
+    }
+
+    public String getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy;
     }
 }

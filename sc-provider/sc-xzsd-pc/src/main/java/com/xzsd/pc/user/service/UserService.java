@@ -62,6 +62,8 @@ public class UserService {
      */
     @Transactional(rollbackFor = Exception.class)
     public AppResponse updateUser(UserInfo userInfo){
+        String userId = SecurityUtils.getCurrentUserId();
+        userInfo.setCreateBy(userId);
         UserInfo info = userDao.getUserByUserCode(userInfo.getUserId());
         if (!info.getAccount().equals(userInfo.getAccount())){
             int countAcc = userDao.countAcc(userInfo.getAccount());

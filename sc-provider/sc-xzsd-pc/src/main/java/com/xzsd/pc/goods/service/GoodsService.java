@@ -2,6 +2,7 @@ package com.xzsd.pc.goods.service;
 
 
 import com.neusoft.core.restful.AppResponse;
+import com.neusoft.security.client.utils.SecurityUtils;
 import com.neusoft.util.StringUtil;
 import com.xzsd.pc.goods.dao.GoodsDao;
 import com.xzsd.pc.goods.entity.GoodsInfo;
@@ -41,6 +42,8 @@ public class GoodsService {
     @Transactional(rollbackFor = Exception.class)
     public AppResponse saveGoods(GoodsInfo goodsInfo){
         goodsInfo.setcId(StringUtil.getCommonCode(2));
+        String userId = SecurityUtils.getCurrentUserId();
+        goodsInfo.setCreateBy(userId);
         int countIsbn = goodsDao.countIsbn(goodsInfo.getIsbn());
         if(countIsbn != 0){
             return AppResponse.notFound("书名重复,请重新输入");

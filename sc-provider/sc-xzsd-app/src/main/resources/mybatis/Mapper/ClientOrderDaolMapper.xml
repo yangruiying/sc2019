@@ -29,14 +29,27 @@
                 (order_id,
                  c_id,
                  num,
-                 shop_id)
+                 shop_id,
+                 user_id)
             values
                 (#{item.orderId},
                  #{item.cId},
                  #{item.goodsCount},
-                 #{item.shopId})
+                 #{shopId},
+                 #{userId})
         </foreach>
     </insert>
+
+    <!--清空购物车-->
+    <update id="clearCart" parameterType="java.util.List">
+        update t_cart
+        set is_deleted = 1
+        where user_id = #{userId}
+        and c_id in
+        <foreach collection="cList" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </update>
 
     <select id="getNextNodeTree" resultMap="NextTreeResultMap">
     SELECT
@@ -126,11 +139,13 @@
             insert into t_comment
             (c_id,
              info,
-             grade)
+             grade,
+             user_id)
              values
             (#{item.cId},
              #{item.info},
-             #{item.grade});
+             #{item.grade},
+             #{userId});
             <foreach collection="item.evaluate" item="item2" index="index2" separator=";">
                 insert into t_picture
                 (image_num,

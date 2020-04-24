@@ -48,6 +48,10 @@ public class ClientShopCartService {
         return AppResponse.success("新增成功");
     }
 
+    /**
+     * 购物车列表
+     * @return
+     */
     public AppResponse listShoppingCarts(){
         String userId = SecurityUtils.getCurrentUserId();
         List<ClientShopCartInfo> cartList = clientShopCartDao.listShoppingCartsByPage(userId);
@@ -68,6 +72,11 @@ public class ClientShopCartService {
         return AppResponse.success("更新成功");
     }
 
+    /**
+     * 删除购物车
+     * @param cardId
+     * @return
+     */
     public AppResponse deleteShoppingCart(String cardId){
         List<String> idList = Arrays.asList(cardId.split(","));
         int count = clientShopCartDao.deleteShoppingCart(idList);

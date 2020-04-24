@@ -6,6 +6,7 @@ import com.xzsd.app.clientOrder.dao.ClientOrderDao;
 import com.xzsd.app.clientOrder.entity.ClientOrderInfo;
 import com.xzsd.app.clientOrder.entity.FirstInfo;
 import com.xzsd.app.clientOrder.entity.QueryInfo;
+import com.xzsd.app.clientShopCart.dao.ClientShopCartDao;
 import com.xzsd.app.util.AppResponse;
 import com.xzsd.app.util.StringUtil;
 import org.springframework.stereotype.Service;
@@ -32,20 +33,23 @@ public class ClientOrderService {
      */
     @Transactional(rollbackFor = Exception.class)
     public AppResponse addOrder(String cId,String goodsCount,String shopId){
-        List<String> cIdList = Arrays.asList(cId);
-        List<String> goodsCountList = Arrays.asList(goodsCount);
-        List<String> shopIdList = Arrays.asList(shopId);
+        List<String> cIdList = Arrays.asList(cId.split(","));
+        List<String> goodsCountList = Arrays.asList(goodsCount.split(","));
         List<ClientOrderInfo> clientOrderInfoList = new ArrayList<>();
+        String userId = SecurityUtils.getCurrentUserId();
         for (int i = 0 ; i < cIdList.size() ; i++){
             String orderId = StringUtil.getCommonCode(2);
             ClientOrderInfo clientOrderInfo = new ClientOrderInfo();
             clientOrderInfo.setOrderId(orderId);
             clientOrderInfo.setcId(cIdList.get(i));
             clientOrderInfo.setGoodsCount(goodsCountList.get(i));
-            clientOrderInfo.setShopId(shopIdList.get(i));
             clientOrderInfoList.add(clientOrderInfo);
         }
-        clientOrderDao.addOrder(clientOrderInfoList);
+        clientOrderDao.addOrder(clientOrderInfoList,userId,shopId);
+        /**
+         * 清空购物车
+         */
+        clientOrderDao.clearCart(cIdList,userId);
         return AppResponse.success("新增成功");
     }
 
@@ -95,8 +99,14 @@ public class ClientOrderService {
         return AppResponse.success("查询成功",clientOrderInfoList);
     }
 
+    /**
+     * 新增商品评价
+     * @param clientOrderInfo
+     * @return
+     */
     public AppResponse addGoodsEvaluate(ClientOrderInfo clientOrderInfo){
         //ClientOrderInfo orderInfo
+        String userId = SecurityUtils.getCurrentUserId();
         JSONObject json = JSONObject.parseObject(clientOrderInfo.getEvaluateList());
         ClientOrderInfo list = new ClientOrderInfo();
         List<ClientOrderInfo> firstList = new ArrayList<>();
@@ -124,7 +134,7 @@ public class ClientOrderService {
         }
         System.out.println(firstList.get(0).getEvaluate().get(0).getImageNum());
         //System.out.println(json.getJSONArray("imageList").getJSONObject(0)+"aaa");
-        clientOrderDao.addGoodsEvaluate(firstList);
+        clientOrderDao.addGoodsEvaluate(firstList,userId);
         return AppResponse.success("新增成功");
     }
 }

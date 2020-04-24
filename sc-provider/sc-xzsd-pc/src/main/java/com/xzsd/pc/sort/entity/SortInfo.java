@@ -25,7 +25,7 @@ public class SortInfo implements Serializable {
      * 子节点
      */
     private List<SortInfo> secondSort;
-
+    private String createBy;
 
     public String getSortId() {
         return sortId;
@@ -65,5 +65,13 @@ public class SortInfo implements Serializable {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public String getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy;
     }
 }

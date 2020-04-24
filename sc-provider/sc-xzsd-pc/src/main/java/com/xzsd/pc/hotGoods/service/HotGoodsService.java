@@ -1,6 +1,7 @@
 package com.xzsd.pc.hotGoods.service;
 
 import com.neusoft.core.restful.AppResponse;
+import com.neusoft.security.client.utils.SecurityUtils;
 import com.neusoft.util.StringUtil;
 import com.xzsd.pc.hotGoods.dao.HotGoodsDao;
 import com.xzsd.pc.hotGoods.entity.HotGoodsInfo;
@@ -24,6 +25,8 @@ public class HotGoodsService {
      */
     @Transactional(rollbackFor = Exception.class)
     public AppResponse saveHotGoods(HotGoodsInfo hotGoodsInfo){
+        String userId = SecurityUtils.getCurrentUserId();
+        hotGoodsInfo.setCreateBy(userId);
         int countHotGoods = hotGoodsDao.countHotGoods(hotGoodsInfo);
         if (0 != countHotGoods)
         {
@@ -45,6 +48,8 @@ public class HotGoodsService {
      */
     @Transactional(rollbackFor = Exception.class)
     public AppResponse updateHotGoods(HotGoodsInfo hotGoodsInfo){
+        String userId = SecurityUtils.getCurrentUserId();
+        hotGoodsInfo.setCreateBy(userId);
         int count = hotGoodsDao.updateHotGoods((hotGoodsInfo));
         if (count == 0){
             return AppResponse.versionError("版本错误,修改失败");

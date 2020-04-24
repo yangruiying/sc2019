@@ -8,13 +8,21 @@
              c_id,
              sort,
              version,
-             is_deleted)
+             is_deleted,
+             gmt_create,
+             create_by,
+             gmt_modified,
+             last_modified_by)
          values
             (#{hId},
              #{cId},
              #{sort},
              0,
-             0)
+             0,
+             now(),
+             #{createBy},
+             now(),
+             #{createBy})
     </insert>
 
     <!--更新热门商品-->
@@ -23,7 +31,9 @@
         set
             c_id=#{cId},
             sort=#{sort},
-            version = version + 1
+            version = version + 1,
+            gmt_modified = now(),
+            last_modified_by = #{createBy}
         where h_id=#{hId}
         and version = #{version}
     </update>

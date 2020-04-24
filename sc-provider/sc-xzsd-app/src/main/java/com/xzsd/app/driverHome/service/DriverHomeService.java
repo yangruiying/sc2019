@@ -14,6 +14,10 @@ public class DriverHomeService {
     @Resource
     private DriverHomeDao driverHomeDao;
 
+    /**
+     * 查询司机负责的门店信息
+     * @return
+     */
     public AppResponse listDriverStores(){
         String userId = SecurityUtils.getCurrentUserId();
         List<DriverHomeInfo> driverHomeInfoList = driverHomeDao.listDriverStores(userId);

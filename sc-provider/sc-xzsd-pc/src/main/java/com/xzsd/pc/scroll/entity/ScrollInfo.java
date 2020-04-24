@@ -4,14 +4,15 @@ public class ScrollInfo {
     private String pId;
     private String cId;
     private String imagePath;
-    private int sort;
-    private int state;
+    private String sort;
+    private String state;
     private String begin;
     private String end;
-    private int isDeleted;
-    private int pageNum;
-    private int pageSize;
-    private int version;
+    private String isDeleted;
+    private String pageNum;
+    private String pageSize;
+    private String version;
+    private String createBy;
     public String getpId() {
         return pId;
     }
@@ -36,21 +37,7 @@ public class ScrollInfo {
         this.imagePath = imagePath;
     }
 
-    public int getSort() {
-        return sort;
-    }
 
-    public void setSort(int sort) {
-        this.sort = sort;
-    }
-
-    public int getState() {
-        return state;
-    }
-
-    public void setState(int state) {
-        this.state = state;
-    }
 
     public String getBegin() {
         return begin;
@@ -68,35 +55,59 @@ public class ScrollInfo {
         this.end = end;
     }
 
-    public int getIsDeleted() {
+    public String getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy;
+    }
+
+    public String getSort() {
+        return sort;
+    }
+
+    public void setSort(String sort) {
+        this.sort = sort;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getIsDeleted() {
         return isDeleted;
     }
 
-    public void setIsDeleted(int isDeleted) {
+    public void setIsDeleted(String isDeleted) {
         this.isDeleted = isDeleted;
     }
 
-    public int getPageNum() {
+    public String getPageNum() {
         return pageNum;
     }
 
-    public void setPageNum(int pageNum) {
+    public void setPageNum(String pageNum) {
         this.pageNum = pageNum;
     }
 
-    public int getPageSize() {
+    public String getPageSize() {
         return pageSize;
     }
 
-    public void setPageSize(int pageSize) {
+    public void setPageSize(String pageSize) {
         this.pageSize = pageSize;
     }
 
-    public int getVersion() {
+    public String getVersion() {
         return version;
     }
 
-    public void setVersion(int version) {
+    public void setVersion(String version) {
         this.version = version;
     }
 }

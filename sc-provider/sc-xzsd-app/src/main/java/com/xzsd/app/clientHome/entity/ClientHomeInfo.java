@@ -5,6 +5,7 @@ public class ClientHomeInfo {
     private String cId;
     private String cName;
     private double sell;
+    private int showNum;
     public String getImagePath() {
         return imagePath;
     }
@@ -35,5 +36,13 @@ public class ClientHomeInfo {
 
     public void setSell(double sell) {
         this.sell = sell;
+    }
+
+    public int getShowNum() {
+        return showNum;
+    }
+
+    public void setShowNum(int showNum) {
+        this.showNum = showNum;
     }
 }

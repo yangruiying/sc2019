@@ -30,9 +30,10 @@ public interface ScrollDao {
      * 修改轮播图状态
      * @param listUpdate
      * @param state
+     * @param createBy
      * @return
      */
-    int stateScroll(@Param("listUpdate") List<ScrollInfo> listUpdate, @Param("state") int state);
+    int stateScroll(@Param("listUpdate") List<ScrollInfo> listUpdate, @Param("state") int state,@Param("createBy") String createBy);
 
     /**
      * 判断商品重复

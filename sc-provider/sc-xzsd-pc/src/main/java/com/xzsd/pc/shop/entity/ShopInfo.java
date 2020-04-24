@@ -54,6 +54,7 @@ public class ShopInfo {
      * 商品状态
      */
     private String state;
+    private String createBy;
     public String getShopId() {
         return shopId;
     }
@@ -208,5 +209,13 @@ public class ShopInfo {
 
     public void setState(String state) {
         this.state = state;
+    }
+
+    public String getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy;
     }
 }

@@ -67,7 +67,10 @@
          author,
          version,
          is_deleted,
-         create_by)
+         gmt_create,
+         create_by,
+         gmt_modified,
+         last_modified_by)
         values
             (#{cId},
              #{isbn},
@@ -86,6 +89,9 @@
              #{author},
              0,
              0,
+             now(),
+             #{createBy},
+             now(),
              #{createBy})
     </insert>
     <!--查找商品-->
@@ -154,7 +160,9 @@
             advertising = #{advertising},
             introduce = #{introduce},
             inventory = #{inventory},
-            author = #{author}
+            author = #{author},
+            gmt_modified = now(),
+            last_modified_by = #{createBy}
         where c_id = #{cId}
         and version = #{version};
 

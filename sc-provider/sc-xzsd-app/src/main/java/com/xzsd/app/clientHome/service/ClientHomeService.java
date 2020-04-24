@@ -27,7 +27,8 @@ public class ClientHomeService {
      * @return
      */
     public AppResponse listHotGoods(){
-        List<ClientHomeInfo> clientHomeInfo = clientHomeDao.listHotGoods();
+        int showNum = clientHomeDao.getShowNum();
+        List<ClientHomeInfo> clientHomeInfo = clientHomeDao.listHotGoods(showNum);
         return AppResponse.success("查询成功",clientHomeInfo);
     }
 }
