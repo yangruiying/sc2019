@@ -46,10 +46,11 @@ public class ClientOrderService {
             clientOrderInfoList.add(clientOrderInfo);
         }
         clientOrderDao.addOrder(clientOrderInfoList,userId,shopId);
-        /**
-         * 清空购物车
-         */
-        clientOrderDao.clearCart(cIdList,userId);
+        //清空购物车
+        int count = clientOrderDao.clearCart(cIdList,userId);
+        if (count == 0){
+            return AppResponse.versionError("新增失败");
+        }
         return AppResponse.success("新增成功");
     }
 
@@ -134,7 +135,12 @@ public class ClientOrderService {
         }
         System.out.println(firstList.get(0).getEvaluate().get(0).getImageNum());
         //System.out.println(json.getJSONArray("imageList").getJSONObject(0)+"aaa");
-        clientOrderDao.addGoodsEvaluate(firstList,userId);
+        int count = clientOrderDao.addGoodsEvaluate(firstList,userId);
+        //修改商品星级
+        int count2 = clientOrderDao.changeGrade();
+        if (count == 0 || count2 ==0){
+            return AppResponse.versionError("新增失败");
+        }
         return AppResponse.success("新增成功");
     }
 }

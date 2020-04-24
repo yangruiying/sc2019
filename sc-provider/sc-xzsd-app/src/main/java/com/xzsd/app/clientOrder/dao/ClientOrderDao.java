@@ -64,4 +64,10 @@ public interface ClientOrderDao {
      * @return
      */
     int clearCart(@Param("cList") List<String> cList,@Param("userId") String userId);
+
+    /**
+     * 修改商品星级
+     * @return
+     */
+    int changeGrade();
 }

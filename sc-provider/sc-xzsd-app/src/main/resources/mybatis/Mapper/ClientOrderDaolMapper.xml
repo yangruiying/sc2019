@@ -30,13 +30,17 @@
                  c_id,
                  num,
                  shop_id,
-                 user_id)
+                 user_id,
+                 order_state,
+                 affirm_time)
             values
                 (#{item.orderId},
                  #{item.cId},
                  #{item.goodsCount},
                  #{shopId},
-                 #{userId})
+                 #{userId},
+                 0,
+                 now())
         </foreach>
     </insert>
 
@@ -156,5 +160,16 @@
             </foreach>
         </foreach>
     </insert>
-
+    <!--改变商品星级-->
+    <update id="changeGrade">
+    UPDATE t_commodity a
+        SET grade = (
+	SELECT
+		AVG(grade)
+	FROM
+		t_comment b
+	WHERE
+		a.c_id = b.c_id
+    )
+    </update>
 </mapper>
