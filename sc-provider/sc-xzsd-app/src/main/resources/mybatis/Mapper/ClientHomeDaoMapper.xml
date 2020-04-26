@@ -27,7 +27,7 @@
     <!--查询展示数量-->
     <select id="getShowNum" parameterType="int" resultType="int">
         select
-            value showNum,
+            value showNum
         from t_dictionaries
         where id = '999999'
     </select> 

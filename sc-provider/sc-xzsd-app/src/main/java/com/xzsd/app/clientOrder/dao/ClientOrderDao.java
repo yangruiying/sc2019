@@ -55,7 +55,7 @@ public interface ClientOrderDao {
      * @param userId
      * @return
      */
-    int addGoodsEvaluate(@Param("firstList") List<ClientOrderInfo> firstList,@Param("userId") String userId);
+    int addGoodsEvaluate(@Param("firstList") List<ClientOrderInfo> firstList,@Param("userId") String userId , @Param("orderId") String orderId);
 
     /**
      * 清空购物车
@@ -70,4 +70,38 @@ public interface ClientOrderDao {
      * @return
      */
     int changeGrade();
+
+    /**
+     * 修改库存
+     * @param goodsList
+     * @return
+     */
+    int inventoryChange(@Param("goodsList") List<ClientOrderInfo> goodsList);
+
+    /**
+     * 增加库存
+     * @param goodsList
+     * @return
+     */
+    int inventoryAdd(@Param("goodsList") List<ClientOrderInfo> goodsList);
+    /**
+     * 查看库存
+     * @param cList
+     * @return
+     */
+    List<ClientOrderInfo> countInventory(@Param("cList") List cList);
+
+    /**
+     * 获取订单商品编号和数量
+     * @param orderId
+     * @return
+     */
+    List<ClientOrderInfo> orderGoods(String orderId);
+
+    /**
+     * 增加库存
+     * @param goodsList
+     * @return
+     */
+    int addNum(@Param("goodsList") List<ClientOrderInfo> goodsList);
 }

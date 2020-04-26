@@ -1,5 +1,6 @@
 package com.xzsd.app.clientGoods.controller;
 
+import com.xzsd.app.clientGoods.entity.ClientGoodsInfo;
 import com.xzsd.app.clientGoods.service.ClientGoodsService;
 import com.xzsd.app.util.AppResponse;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,5 +41,15 @@ public class ClientGoodsController {
     @RequestMapping(value = "listGetClassGoods")
     public AppResponse getNodeTree(String sortId){
         return clientGoodsService.getNodeTree(sortId);
+    }
+
+    /**
+     * 商品评价列表
+     * @param clientGoodsInfo
+     * @return
+     */
+    @RequestMapping("listGoodsEvaluates")
+    public AppResponse listGoodsEvaluates(ClientGoodsInfo clientGoodsInfo){
+        return clientGoodsService.listGoodsEvaluates(clientGoodsInfo);
     }
 }

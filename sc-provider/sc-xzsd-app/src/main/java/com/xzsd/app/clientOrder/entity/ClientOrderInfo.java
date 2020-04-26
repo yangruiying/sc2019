@@ -19,6 +19,8 @@ public class ClientOrderInfo {
     private List<ClientOrderInfo> evaluate;
     private List<ClientOrderInfo> image;
     private String info;
+    private String inventory;
+    private String num;
     public String getcId() {
         return cId;
     }
@@ -149,5 +151,21 @@ public class ClientOrderInfo {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public String getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(String inventory) {
+        this.inventory = inventory;
+    }
+
+    public String getNum() {
+        return num;
+    }
+
+    public void setNum(String num) {
+        this.num = num;
     }
 }

@@ -67,7 +67,7 @@ public class ClientOrderController {
     }
 
     @PostMapping("addGoodsEvaluate")
-    public AppResponse addGoodsEvaluate(ClientOrderInfo clientOrderInfo){
-        return clientOrderService.addGoodsEvaluate(clientOrderInfo);
+    public AppResponse addGoodsEvaluate(ClientOrderInfo clientOrderInfo,String orderId){
+        return clientOrderService.addGoodsEvaluate(clientOrderInfo,orderId);
     }
 }

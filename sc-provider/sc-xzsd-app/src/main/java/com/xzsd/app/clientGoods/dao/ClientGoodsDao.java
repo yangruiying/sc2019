@@ -26,4 +26,11 @@ public interface ClientGoodsDao {
      * @return
      */
     List<ClientGoodsInfo> getNodeTree(String sortId);
+
+    /**
+     * 商品评价列表
+     * @param clientGoodsInfo
+     * @return
+     */
+    List<ClientGoodsInfo> listGoodsEvaluates(ClientGoodsInfo clientGoodsInfo);
 }

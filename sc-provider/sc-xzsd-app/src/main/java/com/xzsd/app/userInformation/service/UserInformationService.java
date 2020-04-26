@@ -35,7 +35,9 @@ public class UserInformationService {
     @Transactional(rollbackFor = Exception.class)
     public AppResponse updateUserPassword(UserInformationInfo userInformationInfo){
         String oldPassword = userInformationInfo.getOldPassword();
-        String password = userInformationDao.getPassword(userInformationInfo.getUserId());
+        String userId = SecurityUtils.getCurrentUserId();
+        String password = userInformationDao.getPassword(userId);
+        userInformationInfo.setUserId(userId);
         BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
         boolean same = bCryptPasswordEncoder.matches(oldPassword,password);
         if (!same){

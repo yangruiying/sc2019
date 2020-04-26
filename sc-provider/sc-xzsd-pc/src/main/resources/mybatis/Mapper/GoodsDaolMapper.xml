@@ -80,7 +80,7 @@
              3,
              #{price},
              #{sell},
-             #{num},
+             0,
              #{firstClassifyId},
              #{secondClassifyId},
              #{advertising},

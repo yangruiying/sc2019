@@ -11,6 +11,7 @@
 	image_path,
 	grade,
 	author,
+	inventory,
 	publish,
 	(
 		SELECT
@@ -68,4 +69,19 @@
     WHERE parent_id = #{sortId}
     </select>
 
+    <!--查询商品评价列表-->
+    <select id="listGoodsEvaluates" parameterType="com.xzsd.app.clientGoods.entity.ClientGoodsInfo" resultType="com.xzsd.app.clientGoods.entity.ClientGoodsInfo">
+    SELECT
+	    b.account account,
+	    info,
+	    grade,
+	    a.gmt_create gmtCreate
+    FROM
+	    t_comment a
+    LEFT JOIN t_user b ON a.user_id = b.user_code
+    WHERE c_id = #{cId}
+    <if test="grade != null and grade != ''">
+        AND #{grade} BETWEEN FLOOR(c_id) AND CEILING(c_id)
+    </if>
+    </select>
 </mapper>

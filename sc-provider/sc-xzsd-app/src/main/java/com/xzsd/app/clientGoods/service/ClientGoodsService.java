@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 
+import static com.neusoft.core.page.PageUtils.getPageInfo;
+
 @Service
 public class ClientGoodsService {
     @Resource
@@ -40,5 +42,15 @@ public class ClientGoodsService {
     public AppResponse getNodeTree(String sortId){
         List<ClientGoodsInfo> clientGoodsInfo = clientGoodsDao.getNodeTree(sortId);
         return AppResponse.success("查找成功",clientGoodsInfo);
+    }
+
+    /**
+     * 商品评价列表
+     * @param clientGoodsInfo
+     * @return
+     */
+    public AppResponse listGoodsEvaluates(ClientGoodsInfo clientGoodsInfo){
+        List<ClientGoodsInfo> clientGoodsInfoList = clientGoodsDao.listGoodsEvaluates(clientGoodsInfo);
+        return AppResponse.success("查找成功",getPageInfo(clientGoodsInfoList));
     }
 }

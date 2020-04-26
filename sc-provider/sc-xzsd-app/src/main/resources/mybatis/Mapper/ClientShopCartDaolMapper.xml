@@ -50,6 +50,7 @@
         from t_cart
         where c_id = #{cId}
         and user_id = #{userId}
+        and is_deleted = 0
     </select>
 
     <!--增加数量-->

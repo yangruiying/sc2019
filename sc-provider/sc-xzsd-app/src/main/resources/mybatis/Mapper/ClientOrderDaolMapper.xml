@@ -22,7 +22,7 @@
         <result column="sell" property="sell"/>
     </resultMap>
     <!--新增订单-->
-    <insert id="addOrder" parameterType="java.util.List">
+    <insert id="addOrder" parameterType="java.util.ArrayList">
         <foreach collection="orderList" index="index" item="item" open="" separator=";" close="">
             insert into
                 t_order
@@ -32,7 +32,8 @@
                  shop_id,
                  user_id,
                  order_state,
-                 affirm_time)
+                 affirm_time,
+                 version)
             values
                 (#{item.orderId},
                  #{item.cId},
@@ -40,7 +41,8 @@
                  #{shopId},
                  #{userId},
                  0,
-                 now())
+                 now(),
+                 0)
         </foreach>
     </insert>
 
@@ -52,6 +54,30 @@
         and c_id in
         <foreach collection="cList" item="item" index="index" open="(" separator="," close=")">
             #{item}
+        </foreach>
+    </update>
+    
+    <!--修改库存-->
+    <update id="inventoryChange" parameterType="java.util.List">
+    <foreach collection="goodsList" index="index" item="item" separator=";">
+        UPDATE t_commodity a
+        SET inventory = inventory - (
+        #{item.num}
+        )
+        WHERE
+        a.c_id = #{item.cId}
+    </foreach>
+    </update>
+
+    <!--增加库存-->
+    <update id="inventoryAdd" parameterType="java.util.List">
+        <foreach collection="goodsList" index="index" item="item" separator=";">
+            UPDATE t_commodity a
+            SET inventory = inventory + (
+            #{item.num}
+            )
+            WHERE
+            a.c_id = #{item.cId}
         </foreach>
     </update>
 
@@ -70,7 +96,7 @@
     <select id="listOrderByPage" parameterType="com.xzsd.app.clientOrder.entity.ClientOrderInfo" resultMap="BaseTreeResultMap">
         SELECT
 	    order_id,
-	    sum(price * a.num) orderAllCost,
+	    sum(sell * a.num) orderAllCost,
 	    sum(a.num) orderAllGoodsCount,
 	    order_state order_state,
 	    a.version
@@ -97,7 +123,8 @@
     <!--修改订单状态-->
     <update id="updateOrderState" parameterType="com.xzsd.app.clientOrder.entity.ClientOrderInfo">
         update t_order
-        set order_state = #{orderState}
+        set order_state = #{orderState},
+            version = version + 1
         where order_id = #{orderId}
         and version = #{version}
     </update>
@@ -144,20 +171,16 @@
             (c_id,
              info,
              grade,
-             user_id)
+             user_id,
+             gmt_create,
+             order_id)
              values
             (#{item.cId},
              #{item.info},
              #{item.grade},
-             #{userId});
-            <foreach collection="item.evaluate" item="item2" index="index2" separator=";">
-                insert into t_picture
-                (image_num,
-                 image_path)
-                values
-                (#{item2.imageNum},
-                 #{item2.imagePath})
-            </foreach>
+             #{userId},
+             now(),
+             #{orderId})
         </foreach>
     </insert>
     <!--改变商品星级-->
@@ -171,5 +194,41 @@
 	WHERE
 		a.c_id = b.c_id
     )
+    </update>
+    
+    <!--查询库存-->
+    <select id="countInventory" parameterType="java.lang.String" resultType="com.xzsd.app.clientOrder.entity.ClientOrderInfo">
+        select
+            c_id,
+            inventory
+        from
+            t_commodity
+        where
+            c_id in
+        <foreach collection="cList" index="index" item="cId" open="(" separator="," close=")">
+            #{cId}
+        </foreach>
+    </select>
+    
+    <!--获取订单商品编号和数量-->
+    <select id="orderGoods" parameterType="java.lang.String" resultType="com.xzsd.app.clientOrder.entity.ClientOrderInfo">
+    SELECT
+	    c_id,
+	    num
+    FROM
+	    t_order
+    WHERE order_id = #{orderId}
+    </select>
+
+    <!--增加销量-->
+    <update id="addNum" parameterType="java.util.List">
+        <foreach collection="goodsList" index="index" item="item" separator=";">
+            UPDATE t_commodity a
+            SET num = num + (
+            #{item.num}
+            )
+            WHERE
+            a.c_id = #{item.cId}
+        </foreach>
     </update>
 </mapper>

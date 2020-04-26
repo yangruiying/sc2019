@@ -7,7 +7,7 @@ public class ClientGoodsInfo {
     private String isbn;
     private String introduce;
     private String imagePath;
-    private double grade;
+    private String grade;
     private String author;
     private String publish;
     private String shopName;
@@ -16,17 +16,14 @@ public class ClientGoodsInfo {
     private String sortId;
     private String name;
     private List<ClientGoodsInfo> goodsList;
-    private double sell;
-    private double price;
-
-    public double getPrice() {
-        return price;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
+    private String sell;
+    private String price;
+    private String inventory;
+    private String pageNum;
+    private String pageSize;
+    private String account;
+    private String info;
+    private String gmtCreate;
     public String getcName() {
         return cName;
     }
@@ -59,11 +56,11 @@ public class ClientGoodsInfo {
         this.imagePath = imagePath;
     }
 
-    public double getGrade() {
+    public String getGrade() {
         return grade;
     }
 
-    public void setGrade(double grade) {
+    public void setGrade(String grade) {
         this.grade = grade;
     }
 
@@ -131,11 +128,67 @@ public class ClientGoodsInfo {
         this.goodsList = goodsList;
     }
 
-    public double getSell() {
+    public String getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(String inventory) {
+        this.inventory = inventory;
+    }
+
+    public String getSell() {
         return sell;
     }
 
-    public void setSell(double sell) {
+    public void setSell(String sell) {
         this.sell = sell;
+    }
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getPageNum() {
+        return pageNum;
+    }
+
+    public void setPageNum(String pageNum) {
+        this.pageNum = pageNum;
+    }
+
+    public String getPageSize() {
+        return pageSize;
+    }
+
+    public void setPageSize(String pageSize) {
+        this.pageSize = pageSize;
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
+    }
+
+    public String getGmtCreate() {
+        return gmtCreate;
+    }
+
+    public void setGmtCreate(String gmtCreate) {
+        this.gmtCreate = gmtCreate;
     }
 }
