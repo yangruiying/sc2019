@@ -77,7 +77,8 @@ public class ClientOrderService {
     public AppResponse listOrder(ClientOrderInfo clientOrderInfo){
         String userId = SecurityUtils.getCurrentUserId();
         clientOrderInfo.setUserId(userId);
-        List<FirstInfo> orderList = clientOrderDao.listOrderByPage(clientOrderInfo);
+        List<FirstInfo> orderList = null;
+        orderList = clientOrderDao.listOrderByPage(clientOrderInfo);
         return AppResponse.success("查询成功",getPageInfo(orderList));
     }
 
@@ -153,23 +154,15 @@ public class ClientOrderService {
             evaluateList.setInfo(info);
             evaluateList.setGrade(grade);
             System.out.println(json.getJSONArray("evaluateList").getJSONObject(i).getString("cId"));
-//            for (int j = 0 ; j < json.getJSONArray("evaluateList").getJSONObject(i).getJSONArray("imageList").size() ; j++){
-//                ClientOrderInfo imageList = new ClientOrderInfo();
-//                String imageNum = json.getJSONArray("evaluateList").getJSONObject(i).getJSONArray("imageList").getJSONObject(j).getString("imageNum");
-//                String imagePath = json.getJSONArray("evaluateList").getJSONObject(i).getJSONArray("imageList").getJSONObject(j).getString("imagePath");
-//                imageList.setImageNum(imageNum);
-//                imageList.setImagePath(imagePath);
-//                secondList.add(imageList);
-//                System.out.println(json.getJSONArray("evaluateList").getJSONObject(i).getJSONArray("imageList").getJSONObject(j).getString("imageNum"));
-//            }
             evaluateList.setEvaluate(secondList);
             firstList.add(evaluateList);
         }
-        //System.out.println(json.getJSONArray("imageList").getJSONObject(0)+"aaa");
         int count = clientOrderDao.addGoodsEvaluate(firstList,userId,orderId);
         //修改商品星级
         int count2 = clientOrderDao.changeGrade();
-        if (count == 0 || count2 ==0){
+        //完成评价后订单状态修改
+        int count3 = clientOrderDao.setEvaluateState(orderId);
+        if (count == 0 || count2 ==0 ||count3 == 0){
             return AppResponse.versionError("新增失败");
         }
         return AppResponse.success("新增成功");

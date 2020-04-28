@@ -22,12 +22,12 @@ public class ManangerOrderController {
 
     /**
      * 店长订单
-     * @param orderId
+     * @param manangerOrderInfo
      * @return
      */
     @RequestMapping("listManagerOrders")
-    public AppResponse listManagerOrders(String orderId){
-        return manangerOrderService.listManagerOrders(orderId);
+    public AppResponse listManagerOrders(ManangerOrderInfo manangerOrderInfo){
+        return manangerOrderService.listManagerOrders(manangerOrderInfo);
     }
 
     /**

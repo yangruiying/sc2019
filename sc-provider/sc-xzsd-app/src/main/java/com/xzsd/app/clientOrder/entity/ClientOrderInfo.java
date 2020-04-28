@@ -21,6 +21,8 @@ public class ClientOrderInfo {
     private String info;
     private String inventory;
     private String num;
+    private String shopName;
+    private String address;
     public String getcId() {
         return cId;
     }
@@ -167,5 +169,21 @@ public class ClientOrderInfo {
 
     public void setNum(String num) {
         this.num = num;
+    }
+
+    public String getShopName() {
+        return shopName;
+    }
+
+    public void setShopName(String shopName) {
+        this.shopName = shopName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

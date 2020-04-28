@@ -9,7 +9,8 @@ public class QueryInfo {
     private double orderAllCost;
     private int orderAllGoodsCount;
     private String orderId;
-
+    private String createTime;
+    private String orderState;
     public String getShopName() {
         return shopName;
     }
@@ -56,5 +57,21 @@ public class QueryInfo {
 
     public void setOrderId(String orderId) {
         this.orderId = orderId;
+    }
+
+    public String getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(String createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getOrderState() {
+        return orderState;
+    }
+
+    public void setOrderState(String orderState) {
+        this.orderState = orderState;
     }
 }

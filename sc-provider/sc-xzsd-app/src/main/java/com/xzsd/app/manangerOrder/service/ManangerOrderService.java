@@ -20,11 +20,11 @@ public class ManangerOrderService {
 
     /**
      * 店长订单列表
-     * @param orderId
+     * @param manangerOrderInfo
      * @return
      */
-    public AppResponse listManagerOrders(String orderId){
-        List<ManangerOrderInfo> manangerOrderInfoList = manangerOrderDao.listManagerOrdersByPage(orderId);
+    public AppResponse listManagerOrders(ManangerOrderInfo manangerOrderInfo){
+        List<ManangerOrderInfo> manangerOrderInfoList = manangerOrderDao.listManagerOrdersByPage(manangerOrderInfo);
         return AppResponse.success("查询成功",getPageInfo(manangerOrderInfoList));
     }
 

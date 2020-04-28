@@ -9,8 +9,10 @@ import java.util.List;
 public interface ManangerOrderDao {
     /**
      * 店长订单列表
+     * @param manangerOrderInfo
+     * @return
      */
-    List<ManangerOrderInfo> listManagerOrdersByPage(String orderState);
+    List<ManangerOrderInfo> listManagerOrdersByPage(ManangerOrderInfo manangerOrderInfo);
 
     /**
      * 店长订单状态修改

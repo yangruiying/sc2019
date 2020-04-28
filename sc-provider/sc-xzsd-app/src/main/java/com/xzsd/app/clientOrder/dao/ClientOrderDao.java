@@ -104,4 +104,11 @@ public interface ClientOrderDao {
      * @return
      */
     int addNum(@Param("goodsList") List<ClientOrderInfo> goodsList);
+
+    /**
+     * 订单评价后状态修改
+     * @param orderId
+     * @return
+     */
+    int setEvaluateState(String orderId);
 }

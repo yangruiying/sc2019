@@ -14,10 +14,10 @@
     </resultMap>
 
     <!--查询列表-->
-    <select id="listManagerOrdersByPage" parameterType="java.lang.String" resultMap="BaseTreeResultMap">
+    <select id="listManagerOrdersByPage" parameterType="com.xzsd.app.manangerOrder.entity.ManangerOrderInfo" resultMap="BaseTreeResultMap">
         SELECT
         order_id,
-        sum(price * a.num) orderAllCost,
+        sum(sell * a.num) orderAllCost,
         sum(a.num) orderAllGoodsCount,
         order_state order_state,
         a.user_id userId,
@@ -74,7 +74,7 @@
 	e.phone phone,
 	d.shop_name shopName,
 	d.address address,
-	sum(price * a.num) orderAllCost,
+	sum(sell * a.num) orderAllCost,
 	sum(a.num) orderAllGoodsCount
     FROM
 	(

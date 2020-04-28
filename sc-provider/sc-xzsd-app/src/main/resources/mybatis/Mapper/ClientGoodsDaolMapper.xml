@@ -81,7 +81,7 @@
     LEFT JOIN t_user b ON a.user_id = b.user_code
     WHERE c_id = #{cId}
     <if test="grade != null and grade != ''">
-        AND #{grade} BETWEEN FLOOR(c_id) AND CEILING(c_id)
+        AND #{grade} BETWEEN FLOOR(grade) AND CEILING(grade)
     </if>
     </select>
 </mapper>

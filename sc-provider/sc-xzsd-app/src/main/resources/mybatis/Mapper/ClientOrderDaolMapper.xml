@@ -108,7 +108,21 @@
     LEFT JOIN t_user d ON a.user_id = d.user_code
     WHERE 1=1
     <if test="orderState != null and orderState != ''">
-        and order_state = #{orderState}
+        <if test="orderState == 4 or orderState == 5">
+            and order_state  in (4,5)
+        </if>
+        <if test="orderState != 4 and orderState != 5">
+            and order_state = #{orderState}
+        </if>
+        <if test="orderState == 2 or orderState == 3">
+            and order_state  in (2,3)
+        </if>
+        <if test="orderState != 0 and orderState != 1">
+            and order_state = #{orderState}
+        </if>
+        <if test="orderState == 0 or orderState == 1">
+            and order_state  in (4,5)
+        </if>
     </if>
     and user_id = #{userId}
     GROUP BY
@@ -132,12 +146,13 @@
     <!--查询订单详情-->
     <select id="listOrderDeepen" parameterType="java.lang.String" resultMap="QueryResultMap">
     SELECT
-	d.shop_name,
+	d.shop_name shopName,
 	address,
 	order_id,
-	sum(price * a.num) orderAllCost,
+	order_state,
+	sum(sell * a.num) orderAllCost,
 	sum(a.num) orderAllGoodsCount,
-	order_id
+	a.affirm_time createTime
     FROM
 	(
 		t_order a
@@ -150,14 +165,17 @@
 	a.order_id,
 	a.shop_id,
 	d.shop_name,
-	address
+	address,
+	a.affirm_time,
+	a.order_state
     </select>
 
     <!--查询订单评价商品信息列表-->
     <select id="listGoodsForEvaluate" parameterType="java.lang.String" resultType="com.xzsd.app.clientOrder.entity.ClientOrderInfo">
     SELECT
 	    a.c_id cId,
-	    b.image_path imagePath
+	    b.image_path imagePath,
+	    '5' as grade
     FROM
 	t_order a
         LEFT JOIN t_commodity b ON a.c_id = b.c_id
@@ -230,5 +248,12 @@
             WHERE
             a.c_id = #{item.cId}
         </foreach>
+    </update>
+    
+    <!--评价完订单状态修改-->
+    <update id="setEvaluateState" parameterType="java.lang.String">
+        update t_order
+        set order_state = 5
+        where order_id = #{orderId}
     </update>
 </mapper>
