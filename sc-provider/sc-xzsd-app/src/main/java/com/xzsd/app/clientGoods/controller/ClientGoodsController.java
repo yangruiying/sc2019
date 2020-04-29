@@ -2,7 +2,10 @@ package com.xzsd.app.clientGoods.controller;
 
 import com.xzsd.app.clientGoods.entity.ClientGoodsInfo;
 import com.xzsd.app.clientGoods.service.ClientGoodsService;
+import com.xzsd.app.managerInformation.controller.ManagerInformationController;
 import com.xzsd.app.util.AppResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,7 +16,7 @@ import javax.annotation.Resource;
 public class ClientGoodsController {
     @Resource
     private ClientGoodsService clientGoodsService;
-
+    private static final Logger logger = LoggerFactory.getLogger(ClientGoodsController.class);
     /**
      * 查找商品详情
      * @param cId
@@ -21,7 +24,13 @@ public class ClientGoodsController {
      */
     @RequestMapping(value = "getGoods")
     public AppResponse getGoods(String cId){
-        return clientGoodsService.getGoods(cId);
+        try {
+            return clientGoodsService.getGoods(cId);
+        }catch (Exception e) {
+            logger.error("查询错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -30,7 +39,13 @@ public class ClientGoodsController {
      */
     @RequestMapping(value = "listOneGoodsClassify")
     public AppResponse listOneGoodsClassify(){
-        return clientGoodsService.listOneGoodsClassify();
+        try {
+            return clientGoodsService.listOneGoodsClassify();
+        }catch (Exception e) {
+            logger.error("查询错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -40,7 +55,13 @@ public class ClientGoodsController {
      */
     @RequestMapping(value = "listGetClassGoods")
     public AppResponse getNodeTree(String sortId){
-        return clientGoodsService.getNodeTree(sortId);
+        try {
+            return clientGoodsService.getNodeTree(sortId);
+        }catch (Exception e) {
+            logger.error("查询错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -50,6 +71,12 @@ public class ClientGoodsController {
      */
     @RequestMapping("listGoodsEvaluates")
     public AppResponse listGoodsEvaluates(ClientGoodsInfo clientGoodsInfo){
-        return clientGoodsService.listGoodsEvaluates(clientGoodsInfo);
+        try {
+            return clientGoodsService.listGoodsEvaluates(clientGoodsInfo);
+        }catch (Exception e) {
+            logger.error("查询错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 }

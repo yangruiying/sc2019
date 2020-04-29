@@ -2,7 +2,10 @@ package com.xzsd.app.clientShopCart.controller;
 
 import com.xzsd.app.clientShopCart.entity.ClientShopCartInfo;
 import com.xzsd.app.clientShopCart.service.ClientShopCartService;
+import com.xzsd.app.managerInformation.controller.ManagerInformationController;
 import com.xzsd.app.util.AppResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.security.access.method.P;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,7 +19,7 @@ import javax.annotation.Resource;
 public class ClientShopCartController {
     @Resource
     private ClientShopCartService clientShopCartService;
-
+    private static final Logger logger = LoggerFactory.getLogger(ClientShopCartController.class);
     /**
      * 新增购物车
      * @param clientShopCartInfo
@@ -24,7 +27,13 @@ public class ClientShopCartController {
      */
     @PostMapping("addShoppingCart")
     public AppResponse addShoppingCart(ClientShopCartInfo clientShopCartInfo){
-        return clientShopCartService.addShoppingCart(clientShopCartInfo);
+        try {
+            return clientShopCartService.addShoppingCart(clientShopCartInfo);
+        }catch (Exception e) {
+            logger.error("新增错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -33,7 +42,13 @@ public class ClientShopCartController {
      */
     @PostMapping("listShoppingCarts")
     public AppResponse listShoppingCarts(){
-        return clientShopCartService.listShoppingCarts();
+        try {
+            return clientShopCartService.listShoppingCarts();
+        }catch (Exception e) {
+            logger.error("查询错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -43,10 +58,22 @@ public class ClientShopCartController {
      */
     @PostMapping("updateShoppingCart")
     public AppResponse updateShoppingCart(ClientShopCartInfo clientShopCartInfo){
-        return clientShopCartService.updateShoppingCart(clientShopCartInfo);
+        try {
+            return clientShopCartService.updateShoppingCart(clientShopCartInfo);
+        }catch (Exception e) {
+            logger.error("更新错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
     @PostMapping("deleteShoppingCart")
     public AppResponse deleteShoppingCart(String cartId){
-        return clientShopCartService.deleteShoppingCart(cartId);
+        try {
+            return clientShopCartService.deleteShoppingCart(cartId);
+        }catch (Exception e) {
+            logger.error("删除错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 }

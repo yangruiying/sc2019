@@ -2,7 +2,10 @@ package com.xzsd.app.clientOrder.controller;
 
 import com.xzsd.app.clientOrder.entity.ClientOrderInfo;
 import com.xzsd.app.clientOrder.service.ClientOrderService;
+import com.xzsd.app.managerInformation.controller.ManagerInformationController;
 import com.xzsd.app.util.AppResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +16,7 @@ import javax.annotation.Resource;
 public class ClientOrderController {
     @Resource
     private ClientOrderService clientOrderService;
-
+    private static final Logger logger = LoggerFactory.getLogger(ClientOrderController.class);
     /**
      * 新增订单
      * @param cId
@@ -23,7 +26,13 @@ public class ClientOrderController {
      */
     @PostMapping("addOrder")
     public AppResponse addOrder(String cId,String goodsCount,String shopId){
-        return clientOrderService.addOrder(cId,goodsCount,shopId);
+        try {
+            return clientOrderService.addOrder(cId,goodsCount,shopId);
+        }catch (Exception e) {
+            logger.error("新增错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -33,7 +42,13 @@ public class ClientOrderController {
      */
     @RequestMapping(value = "listOrder")
     public AppResponse listOrder(ClientOrderInfo clientOrderInfo){
-        return clientOrderService.listOrder(clientOrderInfo);
+        try {
+            return clientOrderService.listOrder(clientOrderInfo);
+        }catch (Exception e) {
+            logger.error("查询错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -43,7 +58,13 @@ public class ClientOrderController {
      */
     @PostMapping("updateOrderState")
     public AppResponse updateOrderState(ClientOrderInfo clientOrderInfo){
-        return clientOrderService.updateOrderState(clientOrderInfo);
+        try {
+            return clientOrderService.updateOrderState(clientOrderInfo);
+        }catch (Exception e) {
+            logger.error("更新错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -53,7 +74,13 @@ public class ClientOrderController {
      */
     @RequestMapping(value = "listOrderDeepen")
     public AppResponse listOrderDeepen(String orderId){
-        return clientOrderService.listOrderDeepen(orderId);
+        try {
+            return clientOrderService.listOrderDeepen(orderId);
+        }catch (Exception e) {
+            logger.error("查询错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -63,11 +90,23 @@ public class ClientOrderController {
      */
     @RequestMapping(value = "listGoodsForEvaluate")
     public AppResponse listGoodsForEvaluate(String orderId){
-        return clientOrderService.listGoodsForEvaluate(orderId);
+        try {
+            return clientOrderService.listGoodsForEvaluate(orderId);
+        }catch (Exception e) {
+            logger.error("查询错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     @PostMapping("addGoodsEvaluate")
     public AppResponse addGoodsEvaluate(ClientOrderInfo clientOrderInfo,String orderId){
-        return clientOrderService.addGoodsEvaluate(clientOrderInfo,orderId);
+        try {
+            return clientOrderService.addGoodsEvaluate(clientOrderInfo,orderId);
+        }catch (Exception e) {
+            logger.error("新增错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 }

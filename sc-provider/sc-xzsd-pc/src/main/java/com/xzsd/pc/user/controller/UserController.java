@@ -62,7 +62,13 @@ public class UserController {
      */
     @PostMapping("updateUser")
     public AppResponse updateUser(UserInfo userInfo){
-        return userService.updateUser(userInfo);
+        try{
+            return userService.updateUser(userInfo);
+        }catch (Exception e) {
+            logger.error("更新失败", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -73,11 +79,21 @@ public class UserController {
      */
     @PostMapping("deleteUser")
     public AppResponse delete(String userId,String userName){
-        return userService.deleteUser(userId,userName);
+        try {
+            return userService.deleteUser(userId,userName);
+        }catch (Exception e) {
+            logger.error("更新失败", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
 
-
+    /**
+     * 用户列表
+     * @param userInfo
+     * @return
+     */
     @RequestMapping(value = "listUsers")
     public AppResponse listUsers(UserInfo userInfo) {
         try {

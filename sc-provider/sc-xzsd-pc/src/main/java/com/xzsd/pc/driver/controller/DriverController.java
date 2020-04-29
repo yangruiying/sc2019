@@ -4,6 +4,9 @@ import com.neusoft.core.page.PageUtils;
 import com.neusoft.core.restful.AppResponse;
 import com.xzsd.pc.driver.entity.DriverInfo;
 import com.xzsd.pc.driver.service.DriverService;
+import com.xzsd.pc.user.controller.UserController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,6 +16,7 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/driver")
 public class DriverController {
+    private static final Logger logger = LoggerFactory.getLogger(DriverController.class);
     @Resource
     private DriverService driverService;
 
@@ -23,7 +27,13 @@ public class DriverController {
      */
     @PostMapping("saveDriver")
     public AppResponse saveDriver(DriverInfo driverInfo){
-        return driverService.saveDriver(driverInfo);
+        try {
+            return driverService.saveDriver(driverInfo);
+        }catch (Exception e) {
+            logger.error("新增错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -33,7 +43,13 @@ public class DriverController {
      */
     @PostMapping("updateDriver")
     public AppResponse updateDriver(DriverInfo driverInfo){
-        return  driverService.updateDriver(driverInfo);
+        try {
+            return  driverService.updateDriver(driverInfo);
+        }catch (Exception e) {
+            logger.error("更新错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -43,7 +59,13 @@ public class DriverController {
      */
     @PostMapping("deleteDriver")
     public AppResponse deleteDriver(String driverId){
-        return  driverService.deleteDriver(driverId);
+        try {
+            return  driverService.deleteDriver(driverId);
+        }catch (Exception e) {
+            logger.error("删除错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -53,11 +75,23 @@ public class DriverController {
      */
     @RequestMapping(value = "listDriver")
     public AppResponse listDriver(DriverInfo driverInfo){
-        return driverService.listDriver(driverInfo);
+        try {
+            return driverService.listDriver(driverInfo);
+        }catch (Exception e) {
+            logger.error("查询错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     @RequestMapping(value = "queryDriver")
     public AppResponse queryDriver(String driverId){
-        return driverService.queryDriver(driverId);
+        try {
+            return driverService.queryDriver(driverId);
+        }catch (Exception e) {
+            logger.error("查询错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 }

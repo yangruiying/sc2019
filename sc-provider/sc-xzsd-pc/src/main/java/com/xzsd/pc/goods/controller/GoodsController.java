@@ -5,6 +5,9 @@ import com.neusoft.security.client.utils.SecurityUtils;
 import com.xzsd.pc.goods.entity.GoodsInfo;
 import com.xzsd.pc.goods.service.GoodsService;
 
+import com.xzsd.pc.user.controller.UserController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +17,7 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/goods")
 public class GoodsController {
+    private static final Logger logger = LoggerFactory.getLogger(GoodsController.class);
     @Resource
     private GoodsService goodsService;
 
@@ -24,7 +28,13 @@ public class GoodsController {
      */
     @RequestMapping(value = "goodsList")
     public AppResponse goodsList(GoodsInfo goodsInfo){
-        return goodsService.listGoods(goodsInfo);
+        try {
+            return goodsService.listGoods(goodsInfo);
+        }catch (Exception e) {
+            logger.error("查询错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -36,7 +46,13 @@ public class GoodsController {
     public AppResponse saveGoods(GoodsInfo goodsInfo){
         String id = SecurityUtils.getCurrentUserId();;
         goodsInfo.setCreateBy(id);
-        return goodsService.saveGoods(goodsInfo);
+        try {
+            return goodsService.saveGoods(goodsInfo);
+        }catch (Exception e) {
+            logger.error("新增错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -46,7 +62,13 @@ public class GoodsController {
      */
     @PostMapping("queryGoods")
     public AppResponse queryGoods(String cId){
-        return goodsService.queryGoods(cId);
+        try {
+            return goodsService.queryGoods(cId);
+        }catch (Exception e) {
+            logger.error("查询错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -56,7 +78,13 @@ public class GoodsController {
      */
     @PostMapping("deleteGoods")
     public AppResponse deleteGoods(String cId){
-        return goodsService.deleteGoods(cId);
+        try {
+            return goodsService.deleteGoods(cId);
+        }catch (Exception e) {
+            logger.error("删除错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -66,12 +94,24 @@ public class GoodsController {
      */
     @PostMapping("updateGoods")
     public AppResponse updateGoods(GoodsInfo goodsInfo){
-        return goodsService.updateGoods(goodsInfo);
+        try {
+            return goodsService.updateGoods(goodsInfo);
+        }catch (Exception e) {
+            logger.error("更新错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     @RequestMapping(value = "listGoodsClassify")
     public AppResponse listGoodsClassify(String sortId){
-        return goodsService.listGoodsClassify(sortId);
+        try {
+            return goodsService.listGoodsClassify(sortId);
+        }catch (Exception e) {
+            logger.error("查询错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -82,6 +122,12 @@ public class GoodsController {
      */
     @PostMapping("goodsState")
     public AppResponse goodsState(String cId,String version,int state){
-        return goodsService.goodsState(cId,version,state);
+        try {
+            return goodsService.goodsState(cId,version,state);
+        }catch (Exception e) {
+            logger.error("更新错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 }

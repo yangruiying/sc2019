@@ -1,5 +1,6 @@
 package com.xzsd.app.manangerOrder.controller;
 
+import com.xzsd.app.managerInformation.controller.ManagerInformationController;
 import com.xzsd.app.manangerOrder.entity.ManangerOrderInfo;
 import com.xzsd.app.manangerOrder.service.ManangerOrderService;
 import com.xzsd.app.user.entity.UserInfo;
@@ -19,7 +20,7 @@ import javax.annotation.Resource;
 public class ManangerOrderController {
     @Resource
     private ManangerOrderService manangerOrderService;
-
+    private static final Logger logger = LoggerFactory.getLogger(ManangerOrderController.class);
     /**
      * 店长订单
      * @param manangerOrderInfo
@@ -27,7 +28,13 @@ public class ManangerOrderController {
      */
     @RequestMapping("listManagerOrders")
     public AppResponse listManagerOrders(ManangerOrderInfo manangerOrderInfo){
-        return manangerOrderService.listManagerOrders(manangerOrderInfo);
+        try {
+            return manangerOrderService.listManagerOrders(manangerOrderInfo);
+        }catch (Exception e) {
+            logger.error("查询错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -37,7 +44,13 @@ public class ManangerOrderController {
      */
     @PostMapping("updateManangerOrderState")
     public AppResponse updateManangerOrderState(ManangerOrderInfo manangerOrderInfo){
-        return manangerOrderService.updateManangerOrderState(manangerOrderInfo);
+        try {
+            return manangerOrderService.updateManangerOrderState(manangerOrderInfo);
+        }catch (Exception e) {
+            logger.error("更新错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -47,7 +60,13 @@ public class ManangerOrderController {
      */
     @RequestMapping("listManagerOrderDeepen")
     public AppResponse listManagerOrderDeepen(String orderId){
-        return manangerOrderService.listManagerOrderDeepen(orderId);
+        try {
+            return manangerOrderService.listManagerOrderDeepen(orderId);
+        }catch (Exception e) {
+            logger.error("查询错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 }
 

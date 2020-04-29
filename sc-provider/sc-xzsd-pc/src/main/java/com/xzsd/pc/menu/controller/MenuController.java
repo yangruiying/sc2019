@@ -3,6 +3,9 @@ package com.xzsd.pc.menu.controller;
 import com.neusoft.core.restful.AppResponse;
 import com.xzsd.pc.menu.entity.MenuInfo;
 import com.xzsd.pc.menu.service.MenuService;
+import com.xzsd.pc.user.controller.UserController;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +15,7 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping("/menu")
 public class MenuController {
+    private static final Logger logger = LoggerFactory.getLogger(MenuController.class);
     @Resource
     private MenuService menuService;
 
@@ -21,7 +25,13 @@ public class MenuController {
      */
     @RequestMapping(value = "listMenu")
     public AppResponse listMenu(){
-        return menuService.listMenu();
+        try {
+            return menuService.listMenu();
+        }catch (Exception e) {
+            logger.error("查询错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -31,7 +41,13 @@ public class MenuController {
      */
     @PostMapping("deleteMenu")
     public AppResponse deleteMenu(String menuId){
-        return menuService.deleteMenu(menuId);
+        try {
+            return menuService.deleteMenu(menuId);
+        }catch (Exception e) {
+            logger.error("删除错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -41,7 +57,13 @@ public class MenuController {
      */
     @PostMapping("updateMenu")
     public AppResponse updateMenu(MenuInfo menuInfo){
-        return menuService.updateMenu(menuInfo);
+        try {
+            return menuService.updateMenu(menuInfo);
+        }catch (Exception e) {
+            logger.error("更新错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -51,7 +73,13 @@ public class MenuController {
      */
     @PostMapping("saveMenu")
     public AppResponse saveMenu(MenuInfo menuInfo){
-        return menuService.saveMenu(menuInfo);
+        try {
+            return menuService.saveMenu(menuInfo);
+        }catch (Exception e) {
+            logger.error("新增错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -61,7 +89,13 @@ public class MenuController {
      */
     @RequestMapping(value = "listMenuHome")
     public AppResponse listMenuHome(int role){
-        return menuService.listMenuHome(role);
+        try {
+            return menuService.listMenuHome(role);
+        }catch (Exception e) {
+            logger.error("查询错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 
     /**
@@ -71,6 +105,12 @@ public class MenuController {
      */
     @RequestMapping(value = "queryMenu")
     public AppResponse queryMenu(String menuId){
-        return menuService.queryMenu(menuId);
+        try {
+            return menuService.queryMenu(menuId);
+        }catch (Exception e) {
+            logger.error("查询错误", e);
+            System.out.println(e.toString());
+            throw e;
+        }
     }
 }
