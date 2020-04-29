@@ -3,13 +3,37 @@ package com.xzsd.app.clientOrder.entity;
 import java.util.List;
 
 public class FirstInfo {
+    /**
+     *订单编号
+     */
     private String orderId;
+    /**
+     *订单状态
+     */
     private String orderState;
+    /**
+     *商品列表
+     */
     private List<SecondInfo> goodsList;
+    /**
+     *商品总价
+     */
     private double orderAllCost;
+    /**
+     *商品数量
+     */
     private int orderAllGoodsCount;
+    /**
+     *版本号
+     */
     private String version;
+    /**
+     *页面数
+     */
     private String pageNum;
+    /**
+     *页面大小
+     */
     private String pageSize;
     public String getOrderId() {
         return orderId;

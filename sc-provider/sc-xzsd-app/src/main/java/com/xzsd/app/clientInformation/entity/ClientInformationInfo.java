@@ -1,7 +1,13 @@
 package com.xzsd.app.clientInformation.entity;
 
 public class ClientInformationInfo {
+    /**
+     *邀请码
+     */
     private String inviteCode;
+    /**
+     *客户id
+     */
     private String clientId;
 
     public String getInviteCode() {

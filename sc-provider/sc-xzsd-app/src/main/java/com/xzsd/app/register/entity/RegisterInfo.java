@@ -1,15 +1,45 @@
 package com.xzsd.app.register.entity;
 
 public class RegisterInfo {
+    /**
+     *客户编号
+     */
     private String clientId;
+    /**
+     *客户账号
+     */
     private String account;
+    /**
+     *用户名
+     */
     private String userName;
+    /**
+     *用户性别
+     */
     private int sex;
+    /**
+     *用户电话
+     */
     private String phone;
+    /**
+     *用户邮箱
+     */
     private String email;
+    /**
+     *用户身份证
+     */
     private String idCard;
+    /**
+     *用户密码
+     */
     private String password;
+    /**
+     *图片路径
+     */
     private String imagePath;
+    /**
+     *邀请码
+     */
     private String inviteCode;
 
     public String getAccount() {

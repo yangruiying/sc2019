@@ -14,8 +14,13 @@ public class TopOfColumnInfo {
      * 用户id
      */
     private String userId;
-
+    /**
+     *角色编号
+     */
     private int role;
+    /**
+     *图片路径
+     */
     private String imagePath;
     public String getUserName() {
         return userName;

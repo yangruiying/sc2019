@@ -1,17 +1,53 @@
 package com.xzsd.pc.scroll.entity;
 
 public class ScrollInfo {
+    /**
+     *轮播图编号
+     */
     private String pId;
+    /**
+     *商品编号
+     */
     private String cId;
+    /**
+     *图片路径
+     */
     private String imagePath;
+    /**
+     *排序
+     */
     private String sort;
+    /**
+     *轮播图状态
+     */
     private String state;
+    /**
+     *有限期起
+     */
     private String begin;
+    /**
+     *有效期止
+     */
     private String end;
+    /**
+     *删除标记
+     */
     private String isDeleted;
+    /**
+     *页面数
+     */
     private String pageNum;
+    /**
+     *页面大小
+     */
     private String pageSize;
+    /**
+     *版本号
+     */
     private String version;
+    /**
+     *创建者
+     */
     private String createBy;
     public String getpId() {
         return pId;

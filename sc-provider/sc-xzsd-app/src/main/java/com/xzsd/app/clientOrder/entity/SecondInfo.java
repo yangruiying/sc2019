@@ -1,11 +1,29 @@
 package com.xzsd.app.clientOrder.entity;
 
 public class SecondInfo {
+    /**
+     *商品名称
+     */
     private String cName;
+    /**
+     *图片路径
+     */
     private String imagePath;
+    /**
+     *商品介绍
+     */
     private String introduce;
+    /**
+     *售价
+     */
     private double sell;
+    /**
+     *商品数量
+     */
     private int goodsCount;
+    /**
+     *商品编号
+     */
     private String cId;
 
     public String getcName() {

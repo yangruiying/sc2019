@@ -1,20 +1,65 @@
 package com.xzsd.pc.driver.entity;
 
 public class DriverInfo {
+    /**
+     *司机id
+     */
     private String driverId;
+    /**
+     *省编号
+     */
     private String provinceId;
+    /**
+     *市编号
+     */
     private String cityId;
+    /**
+     *区编号
+     */
     private String regionId;
+    /**
+     *司机名称
+     */
     private String driverName;
+    /**
+     *司机电话
+     */
     private String phone;
+    /**
+     *司机账号
+     */
     private String account;
+    /**
+     *司机密码
+     */
     private String password;
+    /**
+     *司机身份证
+     */
     private String idCard;
+    /**
+     *版本号
+     */
     private String version;
+    /**
+     *用户名
+     */
     private String userName;
+    /**
+     *省名
+     */
     private String provinceName;
+    /**
+     *市名
+     */
     private String cityName;
+    /**
+     *区名
+     */
     private String regionName;
+    /**
+     *创建人
+     */
     private String createBy;
     public String getDriverId() {
         return driverId;

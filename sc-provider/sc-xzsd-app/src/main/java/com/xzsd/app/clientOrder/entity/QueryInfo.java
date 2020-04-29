@@ -3,13 +3,37 @@ package com.xzsd.app.clientOrder.entity;
 import java.util.List;
 
 public class QueryInfo {
+    /**
+     * 门店名称
+     */
     private String shopName;
+    /**
+     *门店地址
+     */
     private String address;
+    /**
+     *商品列表
+     */
     private List<SecondInfo> goodsList;
+    /**
+     *花费总价
+     */
     private double orderAllCost;
+    /**
+     *购买数量
+     */
     private int orderAllGoodsCount;
+    /**
+     *订单编号
+     */
     private String orderId;
+    /**
+     *创建时间
+     */
     private String createTime;
+    /**
+     *订单状态
+     */
     private String orderState;
     public String getShopName() {
         return shopName;

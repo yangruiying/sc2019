@@ -1,17 +1,53 @@
 package com.xzsd.app.userInformation.entity;
 
 public class UserInformationInfo {
+    /**
+     *用户名
+     */
     private String userName;
+    /**
+     *图片路径
+     */
     private String imagePath;
+    /**
+     *角色编号
+     */
     private int role;
+    /**
+     *门店id
+     */
     private String shopId;
+    /**
+     *门店名称
+     */
     private String shopName;
+    /**
+     *邀请码
+     */
     private String inviteCode;
+    /**
+     *地址
+     */
     private String address;
+    /**
+     *
+     */
     private String phone;
+    /**
+     *版本号
+     */
     private String version;
+    /**
+     *旧密码
+     */
     private String oldPassword;
+    /**
+     *用户id
+     */
     private String userId;
+    /**
+     *新密码
+     */
     private String newPassword;
     public String getUserName() {
         return userName;

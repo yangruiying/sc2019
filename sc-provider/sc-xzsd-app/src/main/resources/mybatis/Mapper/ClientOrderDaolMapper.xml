@@ -108,20 +108,14 @@
     LEFT JOIN t_user d ON a.user_id = d.user_code
     WHERE 1=1
     <if test="orderState != null and orderState != ''">
-        <if test="orderState == 4 or orderState == 5">
-            and order_state  in (4,5)
+        <if test="orderState == 4">
+            and order_state in (4,5)
         </if>
-        <if test="orderState != 4 and orderState != 5">
-            and order_state = #{orderState}
+        <if test="orderState == 2">
+            and order_state in (2,3)
         </if>
-        <if test="orderState == 2 or orderState == 3">
-            and order_state  in (2,3)
-        </if>
-        <if test="orderState != 0 and orderState != 1">
-            and order_state = #{orderState}
-        </if>
-        <if test="orderState == 0 or orderState == 1">
-            and order_state  in (4,5)
+        <if test="orderState == 0">
+            and order_state = 0
         </if>
     </if>
     and user_id = #{userId}
@@ -206,7 +200,7 @@
     UPDATE t_commodity a
         SET grade = (
 	SELECT
-		AVG(grade)
+		ROUND(AVG(grade),1)
 	FROM
 		t_comment b
 	WHERE

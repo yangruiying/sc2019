@@ -21,6 +21,9 @@ public class MenuInfo {
      * 版本
      */
     private String version;
+    /**
+     *角色编号
+     */
     private int role;
     private String createBy;
     private String lastModifiedBy;

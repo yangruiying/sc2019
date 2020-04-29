@@ -1,13 +1,37 @@
 package com.xzsd.app.clientShopCart.entity;
 
 public class ClientShopCartInfo {
+    /**
+     *商品id
+     */
     private String cId;
+    /**
+     *商品数量
+     */
     private int goodsCount;
+    /**
+     *用户id
+     */
     private String userId;
+    /**
+     *商品数量
+     */
     private int num;
+    /**
+     *购物车编号
+     */
     private String cartId;
+    /**
+     *商品名称
+     */
     private String cName;
+    /**
+     *图片路径
+     */
     private String imagePath;
+    /**
+     *售价
+     */
     private double sell;
     public String getcId() {
         return cId;

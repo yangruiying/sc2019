@@ -3,23 +3,77 @@ package com.xzsd.pc.order.entity;
 import org.joda.time.DateTime;
 
 public class OrderInfo {
+    /**
+     *订单编号
+     */
     private String orderId;
+    /**
+     *订单状态
+     */
     private String orderState;
+    /**
+     *用户id
+     */
     private String userId;
+    /**
+     *用户名称
+     */
     private String userName;
+    /**
+     *门店id
+     */
     private String shopId;
+    /**
+     *店长电话
+     */
     private String phone;
+    /**
+     *确认时间
+     */
     private String affirmTime;
+    /**
+     *开始时间
+     */
     private String start;
+    /**
+     *结束时间
+     */
     private String end;
+    /**
+     *总价
+     */
     private  int sum;
+    /**
+     *商品id
+     */
     private String cId;
+    /**
+     *商品名称
+     */
     private String cName;
+    /**
+     *商品数量
+     */
     private int num;
+    /**
+     *订单总价
+     */
     private float orderSum;
+    /**
+     *成本价
+     */
     private float price;
+    /**
+     *售价
+     */
     private float sell;
+    /**
+     *版本号
+     */
     private int version;
+    /**
+     *创建者
+     */
     private String createBy;
     public String getOrderId() {
         return orderId;

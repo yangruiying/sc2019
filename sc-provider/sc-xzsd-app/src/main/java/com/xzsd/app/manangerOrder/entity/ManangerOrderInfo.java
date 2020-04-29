@@ -3,23 +3,77 @@ package com.xzsd.app.manangerOrder.entity;
 import java.util.List;
 
 public class ManangerOrderInfo {
+    /**
+     *订单状态
+     */
     private String orderState;
+    /**
+     *页面大小
+     */
     private String pageSize;
+    /**
+     *页面数量
+     */
     private String pageNum;
+    /**
+     *订单编号
+     */
     private String orderId;
+    /**
+     *商品名称
+     */
     private String cName;
+    /**
+     *图片路径
+     */
     private String imagePath;
+    /**
+     *商品介绍
+     */
     private String introduce;
+    /**
+     *售价
+     */
     private String sell;
+    /**
+     *商品数量
+     */
     private String goodsCount;
+    /**
+     *商品id
+     */
     private String cId;
+    /**
+     *用户id
+     */
     private String userId;
+    /**
+     *用户名称
+     */
     private String userName;
+    /**
+     *用户电话
+     */
     private String phone;
+    /**
+     *订单商品数量
+     */
     private String orderAllCost;
+    /**
+     *订单商品总价
+     */
     private String orderAllGoodsCount;
+    /**
+     *版本号
+     */
     private String version;
+    /**
+     *商品名称
+     */
     private String shopName;
+    /**
+     *确认时间
+     */
     private String affirmTime;
     private List<ManangerOrderInfo> goodsList;
     public String getOrderState() {

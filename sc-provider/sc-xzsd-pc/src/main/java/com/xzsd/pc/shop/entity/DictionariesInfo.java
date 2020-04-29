@@ -1,8 +1,17 @@
 package com.xzsd.pc.shop.entity;
 
 public class DictionariesInfo {
+    /**
+     *字典表id
+     */
     private String id;
+    /**
+     *父级编号
+     */
     private String parentId;
+    /**
+     *字段值
+     */
     private String value;
 
     public String getId() {

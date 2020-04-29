@@ -21,7 +21,16 @@
 		LEFT JOIN t_shop b ON a.invite_code = b.invite_code
 		WHERE
 			client_id = #{clientId}
-	) shopName
+	) shopName,
+	(
+		SELECT
+			SUM(goods_count)
+		FROM
+			t_cart
+		WHERE
+			user_id = #{clientId}
+		AND is_deleted = 0
+	) goodsNum
     FROM
 	t_commodity
 	where c_id = #{cId}

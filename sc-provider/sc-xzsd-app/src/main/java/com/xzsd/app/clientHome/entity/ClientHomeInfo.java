@@ -1,10 +1,25 @@
 package com.xzsd.app.clientHome.entity;
 
 public class ClientHomeInfo {
+    /**
+     *图片路径
+     */
     private String imagePath;
+    /**
+     *商品id
+     */
     private String cId;
+    /**
+     *商品名称
+     */
     private String cName;
+    /**
+     *商品售价
+     */
     private double sell;
+    /**
+     *展示数量
+     */
     private int showNum;
     public String getImagePath() {
         return imagePath;

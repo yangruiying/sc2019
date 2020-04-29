@@ -3,7 +3,13 @@ package com.xzsd.app.clientGoods.entity;
 import java.util.List;
 
 public class firstSortInfo {
+    /**
+     *分类id
+     */
     private String sortId;
+    /**
+     *分类名称
+     */
     private String name;
     private List<ClientGoodsInfo> goodsList;
 

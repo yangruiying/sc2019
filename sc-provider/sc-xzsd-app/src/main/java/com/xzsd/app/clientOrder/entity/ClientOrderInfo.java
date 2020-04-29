@@ -3,25 +3,80 @@ package com.xzsd.app.clientOrder.entity;
 import java.util.List;
 
 public class ClientOrderInfo {
+    /**
+     * 商品id
+     */
     private String cId;
+    /**
+     * 售价
+     */
     private String sell;
+    /**
+     * 购买数量
+     */
     private String goodsCount;
+    /**
+     *门店编号
+     */
     private String shopId;
+    /**
+     *订单编号
+     */
     private String orderId;
+    /**
+     *版本号
+     */
     private String version;
+    /**
+     *订单状态
+     */
     private String orderState;
+    /**
+     *图片路径
+     */
     private String imagePath;
+    /**
+     *评价表
+     */
     private String evaluateList;
+    /**
+     *图片数量
+     */
     private String imageNum;
+    /**
+     *评价等级
+     */
     private String rank;
+    /**
+     *评价等级
+     */
     private String grade;
+    /**
+     *用户id
+     */
     private String userId;
+
     private List<ClientOrderInfo> evaluate;
     private List<ClientOrderInfo> image;
+    /**
+     *评价内容
+     */
     private String info;
+    /**
+     *库存
+     */
     private String inventory;
+    /**
+     *购买数量
+     */
     private String num;
+    /**
+     *门店名称
+     */
     private String shopName;
+    /**
+     *门店地址
+     */
     private String address;
     public String getcId() {
         return cId;

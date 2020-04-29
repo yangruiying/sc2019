@@ -43,12 +43,33 @@ public class ShopInfo {
      * 营业执照
      */
     private String license;
+    /**
+     *页面数量
+     */
     private String PageNum;
+    /**
+     *页面大小
+     */
     private String PageSize;
+    /**
+     *版本号
+     */
     private String version;
+    /**
+     *用户名称
+     */
     private String userName;
+    /**
+     *省名
+     */
     private String provinceName;
+    /**
+     *市名
+     */
     private String cityName;
+    /**
+     *区名
+     */
     private String regionName;
     /**
      * 商品状态

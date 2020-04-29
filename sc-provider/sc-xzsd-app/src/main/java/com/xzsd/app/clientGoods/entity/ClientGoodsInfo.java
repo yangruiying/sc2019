@@ -3,27 +3,91 @@ package com.xzsd.app.clientGoods.entity;
 import java.util.List;
 
 public class ClientGoodsInfo {
+    /**
+     *商品名称
+     */
     private String cName;
+    /**
+     *isbn书号
+     */
     private String isbn;
+    /**
+     *商品介绍
+     */
     private String introduce;
+    /**
+     *图片路径
+     */
     private String imagePath;
+    /**
+     *商品评价
+     */
     private String grade;
+    /**
+     *商品作者
+     */
     private String author;
+    /**
+     *出版社
+     */
     private String publish;
+    /**
+     *商品名称
+     */
     private String shopName;
+    /**
+     *商品编号
+     */
     private String cId;
+    /**
+     *客户编号
+     */
     private String clientId;
+    /**
+     *分类id
+     */
     private String sortId;
+    /**
+     *客户名称
+     */
     private String name;
+    /**
+     *商品名称
+     */
     private List<ClientGoodsInfo> goodsList;
+    /**
+     *销售价格
+     */
     private String sell;
+    /**
+     *定价
+     */
     private String price;
+    /**
+     *库存
+     */
     private String inventory;
+    /**
+     *页数
+     */
     private String pageNum;
+    /**
+     *页数大小
+     */
     private String pageSize;
+    /**
+     *用户账号
+     */
     private String account;
+    /**
+     * 评价内容
+     */
     private String info;
     private String gmtCreate;
+    /**
+     * 购物车商品数
+     */
+    private String goodsNum;
     public String getcName() {
         return cName;
     }
@@ -190,5 +254,13 @@ public class ClientGoodsInfo {
 
     public void setGmtCreate(String gmtCreate) {
         this.gmtCreate = gmtCreate;
+    }
+
+    public String getGoodsNum() {
+        return goodsNum;
+    }
+
+    public void setGoodsNum(String goodsNum) {
+        this.goodsNum = goodsNum;
     }
 }

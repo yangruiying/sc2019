@@ -1,9 +1,21 @@
 package com.xzsd.app.clientGoods.entity;
 
 public class goodsListInfo {
+    /**
+     *商品id
+     */
     private String cId;
+    /**
+     *商品名称
+     */
     private String cName;
+    /**
+     *图片路径
+     */
     private String imagePath;
+    /**
+     *售价
+     */
     private double sell;
 
     public String getcId() {
